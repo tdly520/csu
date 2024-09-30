@@ -1,3 +1,0 @@
-The existence of this file in the same directory as MSSDMN.EXE provides
-local override of the HTML filter (nlhtml.dll) over the %WinDir%\System32
-copy.

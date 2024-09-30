@@ -1,5 +1,0 @@
-[Files]
-%CLNTPATH%\Binn\osql.exe?redirexec.exe
-%CLNTPATH%\Binn\bcp.exe?redirexec.exe
-%CLNTPATH%\Binn\dtsrun.exe?redirexec.exe
-

@@ -1,8 +1,0 @@
-ADDENDUM TO THE MICROSOFT END USER LICENSE AGREEMENT FOR MICROSOFT SQL SERVER 2000
-
-The software accompanying this Addendum, Microsoft SQL Server Personal Edition (the "Client Software") is provided to you for use under the terms and conditions of the end user license agreement you acquired with Microsoft SQL Server (Standard or Enterprise Edition) (the "EULA").  Please refer to the EULA for license rights and requirements associated with Client Software.  The Client Software is deemed part of the Product (as defined in the EULA), and as such, if you do not have a validly licensed copy of the Product, you are not authorized to use the Client Software.  Any capitalized terms used in this Addendum shall have the same meaning as set forth in the EULA, unless otherwise set forth in this Addendum.  All terms and conditions of the EULA remain in full force and effect.
-
-
-
-0996 Part No. 94665	
-

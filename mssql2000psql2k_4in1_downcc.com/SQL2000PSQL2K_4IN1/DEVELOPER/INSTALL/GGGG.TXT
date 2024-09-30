@@ -1,2 +1,0 @@
-This is sample text data for GGG&G, publisher 9901 in the pubs database. GGG&G is located in München, Germany.
-
