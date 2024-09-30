@@ -1,0 +1,215 @@
+	Body {font:8pt verdana;
+             }	
+
+        .clsWizardTextOver {color:"333399";cursor:hand;font-size: "10pt"};
+        .clsWizardTextOut  {color:"666666";cursor:none;font-size: "8pt"}; 
+
+/*   --------------------MENUS ---------------------------- */
+ 	.clsMenuTitle { 
+	 	cursor:hand; 
+	}
+
+	.clsMenu { 
+		border:solid 1; border-color:CC9900; background-color:FFCC00; 
+		position:absolute;visibility:hidden;padding:1px; z-index:2; padding-left:-5px; 
+	}
+	.clsMenuShow { 
+		border:solid 1; border-color:CC9900; background-color:FFCC00; 
+		position:absolute;visibility:show;padding:1px; z-index:2; padding-left:-5px; 		
+	}
+	
+	.clsMenuSpanNonSel{color:333333;cursor:none;};	
+	.clsMenuSpanSel{color:red;cursor:hand;};
+
+/*   ------------------------------------------------------ */
+
+/*   ------------------------------------------------------ */
+/*   --------TABLES USED IN THE DOCUMENT------------------- */
+/*   ------------------------------------------------------ */
+	.RowTbl	{border: "0";
+		width: "99%"; 
+		cellspacing: "0"; 
+		cellpadding: "0";
+		bgcolor: "window";
+		}
+
+	.TitleTable {border: "0";
+		width: "99%";
+		cellspacing: "0"; 
+		cellpadding: "0";
+		}
+	.TabTable {border: "0";
+		width: "100%";
+		cellspacing: "0"; 
+		cellpadding: "0";
+		}	
+	
+
+/*   ------------------------------------------------------ */
+/*    --ROW DEFINITIONS USED IN THE DOCUMENT------------    */
+/*   ------------------------------------------------------ */
+	.WhiteRow {height: "19";
+		background: "window";
+		vertical-align:"top";
+		}
+	.GrayRow {height: "19";
+		background: "999999";
+		vertical-align:"top";
+		}
+	.RedRow {height: "19";
+		background: red;
+		vertical-align:"top"
+		}
+
+	.FirstSpaceBar {height: "19";
+		background: "999999";
+		vertical-align:"top"
+		}
+	.SecondSpaceBar {height: "19";
+		background: "FF3333";
+		vertical-align:"top"
+		}
+	.LegendRow {height: "20";
+		background: "window";
+		vertical-align:"top"
+		}
+
+	.GraphicRow {height: "29";
+		background: "window";
+		vertical-align:"top"
+		}
+
+/*   ------------------------------------------------------ */
+/*   --FONTS USED THROUGHOUT-----------------------------   */
+/*   ------------------------------------------------------ */
+
+	.TitleFont {font: "verdana,arial,helvetica";
+		font-weight: "bold"; 
+  		font-size: "11pt"; 
+  		text-align: left;
+		vertical-align: "top";
+		color: "windowtext";
+		margin-left: "5px";
+		}
+	.LabelFont {font: "verdana,arial,helvetica";
+		font-weight: "bold"; 
+  		font-size: "8pt"; 
+  		text-align: left;
+		vertical-align: "top";
+		color: "666666";
+		margin-left: "5px";
+		}
+	.DataFont {font: "verdana,arial,helvetica";
+		font-weight: "normal"; 
+  		font-size: "8pt"; 
+  		text-align: left;
+		vertical-align: "top";
+		color: "666666";
+		margin-left: "5px";
+		}
+	.NavBarFont {font: "verdana,arial,helvetica";
+		font-weight: "bold"; 
+  		font-size: "9pt"; 
+  		text-align: left;
+		vertical-align: "top";
+		color: "000000";
+		margin-left: "5px";
+		}
+	.LabelFontWhite {font: "verdana,arial,helvetica";
+		font-weight: "bold"; 
+  		font-size: "8pt"; 
+  		text-align: left;
+		vertical-align: "top";
+		color: "FFFFFF";
+		margin-left: "5px";
+		}
+
+	.PageNameFont {font: "verdana,arial,helvetica";
+		font-weight: "bold"; 
+  		font-size: "11pt"; 
+  		text-align: right;
+		vertical-align: "top";
+		color: "000000";
+		margin-left: "5px";
+		}
+
+
+/*   -------------------------------------------------- */
+/*   -- COLOR LINES FOR TOP AND BOTTOM OF TABLES ----   */
+/*   -------------------------------------------------- */
+	.ColorRow1 {height: "1";
+		width: "100%";
+		background: "#999999";
+		}
+
+	.DarkRedLine {height: "1";
+		width: "100%";
+		background: "#333399";
+		}
+	.LtGrayLine {height: "1";
+		background: "CCCCCC";
+		vertical-align:"top"
+		}
+	.WhiteLine {height: "1";
+		background: "window";
+		}
+	.BlackLine {height: "1";
+		background: "000000";
+		}
+	.DkGrayLine {height: "1";
+		background: "666666";
+		}
+
+/*   -------------------------------------------------- */
+/*   -------------------------------------------------- */
+/*                 --BEGIN NAVBAR STUFF--               */
+/*   -------------------------------------------------- */
+/*   -------------------------------------------------- */
+	.NavBar	{border: "1";
+		width: "574"; 
+		cellspacing: "1"; 
+		cellpadding: "0";
+		border: "0";
+		width: "100%";
+		height: "44";
+		}
+
+/*   ------------------------------------------------- */
+/*   --------CELLS USED IN NAVBAR--------------------- */
+/*   ------------------------------------------------- */
+
+	.clsSelectedCell 
+         {
+		width: "25%"; 
+		HEIGHT: "20";
+		text-align: center;
+		vertical-align: "middle";
+		cursor: "none";
+		background: "ff0000";
+         }
+ 
+         .clsDefaultCell
+         {
+		width: "25%"; 
+		HEIGHT: "20";
+		text-align: center;
+		vertical-align: "middle";
+		cursor: "hand";
+		background: "999999";
+         } 
+
+	.SectionTitle {background: "33CCFF";
+		}
+	.SecondTitle {background: "33CCCC";
+		}
+	.ThirdTitle {background: "99CC33";
+		}
+	.FourthTitle {background: "CCCC00";
+		}
+
+/*   ------------------------------------------------------ */
+/*   ------------------------------------------------------ */
+
+
+
+

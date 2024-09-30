@@ -1,0 +1,265 @@
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Tue Feb 01 01:35:42 2000           **
+;**                                                                **
+;** Diamond Version: (32) 1.00.0602 (07/14/97)                     **
+;**                                                                **
+;*** BEGIN **********************************************************
+[Source Media Descriptions]
+; <disk number>, <disk label>, <file>, <path>
+ "1","Visual Studio Installer Setup","VSI1.cab","."
+ "2","Visual Studio Installer Setup","VSI2.cab","."
+
+[Default File Settings]
+"STF_BACKUP" = ""
+"STF_COPY" = "YES"
+"STF_DATE" = "2000-02-01"
+"STF_DECOMPRESS" = "cabinet"
+"STF_OVERWRITE" = "OLDER"
+"STF_READONLY" = ""
+"STF_ROOT" = "YES"
+"STF_SETTIME" = "YES"
+"STF_TIME" = "0"
+"STF_VITAL" = ""
+
+;************* INF File list *****************
+
+[Common Setup]
+"vsiweb_inf" = 1,vsiweb.inf,,,,2000-02-01,!DECOMPRESS,,OLDER,,,,,,,13,,,,,
+"acmsetup_exe" = 1,acmsetup.exe,,,,1999-06-06,!DECOMPRESS,1033,OLDER,,,setup.exe,!ROOT,,,371200,SYSTEM,,,3.1.0.8043,
+"acmsetup_hlp" = 1,acmsetup.hlp,,,,1999-06-06,!DECOMPRESS,,OLDER,,,,,,,14490,,,,,
+"mssetup_dll" = 1,mssetup.dll,,,,1999-06-06,!DECOMPRESS,1033,OLDER,,,,,,,283136,SYSTEM,,,3.1.0.1918,
+"common98_dll" = 1,common98.dll,,,,2000-01-24,!DECOMPRESS,1033,OLDER,,,,,,,197120,SYSTEM,,,6.0.0.8755,
+
+[SetupProdCah]
+"vsiweb_dll" = 1,vsiweb.dll,,,,2000-02-01,!DECOMPRESS,1033,OLDER,,,,,,,72192,SYSTEM,,,6.0.0.8762,
+"selfreg_dll" = 1,selfreg.dll,,,,1999-06-06,!DECOMPRESS,1033,OLDER,,,,,,,32256,SYSTEM,,,8.0.0.3214,
+
+[Remove ACME Help Files]
+"acmsetup_gid"= 1,acmsetup.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"acmsetup_fts"= 1,acmsetup.fts,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"acmsetup_ftg"= 1,acmsetup.ftg,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+
+[Setup]
+"eula_txt" = 1,eula.txt,,,,1999-02-22,!DECOMPRESS,,OLDER,,,,,,,10781,,,,,
+
+[MSI]
+"instmsi_exe_9x" = 1,Setup\MSI\ANSI\instmsi.exe<instmsia.exe>,,,,1999-12-02,,1033,OLDER,,,,,,,1489152,,,,5.0.810.500,
+"instmsi_exe_nt" = 1,Setup\MSI\NT\instmsi.exe<instmsiw.exe>,,,,1999-12-02,,1033,OLDER,,,,,,,1499904,,,,5.0.810.500,
+
+[ReadMe]
+"readme_htm_4" = 1,readme.htm<readmevsi.htm>,,,,2000-01-31,,,OLDER,,,,,,,49326,,,,,
+
+[Font Files]
+"tahoma_ttf" = 1,OS\Fonts\tahoma.ttf,,,,1999-01-21,,,OLDER,,,,ROOT,,,198864,SYSTEM,,,2.25.0.0,
+
+[AddIn Designer]
+"msaddndr_dll" = 1,os\system\msaddndr.dll,,,,1999-01-21,,1033,OLDER,,,,,,,86016,,,,6.0.81.69,
+"msaddndr_dep" = 1,os\system\msaddndr.dep,,,,1999-01-21,,,OLDER,,,,,,,2488,,,,,
+"msaddndr_tlb" = 1,os\system\msaddndr.tlb,,,,1999-01-21,,,OLDER,,,,,,,3488,,,,,
+
+[Sys Files - CRT (IO) Dlls]
+"msvcirt_dll" = 1,os\system\msvcirt.dll,,,,1999-06-25,,1033,OLDER,,,,,,,77878,SYSTEM,,,6.0.8168.0,
+
+[VB Runtime]
+"msvbvm50_dll" = 1,os\system\msvbvm60.dll,,,,1999-06-06,,1033,OLDER,,,,,,,1384448,SYSTEM,,,6.0.84.95,
+
+[Sys Files - Regsrv32]
+"regsvr32_exe_3" = 1,os\system\regsvr32.exe,,,,1999-01-21,,1033,OLDER,,,,,,,37136,SYSTEM,,,5.0.1641.1,
+
+[VID - Scriptoids]
+"scrobj_dll" = 1,os\system\scrobj.dll,,,,1999-02-02,,1033,OLDER,,,,,,,165824,,,,1.0.0.3715,
+
+[Debugger NT4 psapi]
+"psapi2_dll" = 1,Common\Tools\psapi.dll,,,,1999-01-21,,1033,OLDER,,,,,,,18192,SYSTEM,,,4.0.1371.1,
+
+[Script Engine files]
+"dispex_dll" = 1,os\system\dispex.dll,,,,1999-02-02,,1033,OLDER,,,,,,,26896,SYSTEM,,,5.0.0.3715,
+"jscript_dll" = 1,os\system\jscript.dll,,,,1999-02-02,,1033,OLDER,,,,,,,487696,SYSTEM,,,5.0.0.3715,
+"vbscript_dll" = 1,os\system\vbscript.dll,,,,1999-02-02,,1033,OLDER,,,,,,,426256,SYSTEM,,,5.0.0.3715,
+
+[Active Scripting SCRRUN]
+"scrrun_dll" = 1,os\system\scrrun.dll,,,,1999-02-02,,1033,OLDER,,,,,,,151824,SYSTEM,,,5.0.0.3715,
+
+[Sys Files - CRT Dlls]
+"msvcrt_dll" = 1,os\system\msvcrt.dll,,,,1999-03-01,,1033,OLDER,,,,,,,266293,SYSTEM,,,6.0.8397.0,
+
+[VSShared]
+"vsinstal_chm_enu" = 1,Common\Tools\VS-Ent98\VSInst\vsinstal.chm,,,,1999-05-09,,,OLDER,,,,,,,262962,,,,,
+"vsinstal_chi_enu" = 1,Common\Tools\VS-Ent98\VSInst\vsinstal.chi,,,,1999-05-09,,,OLDER,,,,,,,38650,,,,,
+
+[MS Office Button DLL]
+"commtb32_dll" = 1,os\system\commtb32.dll,,,,1999-01-21,,1033,OLDER,,,,,,,57344,SYSTEM,,,1.10.96.1019,
+
+[MS Office Runtime DLL]
+"mso97rt_dll" = 1,os\system\mso97rt.dll,,,,1999-01-21,,0,OLDER,,,,,,,3673360,,,,8.0.0.4328,
+"mrt7enu_dll" = 1,os\system\mrt7enu.dll,,,,1999-01-21,,1033,OLDER,,,,,,,487184,,,,8.0.0.4328,
+
+[MSInfo]
+"msinfo32_exe" = 1,os\msapps\msinfo\msinfo32.exe,,,,1999-01-21,,1033,OLDER,,,,,,,452096,,,,2.51.0.1003,
+"imgwalk_dll" = 1,os\msapps\msinfo\imgwalk.dll,,,,1999-01-21,,1033,OLDER,,,,,,,18432,,,,2.51.0.1003,
+"msinf16h_exe" = 1,os\msapps\msinfo\msinf16h.exe,,,,1999-01-21,,1033,OLDER,,,,,,,16304,,,,2.51.0.1003,
+"msinfo32_hlp" = 1,os\msapps\msinfo\msinfo32.hlp,,,,1999-01-21,,,OLDER,,,,,,,40815,,,,,
+"msinfo32_cnt" = 1,os\msapps\msinfo\msinfo32.cnt,,,,1999-01-21,,,OLDER,,,,,,,2967,,,,,
+"msinfo32_ftg"= 1,msinfo32.ftg,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"msinfo32_fts"= 1,msinfo32.fts,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"msinfo32_gid"= 1,msinfo32.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+
+[ATL]
+"atl_dll_2" = 1,os\system\atl.dll,,,,1999-03-25,,1033,OLDER,,,,,,,58938,SYSTEM,,,3.0.8449.0,
+"atl_dll_1" = 1,os\system\ansi\atl.dll,,,,1999-03-25,,1033,OLDER,,,,,,,73785,SYSTEM,,,3.0.8449.0,
+
+[Shell Help]
+"vshelp_dll" = 1,os\system\vshelp.dll,,,,2000-01-10,,1033,OLDER,,,,,,,116938,,,,6.0.0.8146,
+
+[Loc Shell Help]
+"vshelpui_dll_enu" = 1,os\system\resource\1033\vshelpui.dll,,,,2000-01-10,,1033,OLDER,,,,,,,18432,,,,6.0.0.8159,
+
+[VB TLBINF32]
+"tlbinf32_dll" = 1,os\system\tlbinf32.dll,,,,1999-04-11,,1033,OLDER,,,,,,,148480,SYSTEM,,,1.1.83.90,
+
+[Shell SDM]
+"sdm_dll" = 1,os\system\mssdm.dll,,,,1999-06-06,,1033,OLDER,,,,,,,175256,,,,6.0.0.8424,
+
+[environment]
+"javale_dll" = 1,os\system\javale.dll,,,,1999-06-06,,1033,OLDER,,,,,,,230861,SYSTEM,,,6.0.0.8424,
+"mdm_exe" = 1,os\system\mdm.exe,,,,1999-06-06,,1033,OLDER,,,,,,,124200,SYSTEM,,,6.0.0.8424,
+"msdbg_dll" = 1,os\system\msdbg.dll,,,,1999-06-06,,1033,OLDER,,,,,,,69120,SYSTEM,,,6.0.0.8424,
+"msdbg_dll_enu" = 1,os\system\msdbgen.dll,,,,1999-01-21,,1033,OLDER,,,,,,,10062,SYSTEM,,,6.0.0.8146,
+"pdm_dll" = 1,os\system\pdm.dll,,,,1999-06-06,,1033,OLDER,,,,,,,183574,SYSTEM,,,6.0.0.8424,
+"scriptle_dll" = 1,os\system\scriptle.dll,,,,1999-06-06,,1033,OLDER,,,,,,,179121,SYSTEM,,,6.0.0.8424,
+
+[Loc Vegas Shell]
+"genprjui_dll_enu" = 1,common\ide\ide98\resource\1033\genprjui.dll,,,,1999-01-21,,1033,OLDER,,,,,,,93184,,,,7.0.8168.0,
+"vside_dll_enu" = 1,common\ide\ide98\resource\1033\VSide.dll,,,,1999-01-21,,1033,OLDER,,,,,,,348672,,,,6.0.81.67,
+"vspkgui_dll_enu" = 1,common\ide\ide98\resource\1033\vspkgui.dll,,,,1999-01-21,,1033,OLDER,,,,,,,506368,,,,6.0.0.8159,
+"vssccui_dll_enu" = 1,common\ide\ide98\resource\1033\vssccui.dll,,,,1999-01-21,,1033,OLDER,,,,,,,71168,,,,6.0.0.8159,
+"vsslnui_dll_enu" = 1,common\ide\ide98\resource\1033\vsslnui.dll,,,,1999-01-21,,1033,OLDER,,,,,,,75776,,,,6.0.0.8159,
+"htmedui_dll_enu" = 1,common\ide\ide98\resource\1033\htmedui.dll,,,,1999-02-09,,1033,OLDER,,,,,,,73216,,,,6.0.0.8392,
+
+[(vsee) Solution Build]
+"vssln_dll" = 1,Common\IDE\IDE98\vssln.dll,,,,1999-01-21,,1033,OLDER,,,,,,,483600,,,,6.0.0.8166,
+
+[(vsee) SCC]
+"vsscc_dll" = 1,Common\IDE\IDE98\vsscc.dll,,,,1999-01-21,,1033,OLDER,,,,,,,753936,,,,6.0.0.8166,
+
+[Vegas Templates]
+"textfile_txt" = 1,Common\Ide\Ide98\NewItems\TextFile.txt<Text File.txt>,,,,1999-01-21,,,OLDER,,,,,,,0,,,,,
+"newhtml_htm_1" = 1,Common\Ide\Ide98\NewItems\NewHTML.htm<New HTML Page.htm>,,,,1999-01-21,,,OLDER,,,,,,,150,,,,,
+"newitems_vsd_1" = 1,Common\Ide\Ide98\NewItems\newitems.vsd<newfileitems.vsdir>,,,,1999-01-21,,,OLDER,,,,,,,172,,,,,
+
+[Shell Keyboard schemes]
+"ds6_vsk" = 1,Common\IDE\IDE98\ds6.vsk<Developer Studio 5 and 6.vsk>,,,,1999-01-21,,,OLDER,,,,,,,6352,,,,,
+"vb6_vsk" = 1,Common\IDE\IDE98\vb6.vsk<Visual Basic 5 and 6.vsk>,,,,1999-01-21,,,OLDER,,,,,,,5944,,,,,
+"ds2_vsk" = 1,Common\IDE\IDE98\ds2.vsk<Visual C++ 2.vsk>,,,,1999-01-21,,,OLDER,,,,,,,6452,,,,,
+
+[msenv]
+"dte_tlb" = 1,Common\IDE\IDE98\dte.tlb,,,,1999-01-21,,1033,OLDER,,,,,,,98818,,,,6.0.81.67,
+"msenv_dll" = 1,Common\IDE\IDE98\msenv.dll,,,,1999-06-06,,1033,OLDER,,,,,,,1962256,,,,6.1.84.26,
+"msenvp_dll" = 1,Common\IDE\IDE98\msenvp.dll,,,,1999-01-21,,1033,OLDER,,,,,,,55056,,,,6.1.81.70,
+"vj6_exe" = 1,Common\IDE\IDE98\devenv.exe,,,,1999-01-28,,1033,OLDER,,,,,,,264464,,,,6.1.81.67,
+"vj6ext_olb" = 1,Common\IDE\IDE98\VSext.olb,,,,1999-01-21,,,OLDER,,,,,,,1028,,,,,
+"vjext_tlb" = 1,Common\IDE\IDE98\vjext.tlb,,,,1999-01-21,,,OLDER,,,,,,,61960,,,,,
+"views_prf" = 1,Common\IDE\IDE98\views.prf,,,,1999-01-21,,,OLDER,,,,,,,47104,,,,,
+"vsmenu_ctm"= 1,vsmenu.ctm,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"textext_tlb" = 1,Common\IDE\IDE98\textext.tlb,,,,1999-01-21,,,OLDER,,,,,,,6648,,,,,
+
+[msenv sys]
+"jautoexp_dat" = 1,OS\jautoexp.ini,,,,1999-01-21,,,OLDER,,,,,,,60367,,,,,
+
+[VBA Files]
+"riched20_dll" = 1,os\system\riched20.dll,,,,1999-01-21,,0,OLDER,,,,,,,294672,SYSTEM,,,5.0.140.0,
+"scp32_dll" = 2,os\system\scp32.dll,,,,1999-04-11,,1033,OLDER,,,,,,,15872,SYSTEM,,,2.0.330.0,
+
+[MSI Always]
+"msvcp50_dll" = 2,os\system\msvcp50.dll,,,,1999-01-21,,1033,OLDER,,,,,,,565760,SYSTEM,,,5.0.0.7022,
+
+[VSI VSInst]
+"vsi_dll" = 2,Common\Tools\VS-Ent98\VSInst\vsi.dll,,,,2000-02-01,,1033,OLDER,,,,,,,1901383,,,,6.1.0.8762,
+"vsiedt_dll" = 2,Common\Tools\VS-Ent98\VSInst\vsiedt.dll,,,,2000-02-01,,1033,OLDER,,,,,,,1177789,,,,6.1.0.8762,
+"vsieng_dll" = 2,Common\Tools\VS-Ent98\VSInst\vsieng.dll,,,,2000-02-01,,1033,OLDER,,,,,,,2490675,,,,6.1.0.8762,
+"vbtovsi_dll" = 2,Common\Tools\VS-Ent98\VSInst\vbtovsi.dll,,,,1999-01-21,,1033,OLDER,,,,,,,663552,,,,1.0.0.0,
+
+[MSI Tools]
+"mergemod_dll" = 2,Common\Tools\VS-Ent98\VSInst\mergemod.dll,,,,1999-07-27,,0,OLDER,,,,,,,226659,,,,1.1.415.1,
+
+[VSI VSInstRedist]
+"msiloadr_bin_enu" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msiloadr.bin,,,,2000-02-01,,1033,OLDER,,,,,,,83717,,,,6.1.0.8762,
+"redist_txt_4" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\Redist.txt,,,,1999-03-03,,,OLDER,,,,,,,138,,,,,
+
+[VSI Proj]
+"vbsetup_wip" = 2,Common\Tools\VS-Ent98\VSInst\VSIProj\vbsetup.wip,,,,1999-01-21,,,OLDER,,,,,,,5632,,,,,
+"empty_wip" = 2,Common\Tools\VS-Ent98\VSInst\VSIProj\empty.wip,,,,1999-01-21,,,OLDER,,,,,,,5632,,,,,
+"vsiprj_vsd" = 2,Common\Tools\VS-Ent98\VSInst\VSIProj\vsiprj.vsd<vsiprj.vsdir>,,,,1999-02-01,,,OLDER,,,,,,,239,,,,,
+"msmsetup_wip" = 2,Common\Tools\VS-Ent98\VSInst\VSIProj\msmsetup.wip,,,,1999-01-21,,,OLDER,,,,,,,5632,,,,,
+
+[VSI PrjItm]
+"vsiitm_vsd" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\vsiitm.vsd<vsiitm.vsdir>,,,,1999-01-21,,,OLDER,,,,,,,168,,,,,
+
+[VSI Files]
+"file_xxx" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Files\file.xxx<file>,,,,1999-01-21,,,OLDER,,,,,,,0,,,,,
+"files_vsd" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Files\files.vsd<files.vsdir>,,,,1999-01-21,,,OLDER,,,,,,,71,,,,,
+
+[VSI Outputs]
+"vb_xxx" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Outputs\vb.xxx<vb>,,,,1999-01-21,,,OLDER,,,,,,,0,,,,,
+"output_vsd" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Outputs\output.vsd<output.vsdir>,,,,1999-02-01,,,OLDER,,,,,,,144,,,,,
+"poutputs_xxx" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Outputs\poutputs.xxx<poutputs>,,,,1999-01-21,,,OLDER,,,,,,,0,,,,,
+
+[VSI PrjItmRedist]
+"msm_xxx" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Redist\msm.xxx<msm>,,,,1999-01-21,,,OLDER,,,,,,,0,,,,,
+"redist_vsd" = 2,Common\Tools\VS-Ent98\VSInst\VSIPrjIt\Redist\redist.vsd<redist.vsdir>,,,,1999-01-21,,,OLDER,,,,,,,70,,,,,
+
+[VSI SetupLoc]
+"vsidlgs_msm_enu" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\VsiDlgs.wid,,,,1999-04-28,,,OLDER,,,,,,,66048,,,,,
+"vsiedtui_dll_enu" = 2,Common\Tools\VS-Ent98\VSInst\Resource\1033\vsiedtui.dll,,,,2000-02-01,,1033,OLDER,,,,,,,76800,,,,6.1.0.8762,
+"vsiui_dll_enu" = 2,Common\Tools\VS-Ent98\VSInst\Resource\1033\vsiui.dll,,,,2000-02-01,,1033,OLDER,,,,,,,268288,,,,6.1.0.8762,
+
+[VSI Redist]
+"atl_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\atl.msm,,,,2000-02-01,,,OLDER,,,,,,,71680,,,,,
+"comcat_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\comcat.msm,,,,2000-02-01,,,OLDER,,,,,,,15872,,,,,
+"comct232_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\comct232.msm,,,,2000-02-01,,,OLDER,,,,,,,96768,,,,,
+"comct332_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\comct332.msm,,,,2000-02-01,,,OLDER,,,,,,,158720,,,,,
+"comctl32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\comctl32.msm,,,,2000-02-01,,,OLDER,,,,,,,311808,,,,,
+"comdlg32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\comdlg32.msm,,,,2000-02-01,,,OLDER,,,,,,,76800,,,,,
+"dbgrid32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\dbgrid32.msm,,,,2000-02-01,,,OLDER,,,,,,,253952,,,,,
+"dblist32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\dblist32.msm,,,,2000-02-01,,,OLDER,,,,,,,115200,,,,,
+"mci32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mci32.msm,,,,2000-02-01,,,OLDER,,,,,,,98304,,,,,
+"mdac_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mdac.msm,,,,1999-04-28,,,OLDER,,,,,,,74752,,,,,
+"mfc42_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mfc42.msm,,,,2000-02-01,,,OLDER,,,,,,,474624,,,,,
+"mfc42u_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mfc42u.msm,,,,2000-02-01,,,OLDER,,,,,,,471040,,,,,
+"msadodc_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msadodc.msm,,,,2000-02-01,,,OLDER,,,,,,,69120,,,,,
+"msbind_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msbind.msm,,,,2000-02-01,,,OLDER,,,,,,,41984,,,,,
+"mschrt20_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mschrt20.msm,,,,2000-02-01,,,OLDER,,,,,,,491008,,,,,
+"mscomct2_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mscomct2.msm,,,,2000-02-01,,,OLDER,,,,,,,370688,,,,,
+"mscomctl_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mscomctl.msm,,,,2000-02-01,,,OLDER,,,,,,,571904,,,,,
+"mscomm32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mscomm32.msm,,,,2000-02-01,,,OLDER,,,,,,,62976,,,,,
+"msdatgrd_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msdatgrd.msm,,,,2000-02-01,,,OLDER,,,,,,,142336,,,,,
+"msdatlst_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msdatlst.msm,,,,2000-02-01,,,OLDER,,,,,,,129024,,,,,
+"msdatrep_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msdatrep.msm,,,,2000-02-01,,,OLDER,,,,,,,107008,,,,,
+"msdbrptr_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msdbrptr.msm,,,,2000-02-01,,,OLDER,,,,,,,152064,,,,,
+"msderun_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msderun.msm,,,,2000-02-01,,,OLDER,,,,,,,62976,,,,,
+"msflxgrd_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msflxgrd.msm,,,,2000-02-01,,,OLDER,,,,,,,124928,,,,,
+"mshflxgd_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mshflxgd.msm,,,,2000-02-01,,,OLDER,,,,,,,216576,,,,,
+"mshtmpgr_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mshtmpgr.msm,,,,2000-02-01,,,OLDER,,,,,,,38400,,,,,
+"msinet_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msinet.msm,,,,2000-02-01,,,OLDER,,,,,,,70656,,,,,
+"msmapi32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msmapi32.msm,,,,2000-02-01,,,OLDER,,,,,,,78848,,,,,
+"msmask32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msmask32.msm,,,,2000-02-01,,,OLDER,,,,,,,95232,,,,,
+"msrdc20_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msrdc20.msm,,,,2000-02-01,,,OLDER,,,,,,,94208,,,,,
+"msrdo20_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msrdo20.msm,,,,2000-02-01,,,OLDER,,,,,,,269824,,,,,
+"msstdfmt_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msstdfmt.msm,,,,2000-02-01,,,OLDER,,,,,,,70144,,,,,
+"msstkprp_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msstkprp.msm,,,,2000-02-01,,,OLDER,,,,,,,45056,,,,,
+"msvbvm60_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msvbvm60.msm,,,,2000-02-01,,,OLDER,,,,,,,732160,,,,,
+"msvcirt_msm_1" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msvcirt.msm,,,,2000-02-01,,,OLDER,,,,,,,30208,,,,,
+"msvcp60_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msvcp60.msm,,,,2000-02-01,,,OLDER,,,,,,,122368,,,,,
+"msvcirt_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\msvcrt.msm,,,,2000-02-01,,,OLDER,,,,,,,139264,,,,,
+"mswcrun_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mswcrun.msm,,,,2000-02-01,,,OLDER,,,,,,,107520,,,,,
+"mswinsck_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\mswinsck.msm,,,,2000-02-01,,,OLDER,,,,,,,67072,,,,,
+"oleaut32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\oleaut32.msm,,,,2000-02-01,,,OLDER,,,,,,,501248,,,,,
+"picclp32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\picclp32.msm,,,,2000-02-01,,,OLDER,,,,,,,54784,,,,,
+"sysinfo_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\sysinfo.msm,,,,2000-02-01,,,OLDER,,,,,,,46080,,,,,
+"tabctl32_msm" = 2,Common\Tools\VS-Ent98\VSInst\BuildRes\tabctl32.msm,,,,2000-02-01,,,OLDER,,,,,,,121344,,,,,
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Tue Feb 01 01:35:42 2000           **
+;**                                                                **
+;*** END ************************************************************

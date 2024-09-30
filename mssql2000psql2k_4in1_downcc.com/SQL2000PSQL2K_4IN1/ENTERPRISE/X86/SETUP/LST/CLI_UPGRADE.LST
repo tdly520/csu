@@ -1,0 +1,155 @@
+[List based on Sphinx RTM (623.07A) Standard vs. Shiloh build 136 Standard]
+
+[Files]
+%PROGGRP%\Microsoft SQL Server 7.0\Uninstall SQL Server 7.0.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\SQL Server 7.0 のアンインストール.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\SQL Server 7.0 deinstallieren.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Query Analyzer.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\クエリ アナライザ.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Profiler.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\プロファイラ.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\MSDTC Administrative Console.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\MSDTC 管理コンソール.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\MSDTC Admin-Konsole.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Import and Export Data.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\データのインポートとエクスポート.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Daten importieren und exportieren.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Enterprise Manager.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Client Network Utility.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\クライアント ネットワーク ユーティリティ
+%PROGGRP%\Microsoft SQL Server 7.0\SQL Server-Clientkonfiguration.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Books Online.lnk
+%PROGGRP%\Microsoft SQL Server 7.0\Onlinedokumentation.lnk
+%PROGGRP%\Microsoft SQL Server 7.0
+%CLNTPATH%\Uninst.isu
+%CLNTPATH%\sqlsunin.ini
+%CLNTPATH%\sqlsun.dll
+%CLNTPATH%\HTML\js00003.js
+%CLNTPATH%\HTML\js00002.js
+%CLNTPATH%\HTML\js00001.js
+%CLNTPATH%\HTML\img00008.gif
+%CLNTPATH%\HTML\img00007.gif
+%CLNTPATH%\HTML\dbtable.gif
+%CLNTPATH%\HTML\dbindex.gif
+%CLNTPATH%\HTML\dbicon.gif
+%CLNTPATH%\HTML\dbcindex.gif
+%CLNTPATH%\HTML\dbback.gif
+%CLNTPATH%\HTML\database.htm
+%CLNTPATH%\HTML\database.css
+%CLNTPATH%\HTML
+%CLNTPATH%\Books\sqlbol.chm
+%CLNTPATH%\Books
+%CLNTPATH%\Binn\xpstar.dll
+%CLNTPATH%\Binn\wiztrace.exe
+%CLNTPATH%\Binn\w95scm.dll
+%CLNTPATH%\Binn\tracewiz.dll
+%CLNTPATH%\Binn\stardds.dll
+%CLNTPATH%\Binn\sqlwid.dll
+%CLNTPATH%\Binn\sqltrace.map
+%CLNTPATH%\Binn\sqltrace.exe
+%CLNTPATH%\Binn\sqltrace.dll
+%CLNTPATH%\Binn\sqlsvc.dll
+%CLNTPATH%\Binn\sqlresld.dll
+%CLNTPATH%\Binn\sqlrgstr.dll
+%CLNTPATH%\Binn\sqlqry.dll
+%CLNTPATH%\Binn\sqlns.dll
+%CLNTPATH%\Binn\sqlmmc.dll
+%CLNTPATH%\Binn\sqllex.dll
+%CLNTPATH%\Binn\sqlgui.dll
+%CLNTPATH%\Binn\sqlftwiz.exe
+%CLNTPATH%\Binn\sqlftwiz.dll
+%CLNTPATH%\Binn\sqldmo.hlp
+%CLNTPATH%\Binn\sqldmo.dll
+%CLNTPATH%\Binn\sqldmo.cnt
+%CLNTPATH%\Binn\SQL Server Enterprise Manager.MSC
+%CLNTPATH%\Binn\sfc.dll
+%CLNTPATH%\Binn\semwiz.dll
+%CLNTPATH%\Binn\semwebwz.dll
+%CLNTPATH%\Binn\semsys.dll
+%CLNTPATH%\Binn\semrepl.dll
+%CLNTPATH%\Binn\semobj.dll
+%CLNTPATH%\Binn\semnt.dll
+%CLNTPATH%\Binn\semmap.dll
+%CLNTPATH%\Binn\semexec.dll
+%CLNTPATH%\Binn\semdll.dll
+%CLNTPATH%\Binn\semcros.dll
+%CLNTPATH%\Binn\semcomn.dll
+%CLNTPATH%\Binn\Resources\1033\tracewiz.rll
+%CLNTPATH%\Binn\Resources\1033\sqlsvc.rll
+%CLNTPATH%\Binn\Resources\1033\sqlqry.rll
+%CLNTPATH%\Binn\Resources\1033\sqlns.rll
+%CLNTPATH%\Binn\Resources\1033\sqlmmc.rll
+%CLNTPATH%\Binn\Resources\1033\sqlgui.rll
+%CLNTPATH%\Binn\Resources\1033\sqlftwiz.rll
+%CLNTPATH%\Binn\Resources\1033\sqldmo.rll
+%CLNTPATH%\Binn\Resources\1033\sfc.rll
+%CLNTPATH%\Binn\Resources\1033\semwiz.rll
+%CLNTPATH%\Binn\Resources\1033\semwebwz.rll
+%CLNTPATH%\Binn\Resources\1033\semsys.rll
+%CLNTPATH%\Binn\Resources\1033\semrepl.rll
+%CLNTPATH%\Binn\Resources\1033\semobj.rll
+%CLNTPATH%\Binn\Resources\1033\semnt.rll
+%CLNTPATH%\Binn\Resources\1033\semmap.rll
+%CLNTPATH%\Binn\Resources\1033\semexec.rll
+%CLNTPATH%\Binn\Resources\1033\semdll.rll
+%CLNTPATH%\Binn\Resources\1033\semcros.rll
+%CLNTPATH%\Binn\Resources\1033\semcomn.rll
+%CLNTPATH%\Binn\Resources\1033\isqlw.rll
+%CLNTPATH%\Binn\Resources\1033\dtswiz.rll
+%CLNTPATH%\Binn\Resources\1033\dtsui.rll
+%CLNTPATH%\Binn\Resources\1033\dtsrun.rll
+%CLNTPATH%\Binn\Resources\1033\dtspump.rll
+%CLNTPATH%\Binn\Resources\1033\dtspkg.rll
+%CLNTPATH%\Binn\Resources\1033\dtsffile.rll
+%CLNTPATH%\Binn\Resources\1033\axscphst.rll
+%CLNTPATH%\Binn\Resources\1033\autowiz.rll
+%CLNTPATH%\Binn\Resources\1033
+%CLNTPATH%\Binn\Resources
+%CLNTPATH%\Binn\replmon.pmc
+%CLNTPATH%\Binn\readpipe.exe
+%CLNTPATH%\Binn\psdcscm.dll
+%CLNTPATH%\Binn\osql.exe
+%CLNTPATH%\Binn\odbcping.exe
+%CLNTPATH%\Binn\odbccmpt.exe
+%CLNTPATH%\Binn\makepipe.exe
+%CLNTPATH%\Binn\isqlw.exe
+%CLNTPATH%\Binn\isql.exe
+%CLNTPATH%\Binn\helpsql.hlp
+%CLNTPATH%\Binn\helpsql.cnt
+%CLNTPATH%\Binn\dtswiz.exe
+%CLNTPATH%\Binn\dtswiz.dll
+%CLNTPATH%\Binn\dtsui.dll
+%CLNTPATH%\Binn\dtsrun.exe
+%CLNTPATH%\Binn\dtspump.dll
+%CLNTPATH%\Binn\dtspkg.dll
+%CLNTPATH%\Binn\dtsffile.dll
+%CLNTPATH%\Binn\dcomscm.exe
+%CLNTPATH%\Binn\comnevnt.dll
+%CLNTPATH%\Binn\ce_sprxy.dll
+%CLNTPATH%\Binn\ce_clnt.dll
+%CLNTPATH%\Binn\bcp.exe
+%CLNTPATH%\Binn\axscphst.dll
+%CLNTPATH%\Binn\autowiz.dll
+%CLNTPATH%\Binn\autoplt.dll
+%CLNTPATH%\Binn
+%CLNTPATH%\install\setup.iss
+%CLNTPATH%\install
+%CLNTPATH%
+
+[RegKeys]
+SOFTWARE\Microsoft\Microsoft SQL Server 7.0
+SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server 7.0
+SOFTWARE\Microsoft\MSSQLServer\ClientSetup
+SOFTWARE\Microsoft\MSSQLServer\SQLEW
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDBF-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDC7-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDC8-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAF-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAE-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDA8-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDA9-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAA-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAD-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAC-5A21-11d2-9DAD-00C04F79D434}
+SOFTWARE\Microsoft\MSSQLServer\Tracking\{E07FDDAB-5A21-11d2-9DAD-00C04F79D434}
+

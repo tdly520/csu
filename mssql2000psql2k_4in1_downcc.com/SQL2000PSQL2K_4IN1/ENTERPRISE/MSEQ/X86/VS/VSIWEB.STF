@@ -1,0 +1,475 @@
+													
+App Name	Visual Studio Installer
+App Version	6.1.0.0.0729 (1033)
+Frame Caption	Visual Studio Installer Setup
+Frame Bitmap	VSIWeb.DLL,110
+Dialog Caption Base	Visual Studio Installer
+About Box String	Microsoft Visual Studio Installer Setup\n\nCopyright (C) 1998 Microsoft Corporation.													
+MSAPPS Mode	local
+Inf File Name	VSIWeb.INF
+Maximum Object ID	520
+Suppress Serial Number Dialog
+Floppy Mode Root Object ID	3:1 2
+Maintenance Mode Root Object ID	4:1 2
+Batch Mode Root Object ID	3:1 2
+Setup Version	3.0.0.1210
+ObjID	Install During Batch Mode	Title	Descr	Type	Data	BMP Id	Vital	Shared	Dir Chang	Dest Dir	Check Dir	Installed By Us
+													
+1				CustomAction	"""COMMON98.DLL"", ""SetDefaultDir"", ""Common;HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir"" "					%d				
+2		Microsoft Visual Studio Installer		AppSearch	"%1,,,128,yes,no"									
+													
+ 														
+													
+ 														
+													
+	=== Visual Studio Installer Install Modes (mainstf.etf) ===													
+3	yes	&Install	Installs the toolkit for adding Windows Installer based setup to your application.	Group	31 11 5 221 161				no	%2				
+4	yes	Maintenance Install		Group	 31 11 5 161				no					
+													
+5				Group	6 7 8									
+6				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir"" "					%p\Microsoft Visual Studio\Common				
+													
+7				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Windows\CurrentVersion,CommonFilesDir"" "					%p\Common<%p\Common Files>				
+													
+8				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""9"""					%d				
+9				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir,%s"					%6				
+													
+ 														
+													
+  														
+														
+ 														
+													
+ 														
+													
+ 														
+													
+    														
+    														
+    														
+    														
+    														
+    														
+    														
+													
+	=== Main CAH/Detection (MainCah.etf) ===													
+													
+11				Group	12 14 15 13									
+12				CustomAction	"COMMON98.DLL,Reg60Cln,Microsoft Visual Studio Installer"									
+													
+13				Group	24 17 18 19 20 22 23
+													
+	=== EULA (MainCah.etf) ===													
+14				CustomAction	"COMMON98.DLL,LicenseDlg,Setup;eula_txt"									
+													
+	=== IE4 Check (MainCah.etf) ===													
+15				CustomAction	"""VSIWeb.DLL"", ""QIE4Check"" "									
+16				CustomAction	"""VSIWeb.DLL"", ""DetVS6Prod"" "									
+	=== Set DestDir to Program Items (MainCah.etf) ===													
+17				CustomAction	"COMMON98.DLL,GetWindowsPathFromReg,""Programs, True"""									
+													
+	=== Check Operating System (MainCah.etf) ===													
+18		IsWin95		CustomAction	"COMMON98.DLL,DetectOS,Win95 "									
+19		IsWinnt3x		CustomAction	"COMMON98.DLL, DetectOS, winnt3x"									
+20		IsWinNT40		CustomAction	"COMMON98.DLL, DetectOS, winnt40"									
+21		Is40Shell		CustomAction	"COMMON98.DLL, DetectOS, 40shell"									
+22		IsWinNT50		CustomAction	"COMMON98.DLL, DetectOS, winnt50"									
+23		IsWin98		CustomAction	"COMMON98.DLL, DetectOS, win98"									
+	=== Check Admin Privileges (MainCah.etf) ===													
+24		Check Adminstrator		CustomAction	"COMMON98.DLL,DetectAdminPrivileges"									
+													
+	=== Sys Always (system.etf) ===													
+													
+31				Group	 491 201 81 121 131 41 51 231 111 91 101 141 71 151					%d				
+														
+    														
+													
+	=== Tahoma Font Component (fptahoma.etf) ===													
+													
+41				Group	43 									
+													
+42				DetectOlderFile	"""tahoma.ttf"""					%w\fonts		
+43				Depend	"42 ? 44 : 47"
+44				Depend	"20 ? 45 46 : 47"
+45				CopyFile	"Font Files,tahoma_ttf"					%W		
+46				CustomAction	"COMMON98.DLL,ReplaceFont,tahoma.ttf"					%w\fonts				
+47				InstallTTFFile	"Font Files, tahoma_ttf, Tahoma (True Type)"					%M				
+													
+ 														
+	=== Shell MSAddIndr component === <addindsr.etf>													
+ 														
+51				Group	52 56					%d 			 	
+ 														
+52				Group	53 54 55					%d 			 	
+53		msaddndr.dll		InstallShared	"AddIn Designer,msaddndr_dll,msaddndr.dll,,493"					%7\designer				
+54		msaddndr.dep		InstallShared	"AddIn Designer,msaddndr_dep,msaddndr.dep,,493"					%7\designer				
+55		msaddndr.tlb		InstallShared	"AddIn Designer,msaddndr_tlb,msaddndr.tlb,,493"					%7\designer				
+ 														
+56				Group	57 59					%d 			 	
+57				Depend	"53 ? 58 496"									
+58		msaddndr.dll		CustomAction	"COMMON98.DLL,SelfReg,""AddIn Designer,msaddndr_dll"""					%53				
+59				Depend	"55 ? 60"									
+60		msaddndr.tlb		CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""AddIn Designer;msaddndr_tlb"""					%55				
+ 														
+														
+ 														
+													
+	=== VC CRT OS Retail (IO) (crtdllio.etf) ===													
+71				Group	72									
+													
+72		msvcirt.dll		InstallSysFile	"Sys Files - CRT (IO) Dlls,msvcirt_dll"					%m				
+													
+	=== VB Runtime (vbruntm.etf)===													
+81				Group	82 83 									
+82				InstallSysFile	"VB Runtime,msvbvm50_dll"		Vital			%M				
+83				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""84"""									
+84		msvbvm60.dll		CustomAction	"COMMON98.DLL,RegisterFile,""VB Runtime,msvbvm50_dll,2"""					%82				
+														
+	=== RegSvr32 Component ( RegSvr32.etf ) ===													
+													
+91				Group	92 									
+92		regsvr32.exe		InstallSysFile	"Sys Files - Regsrv32, regsvr32_exe_3"					%m				
+													
+	=== Scriptoids - scrobj (scrobj.etf) ===
+													
+101				Group	102 104 					%d		
+													
+102				Group	103					%d 			 
+103		scrobj.dll		InstallSysFile	"VID - Scriptoids,scrobj_dll"					%m				
+													
+104				Group	105					%d 			 
+105				Depend	"103 ? 106"									
+106		scrobj.dll		SelfReg	"""VID - Scriptoids"",""scrobj_dll"","""","""","""""					%103		
+ 
+													
+====Debugger NT4 psapi(dbgpsapi.etf)======
+111				Group	112					%D
+112				Depend	"20? 113"
+113				InstallShared	"Debugger NT4 psapi,psapi2_dll,psapi.dll,,493"					%M
+														
+ 
+ 
+	=== Active Scripting Files Component === <fn: script.etf>
+121				Group	122 126 					%d				
+ 
+	...copying files
+122				Group	123 124 125					%d				
+123		dispex.dll		InstallSysFile	"Script Engine files,dispex_dll"					%m				
+124		jscript.dll		InstallSysFile	"Script Engine files,jscript_dll"					%m				
+125		vbscript.dll		InstallSysFile	"Script Engine files,vbscript_dll"					%m				
+ 
+	...registering files
+126				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""127 128 129"""					%d				
+127		dispex.dll		SelfReg	"""Script Engine files"",""dispex_dll"","""","""","""""					%123				
+128		jscript.dll		SelfReg	"""Script Engine files"",""jscript_dll"","""","""","""""					%124				
+129		vbscript.dll		SelfReg	"""Script Engine files"",""vbscript_dll"","""","""","""""					%125				
+ 
+ 
+ 
+ 
+	=== Active Scripting SCRRUN Component (scrrun.etf) ===
+131				Group	132 133   					%d				
+132		scrrun.dll		InstallSysFile	"Active Scripting SCRRUN,scrrun_dll"					%m				
+133				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""134"""					%d				
+134		scrrun.dll		SelfReg	"""Active Scripting SCRRUN"",""scrrun_dll"","""","""","""""					%132				
+ 
+													
+	=== VC MSVC[I]RT.DLL Sys (crtdll.etf) ===													
+141				Group	142 									
+													
+142		msvcrt.dll		InstallSysFile	"Sys Files - CRT Dlls,msvcrt_dll"					%m				
+													
+	====HTML HELP Component (hhelp.etf) ======											
+											
+151				Group	152 153					%6\Tools\VSInst		
+152				CopyFile	"VSShared,vsinstal_chm_enu"					%D		
+153				CopyFile	"VSShared,vsinstal_chi_enu"					%D		
+											
+	=== VS Enterprise Edition Component (vsee.etf) ===													
+													
+	STFWIZ	92		
+161	yes	Visual Studio Installer	Installs the toolkit for adding Windows Installer based setup to your application.	Group	171 321 					%d				
+													
+	=== Vegas Shell Core Files (vegas.etf) ===													
+													
+171				Group	261 281 251 331 181 191 431 241 301 291 311					%6\IDE\IDE98 			 	
+													
+	=== Office Button Face Editor ===											
+181				Group	182							
+182				InstallSysFile	"MS Office Button DLL,commtb32_dll"					%M		
+											
+	=== MS Office Runtime DLLs ===											
+191				Group	192 193 194							
+192		mso97rt		InstallShared	"MS Office Runtime DLL,mso97rt_dll,mso97rt,,493"					%H\VBA		
+193		mrt7enu		InstallShared	"MS Office Runtime DLL,mrt7enu_dll,mrt7enu,,493"					%192		
+194				CustomAction	"COMMON98.DLL,RegMso,""1033, 192"""							
+											
+	=== MSInfo (vbmsinfo.etf)===													
+201	yes	Ms Info	Tool used to gather system configuration information	Group	202 203 204 205 206 207					%H\MSInfo				
+202				InstallShared	"MSInfo,msinfo32_exe,MsInfo,,493"									
+203				CompanionFile	"202: MSInfo,imgwalk_dll"									
+204				CompanionFile	"202: MSInfo,msinf16h_exe"									
+205				CompanionFile	"202: MSInfo,msinfo32_hlp"									
+206				CompanionFile	"202: MSInfo,msinfo32_cnt"									
+207				Depend	"202?208 209 210"									
+208				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_ftg"									
+209				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_fts"									
+210				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_gid"									
+													
+	=== ATL Component (atl.etf) ===
+221				Group	222					%d				
+	...copying files (atl.etf)
+222				Group	223					%d				
+223				Depend	"18 ? 224 226:225 228"							
+224		atl.dll		InstallShared	"ATL,atl_dll_1,atl.dll,,493 "					%m		
+225		atl.dll		InstallShared	"ATL,atl_dll_2,atl.dll,,493 "					%m		
+226				Depend	224 ? 227							
+227		atl.dll		SelfReg	"ATL,""atl_dll_1"","""","""","""""					%224		
+228				Depend	225 ? 229							
+229		atl.dll		SelfReg	"ATL,""atl_dll_2"","""","""","""""					%225		
+	=== VI/VJ Common Shell Help Component  === <fn=shellhlp.etf>
+231				Group	232 233 235					%d		
+232				InstallShared	"Shell Help, vshelp_dll, vshelp.dll,,493"					%H\VS98				
+233				Depend	"232 ? 234"									
+234		vshelp.dll		SelfReg	"Shell Help,vshelp_dll,,,,"					%232				
+235				Group	236					%232\resources\1033		
+236		vshelpui.dll		InstallShared	"Loc Shell Help,vshelpui_dll_enu,vshelpui.dll(enu),,493"					%d				
+ 
+ 
+											
+	=== vb wizards tlbinf32 (tlbinf32.etf) ===											
+241				Group	242 243							
+242				InstallShared	"VB TLBINF32,tlbinf32_dll,tlbinf32.dll,,493"					%M		
+243				Depend	"242?244"							
+244		tlbinf32.dll		CustomAction	"COMMON98.DLL,RegisterFile,""VB TLBINF32,tlbinf32_dll,3"""					%242		
+											
+	=== shared shell file - sdm.dll === <fn: shellsdm.etf>
+													
+251				Group	252 254					%m 			 	
+252				Group	253					%d 			 	
+253		mssdm.dll		InstallSysFile	"Shell SDM,sdm_dll"					%m				
+254				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""255"""									
+255		mssdm.dll		SelfReg	"""Shell SDM"",""sdm_dll"","""","""","""""					%253				
+													
+ 														
+	=== Environment - Vegas Shell === <fn: shellenv.etf>													
+ 														
+261				Group	262					%d 			 	
+ 														
+262				Group	263 270					%m 			 	
+ 														
+263				Group	264 265 266 267 268 269					%m 			 	
+264		mdm.exe		InstallSysFile	"environment,mdm_exe"					%m				
+265		msdbg.dll		InstallSysFile	"environment,msdbg_dll"					%m				
+266		msdbgen.dll		InstallSysFile	"environment,msdbg_dll_enu"					%m				
+267		pdm.dll		InstallSysFile	"environment,pdm_dll"					%m				
+268		javale.dll		InstallSysFile	"environment,javale_dll"					%m				
+269		scriptle.dll		InstallSysFile	"environment,scriptle_dll"					%m				
+ 														
+270				Group	271 272 275									
+271				CustomAction	"COMMON98.DLL,SyncEXECalloutCAH,""""""%s\mdm.exe"""" -regserver"""					%264				
+272				Depend	23 ? 273 274									
+273				AddRegData	"LOCAL,""SOFTWARE\Microsoft\Windows\CurrentVersion\Run"",""Machine Debug Manager"",""%s\mdm.exe"""					%264				
+274				RemoveRegEntry	"LOCAL,""SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices"",""Machine Debug Manager"""									
+													
+275				CustomAction	"COMMON98.DLL,NeverRemoveGroup,"" 276 277 278 279 """									
+													
+276		msdbg.dll		SelfReg	"""environment"",""msdbg_dll"","""","""","""""					%265				
+277		pdm.dll		SelfReg	"""environment"",""pdm_dll"","""","""","""""					%267				
+278		javale.dll		SelfReg	"""environment"",""javale_dll"","""","""","""""					%268				
+279		scriptle.dll		SelfReg	"""environment"",""scriptle_dll"","""","""","""""					%269				
+													
+ 														
+														
+ 														
+													
+ 
+	=== Vegas Shell - Localized components === <fn: locshell.etf>
+ 
+281				Group	282					%d\resources\1033 			 	
+ 
+282				Group	283 284 285 286 287 288					%d 			 	
+283		genprjui.dll		InstallShared	"Loc Vegas Shell,genprjui_dll_enu,genprjui.dll(enu),,493"					%d				
+284		VSide.dll		InstallShared	"Loc Vegas Shell,vside_dll_enu,VSide.dll(enu),,493"					%d				
+285		vspkgui.dll		InstallShared	"Loc Vegas Shell,vspkgui_dll_enu,vspkgui.dll(enu),,493"					%d				
+286		vssccui.dll		InstallShared	"Loc Vegas Shell,vssccui_dll_enu,vssccui.dll(enu),,493"					%d				
+287		vsslnui.dll		InstallShared	"Loc Vegas Shell,vsslnui_dll_enu,vsslnui.dll(enu),,493"					%d				
+288		htmedui.dll		InstallShared	"Loc Vegas Shell,htmedui_dll_enu,htmedui.dll(enu),,493"					%d				
+ 
+ 
+ 
+	=== (vsee) Solution Build Component === <fn: solutbld.etf>													
+291				Group	292 294					%d
+292				Group	293					%d
+293		vssln.dll		InstallShared	"(vsee) Solution Build,vssln_dll,vssln.dll,,493"					%d				
+294				Group	295					%d
+295				Depend	"293 ? 296"									
+296		vssln.dll		SelfReg	"""(vsee) Solution Build"",""vssln_dll"","""","""","""""					%293				
+ 
+ 
+	=== (vsee) SCC Component (scc.etf) ===
+301				Group	302 304					%d 			 
+ 
+302				Group	303					%d
+303		vsscc.dll		InstallShared	"(vsee) SCC,vsscc_dll,vsscc.dll,,493"					%d				
+ 
+304				Group	305					%d
+305				Depend	"303 ? 306"									
+306		vsscc.dll		SelfReg	"""(vsee) SCC"",""vsscc_dll"","""","""","""""					%303				
+ 
+	=== Vegas Template Component (vegastmp.etf) ===
+311		vjprojMain		Group	312					%d				
+ 
+312		vjprojCopy		Group	313 314 315					%d\NewFileItems				
+313		TextFile.txt		InstallShared	"Vegas Templates, textfile_txt, TextFile.txt,,493"					%d				
+314		NewHTML.htm		InstallShared	"Vegas Templates, newhtml_htm_1, NewHTML.htm,,493"					%d				
+315		newitems.vsd		InstallShared	"Vegas Templates, newitems_vsd_1, newitems.vsd,,493"					%d				
+ 
+ 
+ 
+ 
+ 
+	=== Vegas Shell Keyboard schemes (kydbtmp.etf) ===
+ 
+321				Group	322 323 324					%d 			 	
+322				InstallShared	"Shell Keyboard schemes,ds6_vsk,ds6.vsk,,493"					%d				
+323				InstallShared	"Shell Keyboard schemes,vb6_vsk,vb6.vsk,,493"					%d				
+324				InstallShared	"Shell Keyboard schemes,ds2_vsk,ds2.vsk,,493"					%d				
+ 
+ 
+  
+ 
+	=== msenv component - Vegas Shell === <fn: msenv.etf>
+ 
+331				Group	332 342 357					%d 			 	
+332				Group	333 334 335 336 337 338 339 340 341					%d 			 	
+333		dte.tlb		InstallShared	"msenv,dte_tlb,dte.tlb,,493"					%d				
+334		msenv.dll		InstallShared	"msenv,msenv_dll,msenv.dll,,493"					%d				
+335		msenvp.dll		InstallShared	"msenv,msenvp_dll,msenvp.dll,,493"					%d				
+336		devenv.exe		InstallShared	"msenv,vj6_exe,devenv.exe,,493"					%d				
+337		VSext.olb		InstallShared	"msenv,vj6ext_olb,VSext.olb,,493"					%d				
+338		vjext.tlb		InstallShared	"msenv,vjext_tlb,vjext.tlb,,493"					%d				
+339		views.prf		InstallShared	"msenv,views_prf,views.prf,,493"					%d				
+340		jautoexp.ini		InstallShared	"msenv sys,jautoexp_dat,jautoexp.ini,,493"					%w				
+341		textext.tlb		InstallShared	"msenv,textext_tlb,textext.tlb,,493"					%d				
+ 
+342				Group	343 345 347 348 350 352 354					%d 			 	
+343				Depend	"333 ? 344"									
+344				CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""msenv;dte_tlb"""					%333		
+345				Depend	"337 ? 346"									
+346				CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""msenv;vj6ext_olb"""					%337		
+347				Depend	"334 ? 356 371"									
+348				Depend	"334 ? 349"									
+349		msenv.dll		SelfReg	"""msenv"",""msenv_dll"","""","""","""""					%334				
+350				Depend	"335 ? 351"									
+351		msenvp.dll		SelfReg	"""msenv"",""msenvp_dll"","""","""","""""					%335				
+352				Depend	"341 ? 353"									
+353				CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""msenv;textext_tlb"""					%341		
+354				Depend	"338 ? 355"									
+355				CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""msenv;vjext_tlb"""					%338		
+356				StampCDInfo	"334, 106, 196"							
+ 
+357				Group	358 359					%d 			 	
+358				CustomAction	"COMMON98.DLL, RemoveAuxFile, msenv;vsmenu_ctm"					%284				
+ 
+359				Group	360 361									
+360		devenv.exe		CustomAction	"COMMON98.DLL,SyncEXECalloutCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+361		devenv.exe		CustomAction	"COMMON98.DLL,LaunchExeCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+362		devenv.exe		CustomAction	"COMMON98.DLL,SyncEXECalloutCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+363		devenv.exe		CustomAction	"COMMON98.DLL,LaunchExeCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+364		devenv.exe		CustomAction	"COMMON98.DLL,SyncEXECalloutCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+365		devenv.exe		CustomAction	"COMMON98.DLL,LaunchExeCAH,""""""%s\devenv.exe"""" /setup"""					%336				
+366				AddRegData	"CLASSES,""Licenses\1FB639E1-771F-11d1-8FD4-00A0C91E29D5"",,""ldaskjeinankjgbnkcejnkrgnkvntkhzkhbtnkste"""							
+ 
+	
+ 
+ 
+ 
+ 
+	=== Vegas Shell DDEEXEC Associations === <fn: vegasfta.etf>
+ 
+371				Group	372 378 384 391 397 403 409 415					%334 			 	
+ 
+372				Group	373 374 375 376 377					%d				
+373				AddRegData	""""",""HTML.Layout\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+374				AddRegData	""""",""HTML.Layout\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+375				AddRegData	""""",""HTML.Layout\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+376				AddRegData	""""",""HTML.Layout\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+377				AddRegData	""""",""HTML.Layout\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+378				Group	379 380 381 382 383					%d				
+379				AddRegData	""""",""batfile\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+380				AddRegData	""""",""batfile\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+381				AddRegData	""""",""batfile\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+382				AddRegData	""""",""batfile\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+383				AddRegData	""""",""batfile\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+384				Depend	"20 ? 385"									
+385				Group	386 387 388 389 390					%d				
+386				AddRegData	""""",""cmdfile\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+387				AddRegData	""""",""cmdfile\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+388				AddRegData	""""",""cmdfile\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+389				AddRegData	""""",""cmdfile\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+390				AddRegData	""""",""cmdfile\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+391				Group	392 393 394 395 396					%d				
+392				AddRegData	""""",""cssfile\shell\open"","""",""&Edit with Visual Studio"","""""						
+393				AddRegData	""""",""cssfile\shell\open\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+394				AddRegData	""""",""cssfile\shell\open\ddeexec"","""",""Open(""""%%1"""")"","""""									
+395				AddRegData	""""",""cssfile\shell\open\ddeexec\application"","""",""vstudio"","""""									
+396				AddRegData	""""",""cssfile\shell\open\ddeexec\topic"","""",""system"","""""									
+ 
+397				Group	398 399 400 401 402					%d				
+398				AddRegData	""""",""htmlfile\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+399				AddRegData	""""",""htmlfile\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+400				AddRegData	""""",""htmlfile\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+401				AddRegData	""""",""htmlfile\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+402				AddRegData	""""",""htmlfile\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+403				Group	404 405 406 407 408					%d				
+404				AddRegData	""""",""inifile\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+405				AddRegData	""""",""inifile\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+406				AddRegData	""""",""inifile\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+407				AddRegData	""""",""inifile\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+408				AddRegData	""""",""inifile\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+409				Group	410 411 412 413 414					%d				
+410				AddRegData	""""",""Visual.FoxPro.Form\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+411				AddRegData	""""",""Visual.FoxPro.Form\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+412				AddRegData	""""",""Visual.FoxPro.Form\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+413				AddRegData	""""",""Visual.FoxPro.Form\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+414				AddRegData	""""",""Visual.FoxPro.Form\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+415				Group	416 417 418 419 420					%d				
+416				AddRegData	""""",""txtfile\shell\EditWithVS"","""",""&Edit with Visual Studio"","""""						
+417				AddRegData	""""",""txtfile\shell\EditWithVS\command"","""",""""""%s\devenv.exe"""" """"%%1"""""","""""					%d	
+418				AddRegData	""""",""txtfile\shell\EditWithVS\ddeexec"","""",""Open(""""%%1"""")"","""""									
+419				AddRegData	""""",""txtfile\shell\EditWithVS\ddeexec\application"","""",""vstudio"","""""									
+420				AddRegData	""""",""txtfile\shell\EditWithVS\ddeexec\topic"","""",""system"","""""									
+ 
+ 
+													
+	=== VBA Files (vbvba.etf)===													
+431				Group	432 433									
+432				InstallSysFile	"VBA Files,riched20_dll"					%M				
+433				InstallShared	"VBA Files,scp32_dll,scp32.dll,,493"					%M				
+														
+	=== Setup files (setup.etf) ===													
+491				Group	511 492 499 493 494 495					%6\Tools\VSInst\Setup\1033				
+													
+492				CopySection	"Common Setup"					%d				
+493		vsiweb_dll		CopyFile	"SetupProdCah,vsiweb_dll"					%d				
+494				WriteTableFile	"setup.stf"					%d				
+495		selfreg.dll		InstallShared	"SetupProdCah,selfreg_dll,selfreg.dll,,493 "					%m				
+													
+496		msaddndr.dll		CustomAction	"COMMON98.DLL,SelfUnReg,""AddIn Designer,msaddndr_dll"""					%53				
+													
+499				Group	500					%492				
+500				Depend	492 ? 501 502 503									
+501		acmsetup.fts		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_fts"									
+502		acmsetup.ftg		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_ftg"									
+503		acmsetup.gid		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_gid"									
+ 														
+													
+	=== Product Specific Setup files (pssetup.etf) ===													
+511				Group	512									
+512				CopySection	"Setup"					%d				

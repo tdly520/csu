@@ -1,0 +1,22 @@
+<Schema name="thesaurusSchema"
+ xmlns="urn:schemas-microsoft-com:xml-data"
+ xmlns:dt="urn:schemas-microsoft-com:datatypes">
+<AttributeType name='weight' dt:type='float' required='no' />
+<ElementType name='pat' content='textOnly' />
+<ElementType name='sub' content='mixed'>
+    <attribute type='weight' />
+</ElementType>
+<ElementType name='replacement' content='eltOnly'>
+    <group order='seq'>
+        <element type='pat' minOccurs='1' />
+        <element type='sub' minOccurs='0' />
+    </group>
+</ElementType>
+<ElementType name='expansion' content='eltOnly'>
+    <element type='sub' minOccurs='1' />
+</ElementType>
+<ElementType name='thesaurus' content='eltOnly'>
+    <element type='replacement' minOccurs='0' />
+    <element type='expansion' minOccurs='0' />
+</ElementType>
+</Schema>

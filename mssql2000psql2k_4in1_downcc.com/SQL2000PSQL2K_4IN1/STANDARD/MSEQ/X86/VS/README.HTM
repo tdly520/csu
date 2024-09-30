@@ -1,0 +1,919 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./ReadMeVSI_files/filelist.xml">
+<link rel=Edit-Time-Data href="./ReadMeVSI_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Visual Studio Installer Readme</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Otis Q Buckwheat</o:Author>
+  <o:LastAuthor>Otis Q Buckwheat</o:LastAuthor>
+  <o:Revision>26</o:Revision>
+  <o:TotalTime>358</o:TotalTime>
+  <o:Created>2000-01-25T17:27:00Z</o:Created>
+  <o:LastSaved>2000-01-31T22:10:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>2605</o:Words>
+  <o:Characters>14854</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>123</o:Lines>
+  <o:Paragraphs>29</o:Paragraphs>
+  <o:CharactersWithSpaces>18241</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.msoIns
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:underline;
+	text-underline:single;
+	color:teal;}
+span.msoDel
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:line-through;
+	color:red;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:156844334;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1659954782 541246940 137788402 -1954384048 -1780070522 824491620 2057349572 857008218 1123052360 889079038;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:210118613;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2123280728 469640028 -195292670 536401298 25856132 -1707556156 1337749738 1486368194 -138015506 1903190414;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:317348177;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1819486180 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:351541326;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1599907018 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4
+	{mso-list-id:1034767500;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1427720664 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5
+	{mso-list-id:1638534009;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2065924960 1864255804 -695058600 -1758190858 -1059154810 1655185100 -317165878 -1052065266 482670580 372908886;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:1904482540;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1186817768 -848920334 1424768382 1840422122 1176253456 -1468350446 720117188 1533941576 -1816774098 1542643510;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=MS-HAID content=readmeve>
+<meta name=Template content="C:\Program Files\Microsoft Office\Office\html.dot">
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'
+onclick="checkExpand()">
+
+<div class=Section1>
+
+<h2><script language="JavaScript">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+</script><span style='font-family:Verdana;color:black'>Visual Studio Installer
+1.1 Readme<o:p></o:p></span></h2>
+
+<p><span style='font-size:10.0pt;font-family:Verdana;color:black'>© 2000
+Microsoft Corporation. All rights reserved.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana;color:black'>Other product
+and company names herein may be the trademarks of their respective owners. <o:p></o:p></span></p>
+
+<p><i><span style='font-size:10.0pt;font-family:Verdana;color:black'>Visual
+Studio Installer Readme</span></i><span style='font-size:10.0pt;font-family:
+Verdana;color:black'> includes updated information for the documentation
+provided with the Release to Web version of Microsoft® Visual Studio® Installer
+1.1. The information in this document is more current than the information in
+the Visual Studio Installer documentation.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana;color:black'>For other
+issues on the Help system of the Visual Studio suite of products, go to:<br>
+MSDN™, the Microsoft Developer Network Readme (ReadmeDN.htm in the MSDN CD-ROM
+1 root directory).<o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>Contents <o:p></o:p></span></h3>
+
+<h5><span style='font-family:Verdana;color:black'><a href="#WhatsNew"><!------------------------------------------------------------------->What's
+New in Visual Studio Installer 1.1</a><o:p></o:p></span></h5>
+
+<h5><span style='font-family:Verdana;color:black'><span style='mso-tab-count:
+1'>            </span></span><span style='font-family:Verdana;color:black;
+font-weight:normal'><a href="#SupportAddedforIsolatedComponents">Support Added
+for Isolated Components</a><o:p></o:p></span></h5>
+
+<h5><span style='font-family:Verdana;color:black'><span style='mso-tab-count:
+1'>            </span></span><span style='font-family:Verdana;color:black;
+font-weight:normal'><a href="#IsolateToProperty">IsolateTo Property</a><o:p></o:p></span></h5>
+
+<h5><a href="#rmmscKnownProblemsinVisualStudioInstalle"><span style='font-family:
+Verdana'>Known Problems within Visual Studio Installer</span></a></h5>
+
+<p style='text-indent:.5in'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'><a
+href="#CreateInstallerProjectswithaMaximumof800Components"></a><a
+href="#CreateInstallerProjectswithaMaximumof800">Create Installer Projects with
+a Maximum of 800 Components</a><span style='color:black'><o:p></o:p></span></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#HighCapacityMediaRequiredWhenIncludingMi">High Capacity Media Required
+When Including Microsoft Windows Bootstrap Loader in Installer Packages</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#IncludingtheCorrectLocalizedVersionofthe">Including the Correct
+Localized Version of the Microsoft Data Access Components Merge Module
+(Mdac.msm File) in Your Installer Project</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#InstallingLooseFilesSpanningSeveralDisks">Installing Loose Files
+Spanning Several Disks When the Installation Includes Cabinet (.Cab) Files</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#SettheMediaSizeforInstallerPackage(.msi)">Set the Media Size for
+Installer Package (.msi) Files with Cabinet (.cab) Files to Be 100 Kilobytes or
+Larger</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#VisualStudioInstallerCanOnlyBeInstalledo">Visual Studio Installer Can Be
+Installed Only on Machines with at Least One Visual Studio Product and Visual
+Studio 6.0 Service Pack 3</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#ProductInformationModuleSignatureCannotC">Product Information Module
+Signature Cannot Contain Spaces</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#ExtensionsintheAssociationsEditorCannotC">Extensions in the Associations
+Editor Cannot Contain Periods</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a href="#FontsCantBeAdded">Fonts Can't Be
+Added to an Installer Via the Add Files Dialog</a><o:p></o:p></span></p>
+
+<h5><span style='font-family:Verdana;color:black'><a
+href="#rmmscKnownProblemswithVisualStudioInstal"
+id=VSIKnownProblemsVSIDocumentation>Known Problems with Visual Studio Installer
+Documentation</a><o:p></o:p></span></h5>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#OnlineDocumentationIsNotIntegratedwithth">Online Documentation Is Not
+Integrated with the MSDN Library</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;
+mso-list:l6 level1 lfo2;mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;color:black'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><a href="#AccessingtheCurrentOnlineMSDNLibrary">Accessing the
+Current Online MSDN Library</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;
+mso-list:l6 level1 lfo2;mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;color:black'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><a href="#NavigatingtoErrorMessageDocumentation">Navigating to
+Error Message Documentation</a><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;
+mso-list:l6 level1 lfo2;mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol;color:black'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><a href="#OpeningVisualStudioInstallerStandaloneDo">Opening Visual
+Studio Installer Standalone Documentation</a><o:p></o:p></span></p>
+
+<p style='margin-right:.5in;margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'><a
+href="#ReferencestoMSDNLibraryMayBeIncorrect">References to MSDN Library May Be
+Incorrect</a><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana;color:black'><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<h3><a name=WhatsNew></a><span style='font-family:Verdana;color:black'><!------------------------------------------------------------------->What's
+New in Visual Studio Installer 1.1<o:p></o:p></span></h3>
+
+<h4><a name=SupportAddedforIsolatedComponents></a><span style='font-family:
+Verdana'>Support Added for Isolated Components<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer
+1.1 includes support for isolated components on Windows 2000 and Windows 98
+Second Edition. Authors of installers can specify that the installer copy the
+shared files (commonly shared DLLs) of an application into the application's
+folder rather than to a shared location. This private set of files (DLLs) is
+then used only by the application. Isolating the application together with its
+shared components in this manner has the following advantages: <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>The
+application always uses the versions of shared files with which it was
+deployed. <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Installing
+the application does not overwrite other versions of the shared files by other
+applications. <o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Subsequent
+installations of other applications using different versions of the shared
+files cannot overwrite the files used by this application. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Because the current
+implementation of COM keeps a single full path in the registry for each
+CLSID/Context pair, it forces all applications to use the same version of a
+shared DLL. To enable an application to keep a private copy of a COM server,
+the system loader in Windows 98 Second Edition and Windows 2000 checks for the
+presence of a .Local file in the application's folder. If the system loader
+detects a .Local file, it alters its search logic to prefer DLLs located in the
+same folder as the application.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer
+uses the IsolateTo property to determine if a shared file should be isolated.
+If the IsolateTo property is set to the path of a valid .Exe file, a .Local
+file will be created for the .Exe and a copy of the shared file will be placed
+in the .Exe file's target folder. An additional copy of the shared file will be
+placed in the folder specified in the File System Explorer according to normal
+installation rules. On operating systems that don't support isolated
+components, a single copy of the shared file will be placed in the specified
+folder and a .Local file will not be created.<o:p></o:p></span></p>
+
+<h4><a name=IsolateToProperty></a><span style='font-family:Verdana;color:black'>IsolateTo
+Property<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The IsolateTo property is
+used to specify whether a copy of a shared file should be placed in the same
+folder as its associated executable file when installing on Windows 2000 or
+Windows 98 Second Edition. If the IsolateTo property contains a valid path to a
+.Exe file in a target folder, a copy of the shared file will be placed in the
+target folder in addition to the location specified in the File System Editor.<o:p></o:p></span></p>
+
+<p><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:Verdana'>To set the IsolateTo property:<o:p></o:p></span></b></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Select
+a file (usually a .Dll or .Ocx) in the File System Editor.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>In the
+Properties window, select the IsolateTo property. This will open the Component
+dialog box.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Click
+the <b style='mso-bidi-font-weight:normal'>The following component</b> option
+button.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Select
+the associated .Exe file from the component list and click <b style='mso-bidi-font-weight:
+normal'>OK</b>.<o:p></o:p></span></p>
+
+<p><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:Verdana'>To disable the IsolateTo property:<o:p></o:p></span></b></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Select
+a file in the File System Editor.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>In
+the Properties window, select the IsolateTo property. This will open the
+Component dialog box.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Verdana'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Click
+the <b style='mso-bidi-font-weight:normal'>Don't isolate</b> option button,
+then click <b style='mso-bidi-font-weight:normal'>OK</b>.<o:p></o:p></span></p>
+
+<h3><a name=rmmscKnownProblemsinVisualStudioInstalle></a><span
+style='font-family:Verdana;color:black'>Known Problems within Visual Studio
+Installer<o:p></o:p></span></h3>
+
+<h4><a name=CreateInstallerProjectswithaMaximumof800></a><span
+style='font-family:Verdana'>Create Installer Projects with a Maximum of 800
+Components<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer
+supports a maximum of 800 components in an installer project developed for
+Microsoft® Windows 95 and Windows 98 applications. Installers containing more
+than 800 components will run successfully on Microsoft® Windows NT® platforms.
+However, because it is recommended that you create installers to run on Windows
+95, Windows 98, and Windows NT platforms, you should not exceed the maximum of
+800 components in any installer project. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>By default, Visual Studio
+Installer creates a new component for every file and registry entry you add to
+an installer project. If you must install more than 800 files and entries, you
+can group them together so some components contain multiple files or registry
+entries. Be careful doing this— you group files or entries together in a
+component, you must always ship them in the same component when you release a
+new version of your application. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The online documentation
+included with Visual Studio Installer states 1,600 as the maximum number of
+components per installer project. That information is no longer accurate. This
+readme contains the most up-to-date information. <o:p></o:p></span></p>
+
+<h4><a name=HighCapacityMediaRequiredWhenIncludingMi></a><span
+style='font-family:Verdana'>High Capacity Media Required When Including
+Microsoft Windows Bootstrap Loader in Installer Packages<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Creating installer
+packages with the Microsoft® Windows® installer bootstrap loader for
+distribution on 3.5-inch disks is not supported in Visual Studio Installer. The
+Windows Installer self-installing .exe files included with the bootstrap loader
+are too large to fit on 3.5-inch disks. If you create an installer that
+includes the bootstrap loader and select 3.5-inch disks as the distribution
+media, Visual Studio Installer will display a &quot;Disk is full&quot; error
+message when you build the installer project. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To create an installer
+package that includes the bootstrap loader, you must package and distribute it
+on a higher-capacity media than provided with 3.5-inch disks— example, a
+CD-ROM. If you want to distribute your installer package on 3.5-inch disks, you
+cannot include the Windows installer bootstrap loader with your installer
+package. <o:p></o:p></span></p>
+
+<h4><a name=IncludingtheCorrectLocalizedVersionofthe></a><span
+style='font-family:Verdana'>Including the Correct Localized Version of the
+Microsoft Data Access Components Merge Module (Mdac.msm File) in Your Installer
+Project<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you are developing a
+Japanese, German or worldwide neutral installer which includes the Microsoft®
+Data Access Components (MDAC) merge module (mdac.msm file) in your installer
+project, Visual Studio Installer may not import the correct version of the MDAC
+merge module automatically. If Visual Studio Installer imports an incorrect
+version of the MDAC merge module, the installation program may display
+MDAC-related messages in the wrong international language at installation run
+time. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>MDAC-related messages are
+contained within the MDAC merge module and are localized for Japanese and
+German versions of the MDAC merge module. The neutral mdac.msm shares common
+files with the localized MDAC merge modules, mdacjp.msm and mdacde.msm. The
+mdacjp.msm and mdacde.msm files are not satellites of mdac.msm; they are localized
+equivalents of mdac.msm. It is possible Visual Studio Installer will
+erroneously pick up the localized version of the MDAC merge module when
+creating a neutral installer with English dialogs or the neutral version of the
+MDAC merge module when creating a localized installer. <o:p></o:p></span></p>
+
+<h5><span style='font-family:Verdana'>Determining the Correct MDAC Merge Module
+for Your Installer Project<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Examine your installer
+project file to make sure it contains only one MDAC merge module, the correct
+neutral or localized version. You can determine the correct version of the MDAC
+merge module from this table: <o:p></o:p></span></p>
+
+<table border=1 cellspacing=1 cellpadding=0 width=594 style='width:445.5pt;
+ mso-cellspacing:.7pt;mso-padding-alt:3.75pt 3.75pt 3.75pt 3.75pt'>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana;
+  color:navy'>Use this version of MDAC</span></b></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana;
+  color:navy'>For this type of installer project</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>MDAC.MSM
+  (language-neutral version)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Language-neutral
+  installers</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>MDACJP.MSM
+  (localized for Japanese)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Japanese
+  installers</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>MDACDE.MSM
+  (localized for German)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:3.75pt 3.75pt 3.75pt 3.75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>German
+  installers</span></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If Visual Studio
+Installer has imported an incorrect version of the MDAC merge module, you must
+delete that version and add the correct version of MDAC to your installer
+project. <o:p></o:p></span></p>
+
+<h4><a name=InstallingLooseFilesSpanningSeveralDisks></a><span
+style='font-family:Verdana'>Installing Loose Files Spanning Several Disks When
+the Installation Includes Cabinet (.Cab) Files<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer
+supports the distribution of an installation program spanning several media—
+example, multiple 3.5-inch disks. However, if an installation program spanning
+several media includes both compressed cabinet (.cab) files and loose
+uncompressed files, Visual Studio Installer can read the loose files only on
+the first distribution media (Disk_1 of several installation disks). If you
+include loose files on multiple distribution media, Visual Studio Installer may
+display a &quot;source file not found&quot; error message during installation,
+and the installation will fail. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To include both
+uncompressed loose files and .cab files in an installation package, make sure
+all loose files will fit on the first installation media. <o:p></o:p></span></p>
+
+<h4><a name=RegistryValuesthatAreInstallerComponentK></a><a
+name="SettheMediaSizeforInstallerPackage(.msi)"></a><span style='font-family:
+Verdana'>Set the Media Size for Installer Package (.msi) Files with Cabinet
+(.cab) Files to Be 100 Kilobytes or Larger<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer supports
+the distribution of installation programs including compressed cabinet (.cab)
+files. Every .cab file includes an overhead space for the required overhead
+information about the files in the .cab file. This overhead limits the minimum
+size you can specify for the distribution media size. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you set the media size
+project property too low, without accounting for the overhead space, the .cab
+files will exceed the media size, and may fail to install correctly. The size of
+the overhead depends on the number of files you install, but will not exceed
+100 kilobytes (KB) for setups containing 800 files or less (the largest number
+of files you can install with Visual Studio Installer). <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To prevent problems
+related to media size requirements for .cab files, specify a distribution media
+size of 100 KB or larger. (You set this property in the Build Tab of the
+Project Properties dialog box.) A media size setting of 100 KB or larger
+accounts for the .cab file overhead space, and eliminates related problems. <o:p></o:p></span></p>
+
+<h4><a name=VisualStudioInstallerCanOnlyBeInstalledo></a><span
+style='font-family:Verdana'>Visual Studio Installer Can Be Installed Only on
+Machines with at Least One Visual Studio Product and Visual Studio 6.0 Service
+Pack 3<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To successfully run the
+Visual Studio Installer setup program, you must have at least one of the
+following Visual Studio products already installed on the target machine: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l5 level1 lfo10;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Microsoft®
+Visual Basic® 6.0. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l5 level1 lfo10;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Microsoft®
+Visual C++® 6.0. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l5 level1 lfo10;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Microsoft®
+Visual FoxPro® 6.0. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l5 level1 lfo10;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Microsoft®
+Visual InterDev™ 6.0. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l5 level1 lfo10;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Microsoft®
+Visual J++® 6.0. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Additionally, Visual Studio
+6.0 Service Pack 3 (VSSP3) must be installed on the target machine prior to
+running the Visual Studio Installer setup program. <o:p></o:p></span></p>
+
+<h4><a name=ProductInformationModuleSignatureCannotC><span style='font-family:
+Verdana'>Product Information Module Signature Cannot Contain Spaces</span></a><span
+style='mso-bookmark:ProductInformationModuleSignatureCannotC'></span><span
+style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>When creating a Merge
+Module project, the default Module Signature property is set to the same value
+as the project name. If this name contains spaces you will be prompted with an
+error message stating that the Module Signature is invalid.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The help topic for this
+error message states that the Module Signature may contain letters, digits,
+underscores (_), or periods (.). It should also state that it cannot contain
+spaces.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To correct this error,
+replace any spaces in the Module Signature property with underscores (_).<o:p></o:p></span></p>
+
+<h4><a name=ExtensionsintheAssociationsEditorCannotC><span style='font-family:
+Verdana'>Extensions in the Associations Editor Cannot Contain Periods</span></a><span
+style='mso-bookmark:ExtensionsintheAssociationsEditorCannotC'></span><span
+style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>When entering file
+associations in the Associations Editor you cannot use a leading period for
+file extensions. For example, instead of entering (.doc) for Word Document
+type, you must enter (doc).<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Using a leading period in
+a file extension will result in a failure to register the association on target
+machines. <o:p></o:p></span></p>
+
+<h4><a name=FontsCantBeAdded></a><span style='font-family:Verdana'>Fonts Can't
+Be Added to an Installer Via the Add Files Dialog</span><span style='font-size:
+10.0pt;font-family:Verdana;color:black'><o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>On some operating
+systems, attempting to add a font to an installer via the Add Files dialog
+causes the Font Viewer to open; the font file is not added to the installer. To
+add a font to an installer, select a font file in the Windows Explorer and drag
+it to the File System Explorer.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<o:p></o:p></span></p>
+
+<h3><a name=rmmscKnownProblemswithVisualStudioInstal></a><span
+style='font-family:Verdana'><!------------------------------------------------------------------->Known
+Problems with Visual Studio Installer Documentation<o:p></o:p></span></h3>
+
+<h4><a name=OnlineDocumentationIsNotIntegratedwithth></a><span
+style='font-family:Verdana'>Online Documentation Is Not Integrated with the
+MSDN Library<o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Online documentation for
+this Web release of Visual Studio Installer has not been integrated into the
+Microsoft Developer Network (MSDN) Library. Some capabilities, such as F1 help
+with error message dialog boxes and online hyperlinks to MSDN Library content,
+are not available.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>See the following
+sections for detailed information. <o:p></o:p></span></p>
+
+<table border=1 cellspacing=1 cellpadding=0 width=602 style='width:451.5pt;
+ mso-cellspacing:.7pt;mso-padding-alt:5.25pt 5.25pt 5.25pt 5.25pt'>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <h5><span style='font-family:Verdana'>To locate</span><span style='font-size:
+  12.0pt'><o:p></o:p></span></h5>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <h5><span style='font-family:Verdana'>See</span><span style='font-size:12.0pt'><o:p></o:p></span></h5>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Content referencing the
+  MSDN Library</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'><a href="#AccessingtheCurrentOnlineMSDNLibrary">Accessing
+  the Current Online MSDN Library</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>F1 help from error
+  message dialog boxes</span> </p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'><a href="#NavigatingtoErrorMessageDocumentation">Navigating
+  to Error Message Documentation</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Visual Studio Installer
+  standalone documentation</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'><a href="#OpeningVisualStudioInstallerStandaloneDo">Opening
+  Visual Studio Installer Standalone Documentation</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<h5><a name=AccessingtheCurrentOnlineMSDNLibrary></a><span style='font-family:
+Verdana'>Accessing the Current Online MSDN Library<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Because the documentation
+for this Web release is not yet integrated into the MSDN Library, references to
+important related MSDN content are offered as search keywords. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To locate information
+referenced to the MSDN Library, such as information about the Microsoft Windows
+installer, search for the specific reference and path mentioned in the Visual
+Studio Installer documentation. You can access the most current version of the
+MSDN online library at: <a href="http://msdn.microsoft.com/library/">http://msdn.microsoft.com/library/</a>.
+<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you want to view
+Visual Studio Installer documentation and the MSDN library, you must run each
+in a separate window. <o:p></o:p></span></p>
+
+<h5><a name=NavigatingtoErrorMessageDocumentation></a><span style='font-family:
+Verdana'>Navigating to Error Message Documentation<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Context-sensitive (F1)
+help is disabled for error messages presented in dialog boxes.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>To locate online
+documentation for an error message presented in a dialog box you can either: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l1 level1 lfo12;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Search
+in the Visual Studio Installer online documentation by entering part of the
+error message text as a search string in the <b>Search</b> tab. Enclose
+adjacent words in quotes.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>or
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo12;mso-list-change:
+\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Use
+the table of contents to navigate to the &quot;Visual Studio Installer
+Reference&quot; node in the Visual Studio Installer documentation.<o:p></o:p></span></p>
+
+<h5><a name=OpeningVisualStudioInstallerStandaloneDo></a><span
+style='font-family:Verdana'>Opening Visual Studio Installer Standalone
+Documentation<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>In this web release, Visual
+Studio Installer documentation is provided as a standalone HTML Help (.chm)
+file. You can open the documentation by: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l0 level1 lfo14;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Pressing
+<b>F1</b> or a <b>Help</b> button on a Visual Studio Installer-specific user
+interface element.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>or
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.5in;mso-text-indent-alt:-.25in;mso-list:l0 level1 lfo14;
+mso-list-change:\F0B7 "Otis Q Buckwheat" 20000125T0938;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Opening
+help from the <b>Start</b> menu:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;mso-list:l0 level2 lfo14;
+mso-list-change:"%2\:1\:0\:\." "Otis Q Buckwheat" 20000125T0938;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Verdana'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Click
+<b>Start</b>, and select <b>Programs</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;mso-list:l0 level2 lfo14;
+mso-list-change:"%2\:2\:0\:\." "Otis Q Buckwheat" 20000125T0938;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Verdana'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>From
+the <b>Programs</b> menu, select <b>Microsoft Visual Studio 6.0</b>, and then
+select <b>Microsoft Visual Studio 6.0 Enterprise Tools</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:1.0in;text-indent:-1.0in;mso-text-indent-alt:-.25in;mso-list:l0 level2 lfo14;
+mso-list-change:"%2\:3\:0\:\." "Otis Q Buckwheat" 20000125T0938;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Verdana'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>From
+the <b>Microsoft Visual Studio 6.0 Enterprise Tools</b> menu, click <b>Visual
+Studio Installer Help</b>.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you cannot open the
+Visual Studio Installer online documentation, you can download Microsoft HTML
+Help 1.2 at <a
+href="http://msdn.microsoft.com/workshop/author/htmlhelp/default.asp">http://msdn.microsoft.com/workshop/author/htmlhelp/default.asp</a>.
+After downloading HTML Help 1.2, follow the steps listed above to open the
+documentation.<o:p></o:p></span></p>
+
+<h4><a name=ReferencestoMSDNLibraryMayBeIncorrect><span style='font-family:
+Verdana'>References to MSDN Library May Be Incorrect</span></a><span
+style='font-family:Verdana'><o:p></o:p></span></h4>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Some help topics contain
+references to related content in the MSDN Library. Depending on the version of
+the MSDN Library that you are searching the path given in the documentation may
+be incorrect. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If the topic you are
+looking for can't be found using the path:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Platform SDK<br>
+&nbsp;&nbsp;&nbsp; Setup and Systems Management Services<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Setup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows
+Installer Programmer's Reference <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Use the following path: <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Platform SDK <br>
+&nbsp;&nbsp;&nbsp; Management Services<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Setup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows
+Installer<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you are using a
+version of the MSDN Library older than July 1999, neither path will exist. In
+this case you will need to access the online version of the MSDN Library at:
+&nbsp; <a href="http://msdn.microsoft.com/library/">http://msdn.microsoft.com/library/</a>.
+<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

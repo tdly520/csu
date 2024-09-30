@@ -1,0 +1,82 @@
+[InstallShield Silent]
+Version=v5.00.000
+File=Response File
+[File Transfer]
+OverwriteReadOnly=NoToAll
+[DlgOrder]
+Dlg0=SdWelcome-0
+Count=6
+Dlg1=SdLicense-0
+Dlg2=SdComponentDialog-0
+Dlg3=SdAskDestPath-0
+Dlg4=SdSelectFolder-0
+Dlg5=SdFinish-0
+[SdWelcome-0]
+Result=1
+[SdLicense-0]
+Result=1
+[SdComponentDialog-0]
+szDir=C:\Program Files\Microsoft Analysis Services
+Server\SQLTools-type=string
+Server\SQLTools-count=2
+Server\SQLTools-0=Server\SQLTools\Res
+Server\SQLTools-1=Server\SQLTools\ResLoc
+Server-type=string
+Server-count=3
+Server-0=Server\Data
+Server-1=Server\Samples
+Server-2=Server\SQLTools
+Manager-type=string
+Manager-count=5
+Manager-0=Manager\Sys
+Manager-1=Manager\Res
+Manager-2=Manager\ResLoc
+Manager-3=Manager\Help
+Manager-4=Manager\Help7
+DSO-type=string
+DSO-count=2
+DSO-0=DSO\Res
+DSO-1=DSO\ResLoc
+Client-type=string
+Client-count=3
+Client-0=Client\Sys
+Client-1=Client\Res
+Client-2=Client\ResLoc
+Samples-type=string
+Samples-count=3
+Samples-0=Samples\Sys
+Samples-1=Samples\Bin
+Samples-2=Samples\Include
+Books-type=string
+Books-count=1
+Books-0=Books\Utils
+Repository-type=string
+Repository-count=3
+Repository-0=Repository\Res
+Repository-1=Repository\ResLoc
+Repository-2=Repository\Models
+Component-type=string
+Component-count=8
+Component-0=Server
+Component-1=Manager
+Component-2=DSO
+Component-3=Client
+Component-4=Samples
+Component-5=Books
+Component-6=Repository
+Component-7=Root
+Result=1
+[SdAskDestPath-0]
+szDir=C:\Program Files\Microsoft Analysis Services\Data
+Result=1
+[SdSelectFolder-0]
+szFolder=Microsoft SQL Server\Analysis Services
+Result=1
+[Application]
+Name=OLAP Server
+Version=8.0
+Company=Microsoft
+[SdFinish-0]
+Result=1
+bOpt1=0
+bOpt2=0

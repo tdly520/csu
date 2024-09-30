@@ -1,0 +1,564 @@
+<html>
+
+<head><!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------- -->
+
+<link rel="stylesheet" link="text/css" href="sqlHTML.css">
+<!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------------- -->
+
+
+<title>DB page</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body bgcolor="window">
+
+<!-- BEGIN GENERAL SECTION--------------------------------------------->
+
+<!-- GENERAL TABLE HEADER--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+   <td width="32"  valign="bottom"><img src="WizButtTop.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="id_general"><!--General--></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="WizButtMiddle.gif" border="0"></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="WizButtBottom.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+</table>
+
+
+<table class="RowTbl">
+
+  <tr>
+    <td class="WhiteRow" td  WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_register_sql_svr"><!--Register a SQL Server--></span></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_run_profiler"><!--Run Profiler--></span></font></td>    
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_books_online"><!--Books On-Line--></span></font></td>    
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_run_qa"><!--Run Query Analyzer--></span></font></td>
+  </tr>
+
+
+</table>
+<br>
+<br>
+<!-- END GENERAL SECTION--------------------------------------------->
+
+<!-- BEGIN DATABASE SECTION--------------------------------------------->
+
+<!-- DATABASE TABLE HEADER--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+   <td width="32"  valign="bottom"><img src="WizButtTop.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="id_setup_db"><!--Setup a Database--></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="WizButtMiddle.gif" border="0"></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="WizButtBottom.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+</table>
+
+<table class="RowTbl">
+
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_db"><!--Create a Database--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_sp"><!--Create a Stored Procedure--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_index_db"><!--Create an Index--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_view"><!--Create a View--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_import"><!--Import Data--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_login"><!--Create a Login--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_export"><!--Export Data--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%" id="td_full_text"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_full_text"><!--Full Text Index--></span></font></td>
+  </tr>
+
+</table>
+<br>
+<br>
+<!-- END DATABASE SECTION--------------------------------------------->
+
+
+<!-- MAINTENANCE TABLE HEADER--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+   <td width="32"  valign="bottom"><img src="WizButtTop.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="id_manage_sql_srv"><!--Manage SQL Server--></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="WizButtMiddle.gif" border="0"></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="WizButtBottom.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+</table>
+
+<table class="RowTbl">
+
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_backup"><!--Backup a Database--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_tune_index"><!--Tune and Index--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_alert"><!--Create an Alert--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_master_server"><!--Make a Master Server--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_job"><!--Create a Job--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_target_server"><!--Make a Target Server--></span></font></td>
+  </tr>
+  <tr >
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <!--<td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_trace">Create a Profiler Trace</span></font></td>-->
+    <td class="WhiteRow" WIDTH="53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_omw_wizard"><!--Run OMW--></span></font></td>
+    <td class="WhiteRow" td WIDTH=42%" id="td_id_create_maintenance"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_maintenance"><!--Create a Maintenance Plan--></span></font></td>
+  </tr>
+</table>
+<br>
+<br>
+<!-- END MAINTENANCE SECTION--------------------------------------------->
+
+
+<!-- REPLICATION TABLE HEADER--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0" id="replicationTableTitle">
+  <tr>
+   <td width="32"  valign="bottom"><img src="WizButtTop.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="id_replicate_data"><!--Setup Replication--></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="WizButtMiddle.gif" border="0"></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="WizButtBottom.gif" border="0"></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+</table>
+
+
+<table class="RowTbl" id="replicationTable">
+
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_configure_pub"><!--Configure Publishing and Distribution--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_pull_subscription"><!--Create a Pull Subscription--></span></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_publication"><!--Create Publication--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%" id="id_td_push"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_create_push_subscription"><!--Create a Push Subscription--></span></font></td>
+  </tr>
+  <tr id="id_tr_dis">
+    <td class="WhiteRow" td WIDTH="5%"></font></td>
+    <td class="WhiteRow" td WIDTH=53%"><img border="0" src="wizardBullet.gif" valign="center"></img>&nbsp;<font class="LabelFont"><span onmouseover="MouseOverText()" onmouseout="MouseOutText()" id="id_disable_pub"><!--Disable Publishing and Distribution--></span></font></td>
+    <td class="WhiteRow" WIDTH="42%"></td>
+  </tr>
+
+</table>
+<!-- END REPLICATION SECTION--------------------------------------------->
+<script language="JScript">
+
+function MouseOverText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOver";
+}
+
+function MouseOutText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOut";
+}
+
+</script>
+
+<script language="JScript" for="document" event="onclick">
+
+    var             el;
+    var             szCookie;
+
+    
+    el          = window.event.srcElement;
+    szCookie    = parent.window.frames(0).GetParameterX("SQLNSCookie")
+
+        
+if( el.className == "clsWizardTextOver")
+{
+    var             oItem;
+        
+    switch(el.id)
+    {
+        // general
+        case 'id_register_sql_svr':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 2000);     
+        } 
+        break;                
+        case 'id_books_online':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 3110);     
+        } 
+        break;        
+        case 'id_run_qa':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 3102);     
+        } 
+        break;
+        case 'id_run_profiler':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 3101);     
+        } 
+        break;
+            
+        //setup a database
+        case 'id_create_db':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 500);
+        } 
+        break;
+        case 'id_index_db':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 510);
+        } 
+        break;              
+        case 'id_import':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 520);     
+        } 
+        break;
+        case 'id_export':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 525);     
+        } 
+        break;            
+        case 'id_create_sp':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 610);
+        } 
+        break;                        
+        case 'id_create_view':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 620);
+        } 
+        break;                        
+        case 'id_create_login':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 600);
+        } 
+        break;
+            
+        // Manage SQL Server                         
+        case 'id_backup':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 731);
+        } 
+        break;            
+        case 'id_create_maintenance':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 720);
+        } 
+        break;
+        case 'id_create_alert':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 710);
+        } 
+        break;                         
+        case 'id_create_job':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 530);
+        } 
+        break;                         
+/*        
+        case 'id_trace':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 732);
+        } 
+        break;                                     
+*/        
+        case 'id_tune_index':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 700);
+        } 
+        break;                                     
+        case 'id_master_server':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 740);
+        } 
+        break;                                     
+        case 'id_target_server':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 745);
+        } 
+        break;                                                 
+        // Replicate Data                                  
+        case 'id_configure_pub':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 2314);
+        } 
+        break;                                                 
+        case 'id_create_publication':
+        {
+            if(parent.window.parent.frames(0).hdnIsDatabase.value != 0)
+            {
+                parent.window.objSQLNSContext.InvokeCommand(szCookie, 2306);
+            }
+            else
+            {
+                parent.window.objSQLNSContext.InvokeCommand(szCookie, 2316);
+            }
+                    
+        } 
+        break;                                     
+        case 'id_disable_pub':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 2310);
+        } 
+        break;                                     
+        case 'id_pull_subscription':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 2317);
+        } 
+        break;                                     
+        case 'id_create_push_subscription':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 2307);
+        } 
+        break;                                     
+        case 'id_full_text':
+        {
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 1835);
+        }
+        break; 
+        case 'id_omw_wizard':
+        {            
+            parent.window.objSQLNSContext.InvokeCommand(szCookie, 1836);
+        }   
+        break;
+    }
+}
+
+</script>
+
+<script language="JScript">
+
+    var objDatabase
+    var o
+    var conBroken
+    var timerID
+    var objServer
+
+    //
+    // for back and next navigation we should select the correct tab menu
+    //    
+    
+    timerID = window.setInterval("LoadWizPage()", 50)
+    
+    function LoadWizPage()
+    {    
+    
+    if(parent.window.frames(0).hdnIsLoaded.value == 0)
+    {
+        return
+    }
+    else
+    {
+        window.clearInterval(timerID)        
+    }
+
+    
+    parent.window.parent.frames(0).clickWizardTab();
+    conBroken = false
+    try
+    {
+        objDatabase = parent.window.objSQLNSContext.GetDMOObject(parent.window.frames(0).GetParameterX("SQLNSCookie"))
+    }
+    catch(e)
+    {
+        conBroken = true
+    }        
+    
+    if(!conBroken)
+    {
+        if(parent.window.parent.frames(0).hdnIsDatabase.value != 0)
+        {
+            o = objDatabase                
+        }
+        else
+        {
+            o = objDatabase.Parent
+        }
+    
+        if(o.VerifyConnection(2))
+        {
+    
+            conBroken = true;
+            
+            try
+            {
+    
+                if(o.IsFullTextInstalled && o.isOS(2))
+                {
+                    td_full_text.style.display = ""        
+                }
+                else
+                {
+                    td_full_text.style.display = "none"
+                }
+            }
+            catch(e)
+            {
+                 td_full_text.style.display = "none"
+            }
+        }
+        else
+        {
+            conBroken = false;
+        }        
+    }
+    id_general.innerText                = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4087)
+    
+
+    id_register_sql_svr.innerText       = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4091)
+    id_books_online.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4092)
+    id_run_qa.innerText                 = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4094)
+    id_run_profiler.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4093)
+    
+    id_setup_db.innerText               = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4088)
+    id_create_db.innerText              = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4095)
+    id_index_db.innerText               = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4096)    
+    id_import.innerText                 = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4097)
+    id_export.innerText                 = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4098)
+    id_create_sp.innerText              = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4099)
+    id_create_view.innerText            = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4100)
+    id_create_login.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4101)
+
+    id_manage_sql_srv.innerText         = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4089)
+    id_backup.innerText                 = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4102)
+    id_create_alert.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4103)
+    id_create_job.innerText             = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4104)
+    //id_trace.innerText                  = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4105)
+    id_create_maintenance.innerText     = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4106)
+    id_tune_index.innerText             = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4107)
+    id_master_server.innerText          = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4108)
+    id_target_server.innerText          = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4109)
+    id_full_text.innerText              = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4149)
+    id_omw_wizard.innerText             = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4116)
+    
+    
+    
+    if(parent.window.parent.frames(0).hdnIsDatabase.value != 0)
+    {    
+        // this is a server
+        
+        // is a sysadmin?
+        if(o.Issysadmin)        
+        {
+            id_replicate_data.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4090)
+            id_configure_pub.innerText            = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4111)
+            id_pull_subscription.innerText        = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4114)  
+            id_create_publication.innerText       = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4112)
+            id_create_push_subscription.innerText = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4115)
+            id_disable_pub.innerText              = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4113)  
+        
+            replicationTableTitle.style.display   = "";
+            replicationTable.style.display        = "";
+        }
+        else
+        {
+            replicationTableTitle.style.display   = "none";
+            replicationTable.style.display        = "none";  
+            td_id_create_maintenance.style.display	  = "none"
+            
+        }                            
+    }
+    else
+    {
+        // this is a database
+        
+        objServer	= objDatabase.Parent
+        
+        if(!objServer.Issysadmin)
+        {
+			td_id_create_maintenance.style.display	  = "none"
+        }
+        
+        if(objDatabase.SystemObject)
+        {
+            replicationTableTitle.style.display   = "none";
+            replicationTable.style.display        = "none";  
+        }
+        else
+        {
+        
+            id_replicate_data.innerText           = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4090)
+            id_pull_subscription.innerText        = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4114)  
+            id_create_publication.innerText       = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4112)
+            id_configure_pub.innerText            = parent.window.parent.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4111)
+            
+                    
+            replicationTableTitle.style.display   = "";
+            replicationTable.style.display        = "";  
+            
+            id_td_push.style.display              = "none"; 
+            id_tr_dis.style.display               = "none";
+            
+            
+        }
+    }         
+}
+</script>
+
+<script language="jscript" for="document" event="onselectstart()">
+
+    window.event.returnValue = false;
+
+</script>
+
+
+</body>
+</html>

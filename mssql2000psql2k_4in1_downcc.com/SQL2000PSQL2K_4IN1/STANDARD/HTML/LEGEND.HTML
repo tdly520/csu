@@ -1,0 +1,94 @@
+<html>
+
+<head><!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------- -->
+
+<link rel="stylesheet" link="text/css" href="sqlHTML.css">
+<!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------------- -->
+
+</head>
+
+<body bgcolor="window">
+
+<!-- BEGIN LEGEND--------------------------------------------->
+
+<span id="tblLegend">
+</span>
+<br>
+<!-- END LEGEND--------------------------------------------->
+
+
+<input type="hidden" id="hdnFirstBtn" value="">
+<input type="hidden" id="hdnPrevBtn" value="">
+<input type="hidden" id="hdnNextBtn" value="">
+<input type="hidden" id="hdnLastBtn" value="">
+<input type="hidden" id="hdnTableIndex" value="1">
+<input type="hidden" id="hdnTableString" value="">
+
+
+<script language="JScript">
+
+function TestAlert()
+{
+ alert("It works");
+}
+
+function MouseOverText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOver";
+}
+
+function MouseOutText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOut";
+}
+</script>
+
+<script language="JScript" for="document" event="onclick">
+
+ var      el;
+ 
+ el=window.event.srcElement;
+ 
+ 
+ switch(el.id)
+ {
+    case 'btnFirst':
+    {
+        hdnTableIndex.value = hdnFirstBtn.value;
+        parent.window.frames(0).GenerateTableSpaceTable(hdnTableIndex.value, hdnTableString.value);
+        break;
+    }
+    case 'btnPrevious':
+    {
+        hdnTableIndex.value = hdnPrevBtn.value; 
+        parent.window.frames(0).GenerateTableSpaceTable(hdnTableIndex.value, hdnTableString.value);
+        break;
+    }
+    case 'btnNext':
+    {
+        hdnTableIndex.value = hdnNextBtn.value;    
+        parent.window.frames(0).GenerateTableSpaceTable(hdnTableIndex.value, hdnTableString.value);
+        break;
+    }
+    case 'btnLast':
+    {
+        hdnTableIndex.value = hdnLastBtn.value;        
+        parent.window.frames(0).GenerateTableSpaceTable(hdnTableIndex.value, hdnTableString.value);
+        break;
+    }
+ }
+
+
+</script>
+
+
+</body>
+</html>

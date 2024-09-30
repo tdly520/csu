@@ -1,0 +1,34 @@
+[PDF]
+Version=2.0
+
+[Package Definition]
+Language=English
+Publisher=Microsoft
+Name=SQL Server
+Version=8.0
+Programs=FullServer, Client
+MIFFileName=SQL.MIF
+
+[FullServer]
+Name=Full Edition - Server install
+CommandLine=smssqins.bat
+CanRunWhen=AnyUserStatus
+DriveLetterConnection=True
+UninstallKey=SQL Server 2000
+SupportedClients=Win NT (i386), Win NT (Alpha)
+Win NT (i386) MinVersion1=4.00.1381.4
+Win NT (alpha) MinVersion1=4.00.1381.4
+
+[Client]
+Name=Client install
+CommandLine=smscli.bat
+CanRunWhen=UserLoggedOn
+DriveLetterConnection=True
+UninstallKey=SQL Server 2000
+UserInputRequired=False
+AdminRightsRequired=True
+SupportedClients=Win 9x, Win NT (i386), Win NT (alpha)
+Win NT (i386) MinVersion1=4.00.1381.4
+Win NT (alpha) MinVersion1=4.00.1381.4
+
+

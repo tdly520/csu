@@ -1,0 +1,413 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+<STYLE>
+
+.WhiteRow {height:19pt;
+			background: "FFFFFF";
+			vertical-align:"top";
+			}
+
+.alerttext {color: #000000;  
+            font-weight: bold; 
+            font-size: 10.5pt;
+            font-family: 宋体, verdana, arial, helvetica, sans-serif;
+            }
+.alertmsg {color: #FF0000;  
+            font-size: 10.5pt;
+            font-family: 宋体, verdana, arial, helvetica, sans-serif;
+            }
+.alertsup {color: #669966;
+            font-weight:normal;
+            font-size:9pt;
+            font-family: 宋体;position:relative;
+            }
+
+.alertQHead {color: #336699;  
+            font-weight:bold;
+            font-size: 10.5pt;
+            font-family: 宋体, verdana, arial, helvetica, sans-serif;
+            }
+
+.alertQText {color: #000000;  
+            font-weight:bold;
+            font-size: 9pt;
+            font-family: 宋体, verdana, arial, helvetica, sans-serif;
+            }
+.alertQSubtext {color: #000000;  
+            font-weight:normal;
+            font-size: 9pt;
+            font-family: 宋体, verdana, arial, helvetica, sans-serif;
+            }
+
+.AlertTA { font-size: 9pt; 
+            font-family: 宋体; 
+            background-color: #ffffff; 
+            color: #000000; 
+            border:#336699;
+            border-width:thin; 
+            border-top-style:solid; 
+            border-bottom-style:dashed; 
+            border-left-style:dashed; 
+            border-right-style:dashed; 
+            }
+
+</STYLE>
+
+<title ID = titleFeedback>对 Microsoft SQL Server 警报的反馈</title>
+<script>
+// global variables
+//
+var gstrMailTo = "mailto:semmsg@microsoft.com";
+var gstrSaveToFileOnly;
+var gstrVersion;
+var gstrModule;
+var gstrLangID;
+var gstrResID;
+var gstrErrorID;
+var gstrErrorText;
+
+// resource strings
+//
+L_MailtoAlertIntro_Text = "以下项的%20警报%20反馈%20: ";
+L_SaveToFileIntro_Text = "以下项的警报反馈: ";
+L_Question1_Message = "您不喜欢此消息的哪些方面？";
+L_Question1NotClear_Text = "不清楚 — 我弄不懂问题。该消息含混不清，或者列出的可能原因太多。";
+L_Question1NotHelpful_Text = "无帮助作用 — 解释了问题，但没有说明如何解决该问题或提供变通方法。";
+L_Question1NotNecessary_Text = "没必要 — 实则是无用的打扰。该消息告诉我的是我所不需要知晓的或不关心的信息。应用程序本可以用其它方式通知我此信息或者根本不必通知。";
+L_Question2_Message = "您认为在 Microsoft SQL Server 中改进此警报的重要性有多大？";
+L_Question2VeryImportant_RadioButton = "很重要。";
+L_Question2Important_RadioButton = "重要。";
+L_Question2Neutral_RadioButton = "中等。";
+L_Question2NotImportant_RadioButton = "不重要。";
+L_Question2NoNeedToImprove_RadioButton = "不应改进。";
+L_EnterCommentsHere_Message = "请在此输入更多评注\">";
+L_InstructionForSave_Message = "若要将您的反馈保存为文件以在以后发送给 Microsoft，请:\r\n\r\n\
+— 向该文件添加附加的评注\r\n— 单击“文件”菜单上的“另存为”并\
+指定文件位置\r\n— 将文件用电子邮件发送到 semmsg@microsoft.com\r\n\r\n";
+
+
+{
+document.onmouseover=makeCool;
+document.onmouseout=makeNormal;
+}
+
+function makeCool() 
+{
+	src = event.toElement;
+	if (src.tagName == "A") 
+		{
+		src.oldcol = src.style.color;
+		src.style.color = "#FF0000"; 
+		}
+}
+
+function makeNormal() 
+{
+	src=event.fromElement;
+	if (src.tagName == "A") 
+		{
+		src.style.color = src.oldcol;
+		}
+}
+
+function parseParams() 
+{
+	var strURL, strArray, strDummy;
+	var iPos;
+	strURL = window.location.href;
+	iPos = strURL.indexOf("?", 0);		
+	strURL = strURL.substring(iPos + 1, strURL.length);
+	strArray = strURL.split("&");
+	gstrSaveToFileOnly = strArray[0];
+	gstrVersion = strArray[1];
+	gstrModule = strArray[2];
+	gstrLangID = strArray[3];
+	gstrResID = strArray[4];
+	gstrErrorID = strArray[5];
+	gstrErrorText = strArray[6];
+	gstrErrorText = getAlertText();
+	idAlertText.innerText = gstrErrorText;
+	idQuestion1WhatDontLike.innerText = L_Question1_Message;
+	idQuestion2ImportanceRate.innerText = L_Question2_Message;
+	idQuestion2VeryImportant.innerText = L_Question2VeryImportant_RadioButton;
+	idQuestion2Important.innerText = L_Question2Important_RadioButton;
+	idQuestion2Neutral.innerText = L_Question2Neutral_RadioButton;
+	idQuestion2NotImportant.innerText = L_Question2NotImportant_RadioButton;
+	idQuestion2NoNeedToImprove.innerText = L_Question2NoNeedToImprove_RadioButton;
+	if (gstrSaveToFileOnly == "Yes")
+		{
+        document.formFeedback.idBtnSubmitByMail.style.display = "none";
+		}
+}
+
+function getAlertText()
+{
+	var strError, strArray, count, strAlert, iPos, re;
+
+	iPos = gstrErrorText.indexOf("=", 0);		
+	strError = gstrErrorText.substring(iPos + 1, gstrErrorText.length);
+
+	re = /%20/g
+	strAlert = strError.replace(re, " ");
+	return strAlert;
+}
+
+function getActionString(sendByMail)
+{
+	var strBody, strAction, re, re2;
+
+	// mailto: seem to ignore rich text new line but when save to a file, 
+    // they are ok so use them any way.
+	//
+//	strBody += "%0a%0d";		 
+//	strBody += "\r\n";
+    if (sendByMail == 1)
+        {
+	    // contruct mailto: strings
+	    //
+	    strBody = gstrMailTo;
+		strBody += "?subject=";
+	    strBody += L_MailtoAlertIntro_Text;
+        }
+    else
+        {
+        strBody = L_SaveToFileIntro_Text;
+        }
+
+    // This will serve as subject line in mail or a summary when save
+    // in a file.  So abbreviate everything.
+    //
+    strBody += "Ver=";
+    strBody += gstrVersion;
+    strBody += " ";
+    strBody += "Module=";
+    strBody += gstrModule;
+    strBody += " ";
+    strBody += "LangID=";
+    strBody += gstrLangID;
+    strBody += " ";
+    strBody += "ResID=";
+    strBody += gstrResID;
+    strBody += " ";
+    strBody += "ErrID=";
+    strBody += gstrErrorID;
+
+    if (sendByMail == 1)
+        {
+        strBody += "&body=";
+        }
+    else
+        {
+        strBody += "\r\n";
+        }
+	strBody += "<ROOT>"
+	strBody += "\r\n";
+	strBody += "<AlertFeedback ";
+    strBody += 'version_string="';
+    strBody += gstrVersion
+    strBody += '" '
+    strBody += 'module_name="';
+    strBody += gstrModule
+    strBody += '" '
+    strBody += 'languageID="';
+    strBody += gstrLangID
+    strBody += '" '
+    strBody += 'resourceID="';
+    strBody += gstrResID
+    strBody += '" '
+    strBody += 'errorID="';
+    strBody += gstrErrorID
+    strBody += '" '
+	strBody += "\r\n";
+	strBody += 'alert_text="'
+	strBody += gstrErrorText;	 
+	strBody += '" '
+	strBody += "\r\n";
+	strBody += 'question1="';
+
+	strBody += L_Question1_Message;
+	strBody += '" '
+	strBody += "\r\n";
+	strBody += 'question1_feedback="';
+	if (formFeedback.R1[0].checked)
+		strBody += L_Question1NotClear_Text;
+	else if (formFeedback.R1[1].checked)
+		strBody += L_Question1NotHelpful_Text;
+	else if (formFeedback.R1[2].checked)
+		strBody += L_Question1NotNecessary_Text;
+	strBody += '" ';
+	strBody += "\r\n";
+	strBody += 'question2="';
+	strBody += L_Question2_Message;
+	strBody += '" ';
+	strBody += "\r\n";
+	strBody += 'question2_feedback="';
+	if (formFeedback.R3[0].checked)
+		strBody += L_Question2VeryImportant_RadioButton;
+	else if (formFeedback.R3[1].checked)
+		strBody += L_Question2Important_RadioButton;
+	else if (formFeedback.R3[2].checked)
+		strBody += L_Question2Neutral_RadioButton;
+	else if (formFeedback.R3[3].checked)
+		strBody += L_Question2NotImportant_RadioButton;
+	else if (formFeedback.R3[4].checked)
+		strBody += L_Question2NoNeedToImprove_RadioButton;
+	strBody += '" ';
+	strBody += "\r\n";
+	strBody += 'comments="'
+	strBody += L_EnterCommentsHere_Message;
+	strBody += "\r\n";
+	strBody += "</AlertFeedback>"
+	strBody += "\r\n";
+	strBody += "</ROOT>"
+
+    if (sendByMail == 1)
+        {
+	    // Replace all spaces with internet-safe char
+	    //
+	    re = /[ ]/g;
+	    strAction = strBody.replace(re, "%20");
+	    re2 = /[\"]/g;
+	    strBody = strAction.replace(re2, "|");
+        }
+	return strBody;
+}
+
+function submitByEmail()
+{
+	document.formFeedback.action = getActionString(1);
+	document.formFeedback.submit();
+	return true;
+}
+
+function saveToFile()
+{
+    var tfolder, tfile, tname, fname, TemporaryFolder = 2;
+	var strAction, fileURL;
+    var fso;
+
+    strAction = L_InstructionForSave_Message;
+
+    strAction += getActionString(0);
+
+    fso = new ActiveXObject("Scripting.FileSystemObject");
+
+    tfolder = fso.GetSpecialFolder(TemporaryFolder);
+    fileURL = tfolder.Path;
+    tname = "MSSQLAlertFeedback.txt";
+    fileURL += "\\";
+    fileURL += tname;
+    tfile = tfolder.CreateTextFile(tname, true, true);
+    tfile.WriteLine(strAction);
+    tfile.Close();
+    window.location.href = fileURL;
+
+	return true;
+}
+
+</SCRIPT>
+
+</head>
+
+
+<body leftmargin=0 rightmargin=0 topmargin=0 bottommargin=0 onload="parseParams()">
+<br>
+<table border=0 cellpadding=2 cellspacing=0>
+<tr>
+	<td class="WhiteRow">&nbsp;</td>
+	<td class="WhiteRow" ID = idApplication><font class="alerttext" nowrap>&nbsp;&nbsp;应用程序:&nbsp;</font></td>
+	<td class="WhiteRow" ID = idMS_SQL_EM><font class="alerttext">Microsoft SQL Server 企业管理器</font></td>
+</tr>
+<tr>
+	<td valign=top>&nbsp;</td>
+	<td valign=top align=right nowrap ID = idMessageText><font class="alerttext">消息正文:&nbsp;</font></td>
+	<td valign=top align=left><font class=alertmsg><P ID = idAlertText></P></font></td>
+</table>
+  
+<br>
+
+
+<form action="" method=GET name="formFeedback"><blockquote>
+
+<table name = "tblFeedback" id = "idtblFeedback" border=0 bordercolor=FF0000 cellpadding=0 cellspacing=0>
+<tr><td colspan=2>
+    <font class=alertQHead ID = idQuestion1WhatDontLike></font></td>
+</tr>
+<tr>
+	<td valign=top><input type="radio" name="R1" value="1"></td>
+	<td class=alertQSubtext ID = idQuestion1NotClear><B>不清楚</B> — 我弄不懂问题。该消息含混不清，
+或者列出的可能原因太多。
+	</td>
+</tr><tr>
+	<td align=right><input type="radio" name="R1" value="2"></td>
+	<td class=alertQSubtext ID = idQuestion1NotHelpful><B>无帮助作用</B> — 该消息解释了问题，但没有说明如何解决该问题或提供变通方法。
+	</td>
+</tr><tr>
+	<td valign=top align=right><input type="radio" name="R1" value="3"></td>
+	<td class=alertQSubtext ID = idQuestion1NotNecessary><B>没必要</B> — 实则是无用的打扰。
+      该消息告诉我的是我所不需要知晓的或不关心的信息。
+	 应用程序本可以用其它方式通知我此信息或者根本不必通知。
+	 </td>
+</tr>
+
+<tr><td colspan=2>
+    <br><font class=alertQHead ID = idQuestion2ImportanceRate></font>
+	</td>
+</tr><tr>	
+	<td align=right><input type="radio" value="1" name="R3"></td>
+	<td>
+		<font class=alertQText ID = idQuestion2VeryImportant>
+		</font>
+	</td>
+</tr><tr>	
+	<td align=right><input type="radio" value="2" name="R3"></td>
+	<td>
+		<font class=alertQText ID = idQuestion2Important>
+		</font>
+	</td>
+</tr><tr>	
+	<td align=right><input type="radio" value="3" name="R3"></td>
+	<td>
+		<font class=alertQText ID = idQuestion2Neutral>
+		</font>
+	</td>
+</tr><tr>	
+	<td align=right><input type="radio" value="4" name="R3"></td>
+	<td>
+		<font class=alertQText ID = idQuestion2NotImportant>		
+		</font>
+	</td>
+</tr><tr>	
+	<td align=right><input type="radio" value="5" name="R3"></td>
+	<td>
+		<font class=alertQText ID = idQuestion2NoNeedToImprove>
+		</font>
+	</td>
+</tr>
+
+<tr><td>&nbsp;</td>
+	<td align=center class=alerttext ID=idThankForHelp>
+	<br>感谢您帮助我们改进消息！
+	</td>
+<tr><td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+	<td align=center>
+	<input type=button ID = idBtnSubmitByMail value="通过电子邮件提交" onclick="submitByEmail()">
+	<input type=button ID = idBtnSaveToFile value="另存为文件" onclick="saveToFile()">
+	</td>
+</tr>
+</table>
+
+</blockquote>  
+</form>
+
+<br><br><center><hr>
+<div class=alertsup ID = idSendEmaiTo>
+有关此页的问题，请向以下地址发电子邮件: <a class=alertsup href="mailto:semmsg@microsoft.com">semmsg@microsoft.com</a>
+</div>
+</center>
+</body>
+</html>

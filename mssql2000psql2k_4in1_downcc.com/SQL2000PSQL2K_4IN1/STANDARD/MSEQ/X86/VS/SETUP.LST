@@ -1,0 +1,50 @@
+
+[Windows 95 Params]														
+	WndTitle   = Microsoft Visual Studio Installer Setup													
+	WndMess    = Starting Visual Studio Installer Setup, please wait...													
+	TmpDirSize = 2000													
+	TmpDirName = tmp													
+
+	CmdLine    = acmsetup /T VSIWeb.STF /S %s %s													
+
+	DrvModName = ACMSETUP													
+	DrvWinClass = Stuff-Shell													
+														
+[Windows 95 Files]														
+	acmsetup.exe = acmsetup.exe 													
+	acmsetup.hlp = acmsetup.hlp 													
+	mssetup.dll = mssetup.dll 													
+
+	VSIWeb.DLL = VSIWeb.DLL													
+	COMMON98.DLL = COMMON98.DLL													
+														
+	EULA.TXT = EULA.TXT													
+														
+	VSIWeb.INF = VSIWeb.INF													
+	VSIWeb.STF = VSIWeb.STF													
+														
+[NT Intel Params]														
+	WndTitle   = Microsoft Visual Studio Installer Setup													
+	WndMess    = Starting Visual Studio Installer Setup, please wait...													
+	TmpDirSize = 2000													
+	TmpDirName = tmp													
+
+	CmdLine    = acmsetup /T VSIWeb.STF /S %s %s													
+
+	DrvModName = ACMSETUP													
+	DrvWinClass = Stuff-Shell													
+														
+[NT Intel Files]														
+	acmsetup.exe = acmsetup.exe													
+	acmsetup.hlp = acmsetup.hlp													
+	mssetup.dll = mssetup.dll													
+
+	VSIWeb.DLL = VSIWeb.DLL													
+	COMMON98.DLL = COMMON98.DLL													
+
+	EULA.TXT = EULA.TXT													
+	VSIWeb.INF = VSIWeb.INF													
+	VSIWeb.STF = VSIWeb.STF													
+														
+    														
+        														

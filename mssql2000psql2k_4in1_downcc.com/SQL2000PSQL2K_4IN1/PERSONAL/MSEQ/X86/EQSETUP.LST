@@ -1,0 +1,88 @@
+[Windows 95 Params]
+	WndTitle    = Microsoft Setup
+        WndMess     = Starting Microsoft English Query Setup...
+	TmpDirSize  = 1500
+	TmpDirName  = ~mssetup.t
+        CmdLine     = acmsetup /T mseq.stf /S %s %s
+	DrvModName  = ACMSETUP
+	DrvWinClass = Stuff-Shell
+	Require31   = This application requires a newer version of Microsoft Windows.
+	CabinetFile = mseq.cab
+
+[Windows 95 Files]
+	@acmsetup.exe = acmsetup.exe
+	@acmsetup.hlp = acmsetup.hlp
+	@mssetup.dll  = mssetup.dll
+	@mseqstf.dll = mseqstf.dll
+	@msvcp60.dll = msvcp60.dll
+	@mfc42.dll = mfc42.dll
+	mseq.stf   = mseq.stf
+	mseq.inf   = mseq.inf
+        license.txt = license.txt
+	@hhupd.exe  = hhupd.exe
+	@regsvr.exe  = regsvr.exe
+
+	@odbcstf.dll = odbcstf.dll
+	@odbckey.inf = odbckey.inf
+ 	@odbcstp.dll = odbcstp.dll
+	@odbcstp.inf = odbcstp.inf
+	@msvcrt.dll = msvcrt.dll
+	@msvcrt40.dll = msvcrt40.dll
+
+[NT Intel Params]
+	WndTitle    = Microsoft Setup
+        WndMess     = Starting Microsoft English Query Setup...
+	TmpDirSize  = 1500
+	TmpDirName  = ~mssetup.t
+	CmdLine     = acmsetup /T mseq.stf /S %s %s
+	DrvModName  = ACMSETUP
+	DrvWinClass = Stuff-Shell
+	Require31   = This application requires a newer version of Microsoft Windows.
+	CabinetFile = mseq.cab
+
+[NT Intel Files]
+	@acmsetup.exe = acmsetup.exe
+	@acmsetup.hlp = acmsetup.hlp
+	@mssetup.dll  = mssetup.dll
+	@mseqstf.dll = mseqstf.dll
+	@msvcp60.dll = msvcp60.dll
+	@msvcrt.dll = msvcrt.dll
+	@mfc42.dll = mfc42.dll
+	mseq.stf   = mseq.stf
+	mseq.inf   = mseq.inf
+        license.txt = license.txt
+	@hhupd.exe  = hhupd.exe
+	@regsvr.exe  = regsvr.exe
+
+	@odbcstf.dll = odbcstf.dll
+	@odbckey.inf = odbckey.inf
+ 	@odbcstp.dll = odbcstp.dll
+	@odbcstp.inf = odbcstp.inf
+
+[NT Alpha Params]
+	WndTitle    = Microsoft Setup
+        WndMess     = Starting Microsoft English Query Setup...
+	TmpDirSize  = 1500
+	TmpDirName  = ~mssetup.t
+	CmdLine     = acmsetup /T mseq.stf /S %s %s
+	DrvModName  = ACMSETUP
+	DrvWinClass = Stuff-Shell
+	Require31   = This application requires a newer version of Microsoft Windows.
+	CabinetFile = mseq.cab
+
+[NT Alpha Files]
+	@acmsetup.exe = acmsetup.exe
+	@acmsetup.hlp = acmsetup.hlp
+	@mssetup.dll  = mssetup.dll
+	@mseqstf.dll = mseqstf.dll
+	@msvcrt.dll = msvcrt.dll
+	mseq.stf   = mseq.stf
+	mseq.inf   = mseq.inf
+        license.txt = license.txt
+	@hhupd.exe  = hhupd.exe
+	@regsvr.exe  = regsvr.exe
+
+	@odbcstf.dll = odbcstf.dll
+	@odbckey.inf = odbckey.inf
+ 	@odbcstp.dll = odbcstp.dll
+	@odbcstp.inf = odbcstp.inf

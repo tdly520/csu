@@ -1,0 +1,11 @@
+[Files]
+%INSTPATH%\Resources\1033\sqlmangr.RLL
+%INSTPATH%\Resources\1033
+%INSTPATH%\Resources
+%INSTPATH%\w95scm.dll
+%INSTPATH%\sqlmangr.exe
+%INSTPATH%\scm.exe
+%INSTPATH%
+
+[RegKeys]
+SOFTWARE\Microsoft\Service Manager

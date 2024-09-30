@@ -1,0 +1,346 @@
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Sun Aug 06 11:35:03 2000           **
+;**                                                                **
+;** Diamond Version: (32) 1.00.0540 (02/01/96)                     **
+;**                                                                **
+;*** BEGIN **********************************************************
+[Source Media Descriptions]
+;<disk number>, <disk label>, <file>, <path>
+  "1","Microsoft English Query 2000","mseq.cab","."
+
+
+
+;************* INF File list *****************
+[Default File Settings]
+"STF_BACKUP" = ""
+"STF_COPY" = "YES"
+"STF_DECOMPRESS" = "CABINET"
+"STF_OVERWRITE" = "OLDER"
+"STF_READONLY" = ""
+"STF_ROOT" = "YES"
+"STF_SETTIME" = "YES"
+"STF_TIME" = ""
+"STF_VITAL" = ""
+"STF_DATE" = ""
+[Old Version Cleanup]
+  1,eq10.cnt,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+  1,eq10.hlp,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+  1,eqdev.cnt,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+  1,eqdev.hlp,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+  1,eqhelp.cnt,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+[Help Aux]
+"acme_stf"=  1,acmes~.stf<acmsetup.stf>,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"eqhelp_gid"=  1,eqhelp.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"eqdev_gid"=  1,eqdev.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"eq10_gid"=  1,eq10.gid,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"eqdev_lnk" =  1,eqdev~.lnk<EQ Developer's Guide.lnk>,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"msacccah_dll" =  1,msacccah.dll,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+[EQ 70]
+"MSEQDEV_EXE"=  1,mseqdev.exe<mseqdev.exe>,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"DIFFDLL_DLL"=  1,diffdll.dll,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+"EQBOL_CHM"=  1,eqbol.chm,,,!COPY,,,,,,REMOVE,,,,,0,,,,,
+[Setup Inf]
+  1,mseq.inf,,,,2000-03-03,!DECOMPRESS,,,,,,,,,3506,,,,,
+[Davinci DDS FORMS]
+"mdt2df_dll"=  1,mdt2df.dll,,,,1999-03-03,,1033,,,,,,,SHARED,618496,,,,2.0.0.8425,
+"mdt2dfui_dll"=  1,mdt2dfx.dll,,,,1999-03-03,,1033,,,,,,,SHARED,24576,,,,2.0.0.8425,
+[Davinci Site Designer]
+"mdt2sd_dll"=  1,mdt2sd.dll,,,,1998-06-24,,1033,,,,,,,SHARED,491376,,,,2.0.0.8171,
+"mdt2sdnb_tlb"=  1,mdt2sdnb.tlb,,,,1998-06-20,,,,,,,,,SHARED,11040,,,,,
+"mdt2sdpc_tlb"=  1,mdt2sdpc.tlb,,,,1998-06-20,,,,,,,,,SHARED,2280,,,,,
+[DSO]
+"MSMDDO80_DLL"=  1,msmddo80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,4027880,,,,8.0.0.194,
+"MSMDNET_DLL"=  1,msmdnet.dll,,,,2000-08-06,,1033,,,,,,,SHARED,42472,,,,8.0.1.94,
+"MSMDLOCK_DLL"=  1,msmdlock.dll,,,,2000-08-06,,1033,,,,,,,SHARED,42464,,,,8.0.1.94,
+"MSMDDO_DLL"=  1,msmddo.dll,,,,2000-08-06,,1033,,,,,,,SHARED,2954680,,,,8.0.0.194,
+"MSMDSO_RLL"=  1,msmdso.rll,,,,2000-08-06,,1033,,,,,,,SHARED,120336,,,,8.0.1.94,
+"MSMDUN80_DLL"=  1,msmdun80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,185856,,,,2000.80.193.0,
+"MSOLAP80_DLL"=  1,msolap80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,1988120,,,,8.0.1.94,
+"MSMDGD80_DLL"=  1,msmdgd80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,1365496,,,,8.0.1.94,
+"MSMDCB80_DLL"=  1,msmdcb80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,214504,,,,8.0.1.94,
+"MSOLUI80_DLL"=  1,msolui80.dll,,,,2000-08-06,,1033,,,,,,,SHARED,226800,,,,8.0.0.194,
+"MSOLAP80_RLL"=  1,msolap80.rll,,,,2000-08-06,,1033,,,,,,,SHARED,218632,,,,8.0.1.94,
+"MSMDGDRV_DLL"=  1,msmdgdrv.dll,,,,2000-08-06,,1033,,,,,,,SHARED,641216,,,,7.0.1460.531,
+"OLAPUIR_RLL"=  1,olapuir.rll,,,,2000-08-06,,1033,,,,,,,SHARED,22016,,,,8.0.1.94,
+[Templates - Database Project]
+"newdbp_dbp"=  1,newdat~1.dbp<New Database Project.dbp>,,,,1998-04-24,,,,,,,,,,106,,,,,
+"newdbprj_vsd"=  1,newdat~1.vsd<NewDataProjects.vsdir>,,,,1998-04-24,,,,,,,,,,235,,,,,
+[Help]
+"REGSVR32_EXE"=  1,regsvr32.exe,,,,1999-03-01,,1033,,,,,,,,37136,SYSTEM,,,5.0.1586.1,
+"EQDOC_CHM"=  1,EQdoc.chm,,,,2000-07-17,,,,,,,,,,1010532,,,,,
+"EQTUT_CHM"=  1,EQTut.chm,,,,2000-07-13,,,,,,,,,,419994,,,,,
+"EQQBHLP_CHM"=  1,eqqbhlp.chm,,,,2000-07-12,,,,,,,,,,39758,,,,,
+[Davinci Schema]
+"mdt2db_dll"=  1,mdt2db.dll,,,,1999-03-03,,1033,,,,,,,SHARED,675840,,,,2.0.0.8425,
+[Setup]
+  1,setup.exe,,,,2000-07-24,!DECOMPRESS,1033,,,,,,,,204860,,,,8.0.711.0,
+  1,eqsetup.exe,,,,1998-07-20,!DECOMPRESS,1033,,,,,,,,72992,,,,3.0.0.1029,
+  1,sqlredis.exe,,,,2000-08-06,!DECOMPRESS,1033,,,,,,,,8788192,,,,4.71.1015.0,
+  1,eqsetup.lst,,,,2000-07-11,!DECOMPRESS,,,,,,,,,2530,,,,,
+  1,setup.tdf,,,,2000-07-11,!DECOMPRESS,,,,,,,,,84,,,,,
+  1,mseq.stf,,,,2000-08-02,!DECOMPRESS,,,,,,,,,26473,,,,,
+  1,license.txt,,,,2000-07-13,!DECOMPRESS,,,,,,,,,19972,,,,,
+"hhupd_exe"=  1,hhupd.exe,,,,1999-04-23,,1033,,,,,,,,410256,SYSTEM,,,4.71.1015.0,
+  1,regsvr.exe,,,,2000-07-24,,1033,,,,,,,,53308,,,,4.0.0.0,
+[Davinci Wrappers]
+"mdt2fw95_dll"=  1,mdt2fw95.dll,,,,1999-03-03,,1033,,,,,,,SHARED,81920,,,,2.0.0.8425,
+[Samples MODELS Pubs]
+  1,Pubs.eqm,,,,2000-07-11,,,,,,,,,,80391,,,,,
+  1,Pubs.eqp,,,,2000-07-11,,,,,,,,,,544,,,,,
+  1,Pubs.eqr,,,,2000-07-11,,,,,,,,,,34433,,,,,
+[Samples MODELS FoodMart]
+  1,Foodmart.eqm,,,,2000-07-11,,,,,,,,,,104163,,,,,
+  1,Foodmart.eqp,,,,2000-07-11,,,,,,,,,,617,,,,,
+  1,Foodmart.eqr,,,,2000-07-11,,,,,,,,,,30325,,,,,
+[VID - Data Package]
+"hierodbc_dll"=  1,viddbpkg.dll,,,,1998-06-10,,1033,,,,,,,,526513,,,,6.0.0.8161,
+"viddbui_dll_enu"=  1,viddbui.dll,,,,1998-06-06,,1033,,,,,,,,48128,,,,6.0.0.8159,
+[Samples MODELS Northwind]
+  1,northw~1.eqm<Northwind.eqm>,,,,2000-07-11,,,,,,,,,,168373,,,,,
+  1,northw~1.eqp<Northwind.eqp>,,,,2000-07-11,,,,,,,,,,678,,,,,
+  1,northw~1.eqr<Northwind.eqr>,,,,2000-07-11,,,,,,,,,,80017,,,,,
+[Samples VC RES]
+  1,author.ico,,,,2000-07-11,,,,,,,,,,1078,,,,,
+  1,mfcequi.rc2,,,,2000-07-11,,,,,,,,,,399,,,,,
+[Davinci DDS]
+"mdt2dd_dll"=  1,mdt2dd.dll,,,,1999-03-03,,1033,,,,,,,SHARED,471040,,,,2.0.0.8425,
+"mdt2gddo_dll"=  1,mdt2gddo.dll,,,,1999-03-03,,1033,,,,,,,SHARED,61440,,,,2.0.0.8425,
+"mdt2gddr_dll"=  1,mdt2gddr.dll,,,,1999-03-03,,1033,,,,,,,SHARED,126976,,,,2.0.0.8425,
+[Davinci Data Tool Specific]
+"mdt2dbns_dll"=  1,mdt2dbns.dll,,,,1999-03-03,,1033,,,,,,,SHARED,372736,,,,2.0.0.8425,
+"mdt2fref_dll"=  1,mdt2fref.dll,,,,1999-03-03,,1033,,,,,,,SHARED,45056,,,,2.0.0.8425,
+[Core Shared]
+"MSVCRT_DLL"=  1,msvcrt.dll,,,,1999-02-02,,1033,,,,,,,,266293,SYSTEM,,,6.0.8397.0,
+"MSVCP60_DLL"=  1,msvcp60.dll,,,,1998-06-17,,1033,,,,,,,,401462,SYSTEM,,,6.0.8168.0,
+[Repository]
+"INSREPIM_DLL"=  1,INSREPIM.DLL,,,,2000-07-07,,1033,,,,,,,SHARED,348257,,,,2000.0.189.0,
+"INSREPIM_EXE"=  1,InsRepIM.exe,,,,2000-07-07,,1033,,,,,,,SHARED,36939,,,,2000.0.189.0,
+"MSMDCXML_DLL"=  1,MSMDCXML.dll,,,,2000-07-07,,1033,,,,,,,SHARED,929872,,,,2000.0.189.0,
+"REPBR_DLL"=  1,REPBR.dll,,,,2000-07-07,,1033,,,,,,,SHARED,417887,,,,2000.0.189.0,
+"REPBRUI_DLL"=  1,REPBRUI.dll,,,,2000-07-07,,1033,,,,,,,SHARED,385098,,,,2000.0.189.0,
+"REPODBC_DLL"=  1,repodbc.dll,,,,2000-07-07,,1033,,,,,,,SHARED,1224777,,,,2000.0.189.0,
+"REPRC_RLL"=  1,reprc.rll,,,,2000-07-07,,1033,,,,,,,SHARED,49152,,,,2000.0.189.0,
+"MSMDCXML_RLL"=  1,MSMDCXML.rll,,,,2000-07-07,,1033,,,,,,,SHARED,36864,,,,2000.0.189.0,
+"MSRMIRC_RLL"=  1,msrmirc.rll,,,,2000-07-07,,1033,,,,,,,SHARED,32768,,,,2000.0.189.0,
+"REPBRUI_RLL"=  1,REPBRUI.rll,,,,2000-07-07,,1033,,,,,,,SHARED,69632,,,,2000.0.189.0,
+"REPBRMDC_RLL"=  1,REPBRMDC.rll,,,,2000-07-07,,1033,,,,,,,SHARED,131072,,,,2000.0.189.0,
+"DBM_RDM"=  1,DBM.rdm,,,,2000-07-07,,,,,,,,,SHARED,72426,,,,,
+"DTM_RDM"=  1,DTM.rdm,,,,2000-07-07,,,,,,,,,SHARED,31102,,,,,
+"GEN_RDM"=  1,GEN.rdm,,,,2000-07-07,,,,,,,,,SHARED,24522,,,,,
+"EQM_RDM"=  1,EQM.rdm,,,,2000-07-07,,,,,,,,,SHARED,28566,,,,,
+"SIM_RDM"=  1,SIM.rdm,,,,2000-07-07,,,,,,,,,SHARED,66666,,,,,
+"UML_RDM"=  1,UML.rdm,,,,2000-07-07,,,,,,,,,SHARED,61892,,,,,
+"UMX_RDM"=  1,UMX.rdm,,,,2000-07-07,,,,,,,,,SHARED,25060,,,,,
+[Thesaurus]
+"msth3am_lex"=  1,MSTH3AM.LEX,,,,1998-08-17,,,,,,,,,,1350186,,,,,
+"msthes3_dll"=  1,MSTHES3.DLL,,,,1998-06-08,,1033,,,,,,,,49152,,,,9.0.0.63104,
+[Metadata Services]
+"MSCOMCTL_OCX"=  1,mscomctl.ocx,,,,1998-12-02,,1033,,,,,,,,1060360,SYSTEM,,,6.1.83.36,
+[Davinci Linkview]
+"mdt2lv_dll"=  1,mdt2lv.dll,,,,1998-06-20,,1033,,,,,,,SHARED,526256,,,,2.0.0.8171,
+[Core]
+"EQBASE_DLL"=  1,mseqbase.dll,,,,2000-07-11,,1033,,,,,,,,6389819,,,,8.0.711.0,
+"EQCON_DLL"=  1,mseqconn.dll,,,,2000-07-11,,1033,,,,,,,,696379,,,,8.0.711.0,
+"EQCORE_EQD"=  1,mseqcore.eqd,,,,2000-07-11,,,,,,,,,,1182720,,,,,
+"EQMSG_DLL"=  1,mseqmsg.dll,,,,2000-07-11,,1033,,,,,,,,319544,SYSTEM,,,8.0.711.0,
+"EQOLE_DLL"=  1,mseqole.dll,,,,2000-07-11,,1033,,,,,,,,61498,,,,8.0.711.0,
+"EQSQL_DLL"=  1,mseqsql.dll,,,,2000-07-11,,1033,,,,,,,,49210,,,,8.0.711.0,
+"EQSMF_DLL"=  1,mseqsmf.dll,,,,2000-07-11,,1033,,,,,,,,692282,,,,8.0.711.0,
+[ODBC Setup]
+"odbckey_inf"=  1,odbckey.inf,,,,1999-04-23,,,,,,,,,,3010,SYSTEM,,,,
+"odbcstf_dll"=  1,odbcstf.dll,,,,1999-04-23,,,,,,,,,,22016,SYSTEM,,,3.0.23.1,
+"odbcstp_dll"=  1,odbcstp.dll,,,,1999-04-23,,1033,,,,,,,,82944,SYSTEM,,,5.0.37.7,
+"odbcstp_inf"=  1,odbcstp.inf,,,,1999-04-23,,,,,,,,,,7531,SYSTEM,,,,
+[Samples VB DLL]
+"OWCMDX_DLL"=  1,owcmdx.dll,,,,1999-10-08,,1033,,,,,,,,417845,,,,1.0.0.1,
+[Author Shared]
+"MFC42_DLL"=  1,mfc42.dll,,,,1999-03-23,,1033,,,,,,,,995383,SYSTEM,,,6.0.8447.0,
+"MSVCIRT_DLL"=  1,msvcirt.dll,,,,1998-06-17,,1033,,,,,,,,77878,SYSTEM,,,6.0.8168.0,
+"ATL_DLL"=  1,atl.dll,,,,1999-03-17,,1033,,,,,,,,69632,SYSTEM,,,3.0.8441.0,
+"MSVBVM60_DLL"=  1,msvbvm60.dll,,,,1999-03-26,,1033,,,,,,,,1384448,SYSTEM,,,6.0.84.50,
+[Davinci Framework]
+"mdt2fw_dll"=  1,mdt2fw.dll,,,,1999-03-03,,1033,,,,,,,SHARED,577536,,,,2.0.0.8425,
+"mdt2fwui_dll_enu"=  1,mdt2fwui.dll,,,,1999-03-03,,1033,,,,,,,SHARED,64272,,,,2.0.0.8425,
+[Samples VB]
+  1,author~1.ico<author.ico>,,,,2000-07-11,,,,,,,,,,1078,,,,,
+  1,eqvbui.bas,,,,2000-07-11,,,,,,,,,,33191,,,,,
+  1,eqvbui.vbp,,,,2000-07-11,,,,,,,,,,2069,,,,,
+  1,eqvbui.vbw,,,,2000-07-11,,,,,,,,,,404,,,,,
+  1,frmhis~1.frm<frmHistory.frm>,,,,2000-07-11,,,,,,,,,,6881,,,,,
+  1,frmhis~1.frx<frmHistory.frx>,,,,2000-07-11,,,,,,,,,,1090,,,,,
+  1,frmlis~1.frm<frmListClarify.frm>,,,,2000-07-11,,,,,,,,,,6171,,,,,
+  1,frmlis~1.frx<frmListClarify.frx>,,,,2000-07-11,,,,,,,,,,1090,,,,,
+  1,frmola~1.frm<frmOlapInfo.frm>,,,,2000-07-11,,,,,,,,,,2764,,,,,
+  1,frmola~1.frx<frmOlapInfo.frx>,,,,2000-07-11,,,,,,,,,,12,,,,,
+  1,frmSQL.frm,,,,2000-07-11,,,,,,,,,,3840,,,,,
+  1,frmSQL.frx,,,,2000-07-11,,,,,,,,,,1090,,,,,
+  1,frmtex~1.frm<frmTextClarify.frm>,,,,2000-07-11,,,,,,,,,,3822,,,,,
+  1,frmtex~1.frx<frmTextClarify.frx>,,,,2000-07-11,,,,,,,,,,1090,,,,,
+  1,main.frm,,,,2000-07-11,,,,,,,,,,9267,,,,,
+  1,main.frx,,,,2000-07-11,,,,,,,,,,2180,,,,,
+  1,Query.frm,,,,2000-07-11,,,,,,,,,,19973,,,,,
+  1,Query.frx,,,,2000-07-11,,,,,,,,,,7774,,,,,
+[ReadMe]
+  1,readme.txt,,,,2000-08-05,!DECOMPRESS,,,,,,,,,47815,,,,,
+[Samples VC]
+  1,columns.cpp,,,,2000-07-11,,,,,,,,,,1231,,,,,
+  1,columns.h,,,,2000-07-11,,,,,,,,,,1226,,,,,
+  1,datagrid.cpp,,,,2000-07-11,,,,,,,,,,18921,,,,,
+  1,datagrid.h,,,,2000-07-11,,,,,,,,,,4871,,,,,
+  1,dbinter.cpp,,,,2000-07-11,,,,,,,,,,11964,,,,,
+  1,dbinter.h,,,,2000-07-11,,,,,,,,,,1348,,,,,
+  1,displa~1.cpp<DisplayMDX.cpp>,,,,2000-07-11,,,,,,,,,,15655,,,,,
+  1,displa~1.h<DisplayMDX.h>,,,,2000-07-11,,,,,,,,,,1356,,,,,
+  1,dlgola~1.cpp<dlgOLAPInfo.cpp>,,,,2000-07-11,,,,,,,,,,1491,,,,,
+  1,dlgola~1.h<dlgOLAPInfo.h>,,,,2000-07-11,,,,,,,,,,1264,,,,,
+  1,DlgProxy.cpp,,,,2000-07-11,,,,,,,,,,4749,,,,,
+  1,DlgProxy.h,,,,2000-07-11,,,,,,,,,,1722,,,,,
+  1,eqmodel.cpp,,,,2000-07-11,,,,,,,,,,4517,,,,,
+  1,eqmodel.h,,,,2000-07-11,,,,,,,,,,755,,,,,
+  1,font.cpp,,,,2000-07-11,,,,,,,,,,2098,,,,,
+  1,font.h,,,,2000-07-11,,,,,,,,,,1461,,,,,
+  1,global.h,,,,2000-07-11,,,,,,,,,,671,,,,,
+  1,graphi~1.cpp<graphicalqb.cpp>,,,,2000-07-11,,,,,,,,,,1733,,,,,
+  1,graphi~1.h<graphicalqb.h>,,,,2000-07-11,,,,,,,,,,1898,,,,,
+  1,histor~1.cpp<HistoryDlg.cpp>,,,,2000-07-11,,,,,,,,,,6161,,,,,
+  1,histor~1.h<HistoryDlg.h>,,,,2000-07-11,,,,,,,,,,1734,,,,,
+  1,listcl~1.cpp<ListClarifyDlg.cpp>,,,,2000-07-11,,,,,,,,,,5335,,,,,
+  1,listcl~1.h<ListClarifyDlg.h>,,,,2000-07-11,,,,,,,,,,1867,,,,,
+  1,MakeHelp.bat,,,,2000-07-11,,,,,,,,,,1408,,,,,
+  1,mfcequi.cpp,,,,2000-07-11,,,,,,,,,,3714,,,,,
+  1,mfcequi.dsp,,,,2000-07-11,,,,,,,,,,13524,,,,,
+  1,mfcequi.h,,,,2000-07-11,,,,,,,,,,1281,,,,,
+  1,mfcequi.mak,,,,2000-07-11,,,,,,,,,,16117,,,,,
+  1,mfcequi.odl,,,,2000-07-11,,,,,,,,,,2699,,,,,
+  1,mfcequi.rc,,,,2000-07-11,,,,,,,,,,17164,,,,,
+  1,mfcequi.reg,,,,2000-07-11,,,,,,,,,,699,,,,,
+  1,mfcequ~1.cpp<mfcequiDlg.cpp>,,,,2000-07-11,,,,,,,,,,13038,,,,,
+  1,mfcequ~1.h<mfcequiDlg.h>,,,,2000-07-11,,,,,,,,,,1872,,,,,
+  1,mseqole.tlh,,,,2000-07-11,,,,,,,,,,141309,,,,,
+  1,mseqole.tli,,,,2000-07-11,,,,,,,,,,128118,,,,,
+  1,mseqsmf.tlh,,,,2000-07-11,,,,,,,,,,38028,,,,,
+  1,mseqsmf.tli,,,,2000-07-11,,,,,,,,,,38150,,,,,
+  1,msflex~1.cpp<msflexgrid.cpp>,,,,2000-07-11,,,,,,,,,,29151,,,,,
+  1,msflex~1.h<msflexgrid.h>,,,,2000-07-11,,,,,,,,,,7388,,,,,
+  1,nlinter.cpp,,,,2000-07-11,,,,,,,,,,12355,,,,,
+  1,nlinter.h,,,,2000-07-11,,,,,,,,,,2605,,,,,
+  1,owcmdx.tlh,,,,2000-07-11,,,,,,,,,,1243,,,,,
+  1,owcmdx.tli,,,,2000-07-11,,,,,,,,,,552,,,,,
+  1,picture.cpp,,,,2000-07-11,,,,,,,,,,1128,,,,,
+  1,picture.h,,,,2000-07-11,,,,,,,,,,1295,,,,,
+  1,pivotc~1.cpp<pivotcontrol.cpp>,,,,2000-07-11,,,,,,,,,,11467,,,,,
+  1,pivotc~1.h<pivotcontrol.h>,,,,2000-07-11,,,,,,,,,,3858,,,,,
+  1,pivotv~1.cpp<pivotview.cpp>,,,,2000-07-11,,,,,,,,,,8945,,,,,
+  1,pivotv~1.h<pivotview.h>,,,,2000-07-11,,,,,,,,,,2828,,,,,
+  1,QueryDlg.cpp,,,,2000-07-11,,,,,,,,,,16291,,,,,
+  1,QueryDlg.h,,,,2000-07-11,,,,,,,,,,2611,,,,,
+  1,resource.h,,,,2000-07-11,,,,,,,,,,4074,,,,,
+  1,selboo~1.cpp<selbookmarks.cpp>,,,,2000-07-11,,,,,,,,,,1224,,,,,
+  1,selboo~1.h<selbookmarks.h>,,,,2000-07-11,,,,,,,,,,1274,,,,,
+  1,showsq~1.cpp<ShowSQLDlg.cpp>,,,,2000-07-11,,,,,,,,,,4811,,,,,
+  1,showsq~1.h<ShowSQLDlg.h>,,,,2000-07-11,,,,,,,,,,1665,,,,,
+  1,splits.cpp,,,,2000-07-11,,,,,,,,,,1224,,,,,
+  1,splits.h,,,,2000-07-11,,,,,,,,,,1217,,,,,
+  1,StdAfx.cpp,,,,2000-07-11,,,,,,,,,,205,,,,,
+  1,StdAfx.h,,,,2000-07-11,,,,,,,,,,1383,,,,,
+  1,stddat~1.cpp<stddataformatsdisp.cpp>,,,,2000-07-11,,,,,,,,,,1412,,,,,
+  1,stddat~1.h<stddataformatsdisp.h>,,,,2000-07-11,,,,,,,,,,1364,,,,,
+  1,textcl~1.cpp<TextClarifyDlg.cpp>,,,,2000-07-11,,,,,,,,,,3821,,,,,
+  1,textcl~1.h<TextClarifyDlg.h>,,,,2000-07-11,,,,,,,,,,1655,,,,,
+[dag Data Env]
+"deext_tlb"=  1,deext.tlb,,,,1998-06-09,,,,,,,,,,32824,,,,,
+"msde_dll"=  1,msde.dll,,,,1998-06-09,,1033,,,,,,,,509440,,,,6.0.0.3005,
+"msderun_dll"=  1,msderun.dll,,,,1998-06-09,,1033,,,,,,,,137216,,,,6.0.0.3005,
+"msderun_dep"=  1,msderun.dep,,,,1998-06-09,,,,,,,,,,589,,,,,
+"msdeui_dll_enu"=  1,msdeui.dll,,,,1998-06-09,,1033,,,,,,,,90112,,,,6.0.0.3005,
+[Samples AOM]
+  1,AOMBuild.cmd,,,,2000-07-11,,,,,,,,,,62,,,,,
+  1,AOMBuild.vbs,,,,2000-07-11,,,,,,,,,,12291,,,,,
+  1,readme~1.htm<readme.htm>,,,,2000-07-11,,,,,,,,,,13888,,,,,
+[Author]
+"EQPKG_DLL"=  1,mseqpkg.dll,,,,2000-07-11,,1033,,,,,,,,905274,,,,8.0.711.0,
+"EQDIFF_DLL"=  1,mseqdiff.dll,,,,2000-07-11,,1033,,,,,,,,122938,,,,8.0.711.0,
+"EQRPOS_DLL"=  1,mseqrpos.dll,,,,2000-07-11,,1033,,,,,,,,1069115,,,,8.0.0.711,
+"EQPROJECTITEMS"=  1,eqproj~1.vsd<EQProjectItems.vsdir>,,,,2000-07-11,,,,,,,,,,246,,,,,
+"EQPROJECTITEMS"=  1,Module.eqm,,,,2000-07-11,,,,,,,,,,114,,,,,
+"EQPROJECTITEMS"=  1,regres~1.eqr<Regression.eqr>,,,,2000-07-11,,,,,,,,,,52,,,,,
+"EQPROJECTS"=  1,emptyp~1.eqp<Empty Project.eqp>,,,,2000-07-11,,,,,,,,,,636,,,,,
+"EQPROJECTS"=  1,eqproj~2.vsd<EQProjects.vsdir>,,,,2000-07-11,,,,,,,,,,402,,,,,
+"EQPROJECTS"=  1,Module1.eqm,,,,2000-07-11,,,,,,,,,,114,,,,,
+"EQPROJECTS"=  1,newola~1.vsz<New OLAP Project Wizard.vsz>,,,,2000-07-11,,,,,,,,,,64,,,,,
+"EQPROJECTS"=  1,newpro~1.vsz<New Project Wizard.vsz>,,,,2000-07-11,,,,,,,,,,67,,,,,
+"EQPROJECTS"=  1,regres~2.eqr<Regression1.eqr>,,,,2000-07-11,,,,,,,,,,52,,,,,
+"WEBPAGES"=  1,clarify.asp,,,,2000-07-11,,,,,,,,,,2200,,,,,
+"WEBPAGES"=  1,commands.asp,,,,2000-07-11,,,,,,,,,,1466,,,,,
+"WEBPAGES"=  1,common.asp,,,,2000-07-11,,,,,,,,,,43937,,,,,
+"WEBPAGES"=  1,default.asp,,,,2000-07-11,,,,,,,,,,397,,,,,
+"WEBPAGES"=  1,default.htm,,,,2000-07-11,,,,,,,,,,124,,,,,
+"WEBPAGES"=  1,empty.htm,,,,2000-07-11,,,,,,,,,,50,,,,,
+"WEBPAGES"=  1,global.asa,,,,2000-07-11,,,,,,,,,,2372,,,,,
+"WEBPAGES"=  1,global.css,,,,2000-07-11,,,,,,,,,,2167,,,,,
+"WEBPAGES"=  1,mseqgrqb.cab,,,,2000-07-11,,,,,,,,,,131949,,,,,
+"WEBPAGES"=  1,olapwe~1.vsz<Olap Web Project Wizard.vsz>,,,,2000-07-11,,,,,,,,,,64,,,,,
+"WEBPAGES"=  1,params.asp,,,,2000-07-11,,,,,,,,,,2263,,,,,
+"WEBPAGES"=  1,problems.txt,,,,2000-07-11,,,,,,,,,,84,,,,,
+"WEBPAGES"=  1,qbctrl.asp,,,,2000-07-11,,,,,,,,,,962,,,,,
+"WEBPAGES"=  1,qbframe.asp,,,,2000-07-11,,,,,,,,,,239,,,,,
+"WEBPAGES"=  1,qbframe2.htm,,,,2000-07-11,,,,,,,,,,171,,,,,
+"WEBPAGES"=  1,qbrequ~1.htm<qbrequest.htm>,,,,2000-07-11,,,,,,,,,,753,,,,,
+"WEBPAGES"=  1,qbstub.asp,,,,2000-07-11,,,,,,,,,,4822,,,,,
+"WEBPAGES"=  1,questi~1.asp<questionlist.asp>,,,,2000-07-11,,,,,,,,,,4120,,,,,
+"WEBPAGES"=  1,request.asp,,,,2000-07-11,,,,,,,,,,2862,,,,,
+"WEBPAGES"=  1,request.js,,,,2000-07-11,,,,,,,,,,1044,,,,,
+"WEBPAGES"=  1,response.asp,,,,2000-07-11,,,,,,,,,,2118,,,,,
+"WEBPAGES"=  1,SampleQ.eqr,,,,2000-07-11,,,,,,,,,,118,,,,,
+"WEBPAGES"=  1,storsamp.asp,,,,2000-07-11,,,,,,,,,,858,,,,,
+"WEBPAGES"=  1,webpag~1.vsd<Web Pages.vsdir>,,,,2000-07-11,,,,,,,,,,273,,,,,
+"WEBPAGES"=  1,webpro~1.vsz<Web Project Wizard.vsz>,,,,2000-07-11,,,,,,,,,,67,,,,,
+"RES1033"=  1,msequi.dll,,,,2000-07-11,,1033,,,,,,,,155712,,,,8.0.711.0,
+"RES1033"=  1,msequi.map,,,,2000-07-11,,,,,,,,,,517,,,,,
+[Davinci Query]
+"mdt2qd_dll"=  1,mdt2qd.dll,,,,1999-03-03,,1033,,,,,,,SHARED,1318912,,,,2.0.0.8425,
+[Acme]
+  1,acmsetup.exe,,,,1999-01-28,,1033,,,,,,,,371200,SYSTEM,,,3.1.0.8043,
+  1,mssetup.dll,,,,1999-01-28,,1033,,,,,,,,283136,SYSTEM,,,3.1.0.1918,
+  1,msvcrt40.dll,,,,1997-09-27,,1033,,,,,,,,65024,SYSTEM,,,4.2000.0.6172,
+  1,acmsetup.hlp,,,,1999-01-28,,,,,,,,,,14490,SYSTEM,,,,
+  1,setup.ini,,,,2000-07-11,!DECOMPRESS,,,,,,,,,149,SYSTEM,,,,
+  1,mseqstf.dll,,,,2000-07-24,,,,,,,,,,90174,SYSTEM,,,,
+[Samples ASP]
+  1,clarif~1.asp<clarify.asp>,,,,2000-07-11,,,,,,,,,,2200,,,,,
+  1,comman~1.asp<commands.asp>,,,,2000-07-11,,,,,,,,,,1466,,,,,
+  1,common~1.asp<common.asp>,,,,2000-07-11,,,,,,,,,,43937,,,,,
+  1,defaul~1.asp<default.asp>,,,,2000-07-11,,,,,,,,,,397,,,,,
+  1,defaul~1.htm<default.htm>,,,,2000-07-11,,,,,,,,,,124,,,,,
+  1,empty~1.htm<empty.htm>,,,,2000-07-11,,,,,,,,,,50,,,,,
+  1,global~1.asa<global.asa>,,,,2000-07-11,,,,,,,,,,2372,,,,,
+  1,global~1.css<global.css>,,,,2000-07-11,,,,,,,,,,2167,,,,,
+  1,mseqgr~1.cab<mseqgrqb.cab>,,,,2000-07-11,,,,,,,,,,131949,,,,,
+  1,northw~1.dsn<northwind.dsn>,,,,2000-07-11,,,,,,,,,,115,,,,,
+  1,params~1.asp<params.asp>,,,,2000-07-11,,,,,,,,,,2263,,,,,
+  1,proble~1.txt<problems.txt>,,,,2000-07-11,,,,,,,,,,84,,,,,
+  1,qbctrl~1.asp<qbctrl.asp>,,,,2000-07-11,,,,,,,,,,962,,,,,
+  1,qbfram~1.asp<qbframe.asp>,,,,2000-07-11,,,,,,,,,,239,,,,,
+  1,qbfram~1.htm<qbframe2.htm>,,,,2000-07-11,,,,,,,,,,171,,,,,
+  1,qbrequ~2.htm<qbrequest.htm>,,,,2000-07-11,,,,,,,,,,753,,,,,
+  1,qbstub~1.asp<qbstub.asp>,,,,2000-07-11,,,,,,,,,,4822,,,,,
+  1,questi~2.asp<questionlist.asp>,,,,2000-07-11,,,,,,,,,,4120,,,,,
+  1,readme.htm,,,,2000-07-11,,,,,,,,,,9225,,,,,
+  1,reques~1.asp<request.asp>,,,,2000-07-11,,,,,,,,,,2862,,,,,
+  1,reques~1.js<request.js>,,,,2000-07-11,,,,,,,,,,1044,,,,,
+  1,respon~1.asp<response.asp>,,,,2000-07-11,,,,,,,,,,2118,,,,,
+  1,sampleq.txt,,,,2000-07-11,,,,,,,,,,6410,,,,,
+  1,Setup.cmd,,,,2000-07-11,,,,,,,,,,391,,,,,
+  1,setup.vbs,,,,2000-07-11,,,,,,,,,,10350,,,,,
+  1,storsa~1.asp<storsamp.asp>,,,,2000-07-11,,,,,,,,,,858,,,,,
+[Samples OCX]
+"EQGRQB_OCX"=  1,mseqgrqb.ocx,,,,2000-07-11,,1033,,,,,,,,235040,,,,1.0.704.0,
+[Davinci DDS GRID]
+"mdt2g_dll"=  1,mdt2g.dll,,,,1999-03-03,,1033,,,,,,,SHARED,602112,,,,2.0.0.8425,
+"mdt2gkor_dll"=  1,mdt2gkor.dll,,,,1998-04-24,,1033,,,,,,,SHARED,563712,,,,2.0.0.8083,
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Sun Aug 06 11:35:03 2000           **
+;**                                                                **
+;*** END ************************************************************

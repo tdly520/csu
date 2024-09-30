@@ -1,0 +1,44 @@
+<SEARCH_SCHEMA FileType="Gather Configuration" Version="1.0">
+
+    Edit this file to change global gatherer parameters. 
+    See the product documentation for additional information. 
+
+<!-- Search Parameters -->
+
+    <!-- AutoDescriptionLength: Maximum length of the 
+         description in the description column -->
+
+    <AutoDescriptionLength value=300>
+	<AutoDescriptionHtmlEncode value=no>
+
+
+<!-- Property mapping -->
+
+    <!-- Changes the property specification emitted from a filter to make 
+         it consistent with another filters' usage. This allows one column
+         to hold information from different sources.
+
+    Syntax:  
+        <map sourcespec="string" destspec="string" >
+
+        string: A property set GUID followed by a slash ("/") 
+        and a property identifier. 
+    -->
+
+    <!-- The following mappings are for newsgroup messages.-->
+        <!-- NNTP_Subject mapped to DocTitle -->
+          <map sourcespec="aa568eec-e0e5-11cf-8fda-00aa00a14f93/5" destspec="f29f85e0-4ff9-1068-ab91-08002b27b3d9/2">
+
+        <!-- NNTP_From mapped to DocAuthor -->
+          <map sourcespec="aa568eec-e0e5-11cf-8fda-00aa00a14f93/6" destspec="f29f85e0-4ff9-1068-ab91-08002b27b3d9/4">
+
+        <!-- NNTP_Date mapped to FileWrite -->
+          <map sourcespec="aa568eec-e0e5-11cf-8fda-00aa00a14f93/12" destspec="b725f130-47ef-101a-a5f1-02608c9eebac/14">
+
+		<!-- Lotus Notes 'Body' mapped to Content -->
+		  <map sourcespec="c7310581-ac80-11d1-8df3-00c04fb6ef4f/'Body'" destspec="b725f130-47ef-101a-a5f1-02608c9eebac/19">
+
+		<!-- Lotus Notes 'Subject' mapped to DocTitle -->
+		  <map sourcespec="c7310581-ac80-11d1-8df3-00c04fb6ef4f/'Subject'" destspec="b725f130-47ef-101a-a5f1-02608c9eebac/2">
+
+</SEARCH_SCHEMA>

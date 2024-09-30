@@ -1,0 +1,1 @@
+This is sample text data for Scootney Books, publisher 9952 in the pubs database. Scootney Books is located in New York City, New York.

@@ -1,0 +1,15 @@
+[Files]
+%CLNTPATH%\Binn\sqldmo.dll?redirdll.dll
+%CLNTPATH%\Binn\sqlns.dll?redirdll.dll
+%CLNTPATH%\Binn\sqllex.dll?redirdll.dll
+%CLNTPATH%\Binn\dtspump.dll?redirdll.dll
+%CLNTPATH%\Binn\dtsffile.dll?redirdll.dll
+%CLNTPATH%\Binn\dtspkg.dll?redirdll.dll
+%CLNTPATH%\Binn\sqlmmc.dll?redirdll.dll
+%CLNTPATH%\Binn\stardds.dll?redirdll.dll
+%CLNTPATH%\Binn\dtsui.dll?redirdll.dll
+%CLNTPATH%\Binn\wiztrace.exe?redirexe.exe
+%CLNTPATH%\Binn\sqltrace.exe?redirexe.exe
+%CLNTPATH%\Binn\isqlw.exe?redirexe.exe
+%CLNTPATH%\Binn\dtsrun.exe?redirexe.exe
+%CLNTPATH%\Binn\dtswiz.exe?redirexe.exe

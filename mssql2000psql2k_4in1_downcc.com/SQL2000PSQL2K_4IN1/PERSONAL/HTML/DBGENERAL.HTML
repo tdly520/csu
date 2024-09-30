@@ -1,0 +1,1234 @@
+<html>
+
+<head><!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------- -->
+
+<link rel="stylesheet" link="text/css" href="sqlHTML.css">
+<!-- --------THIS CALLS THE CASCADING STYLE SHEET---------------------- -->
+
+
+<title>DB page</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+</head>
+<script id="sqlMenu"  src="sqlMenu.js"></script>
+
+
+<body id="idBody" bgcolor="window">
+
+<!-- BEGIN DATABASE INFO--------------------------------------------->
+
+
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+   <td width="32"  valign="bottom"><img src="MenuTop.gif"  border="0"  ID="imgMenuTitle1" class="clsMenuTitle"></img></td>
+   <td width=1% ></td>
+   <td width=99% align="left"><font class="TitleFont" id="szDBName"></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="MenuMiddle.gif" ID="imgMenuTitle1" class="clsMenuTitle" border="0"></img></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="MenuBottom.gif" border="0" ID="imgMenuTitle1" class="clsMenuTitle" ></img></td>
+   <td width=1%></td>
+   <td width=100% align="left" id="dbName"></td>
+  </tr>
+</table>
+
+<table class="RowTbl"">
+
+  <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBOwner"><!--Owner:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbOwner"></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBCreationTime" ><!--Date created:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbCreationTime"></font></td>
+  </tr>
+  <tr id="trSize">
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBSize"><!--Size:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbSize"></font></td>
+  </tr>
+  <tr id="trDBSpaceAvailable">
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBSpaceAvailable"><!--Space available:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbSpaceAvailable"></font></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBOptions"><!--Database options:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbOptions"></font></td>
+  </tr>
+  <tr id="trDBUsersNumber">
+    <td class="WhiteRow" WIDTH ="5%" td></FONT></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBUsersNumber"><!--Number of users:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%" ><font class="DataFont" id="dbUsersNumber"></font></td>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+<!-- END DATABASE INFO--------------------------------------------->
+
+
+<!-- BEGIN MAINTENANCE INFO--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0" id="table_2">
+  <tr>
+   <td width="32"  valign="bottom"><img src="MenuTop.gif" border="0" ID="imgMenuTitle2" class="clsMenuTitle"></img></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="szMaintenance"></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="MenuMiddle.gif" border="0" ID="imgMenuTitle2" class="clsMenuTitle"></img></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="MenuBottom.gif" border="0" ID="imgMenuTitle2" class="clsMenuTitle"></img></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+  
+</table>
+
+
+<table class="RowTbl">
+  <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBLastBackup"><!--Last database backup:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%"><font class="DataFont" id="dbLastBackup"></font></td>
+  </tr>
+
+    <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBLastDiffBackup"><!--Last differential backup:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%"><font class="DataFont" id="dbLastDiffBackup"></font></td>
+  </tr>
+  
+    <tr>
+    <td class="WhiteRow" WIDTH ="5%" td></TD>
+    <td class="WhiteRow" WIDTH ="45%" td><font class="LabelFont" id="szDBLastLogBackup"><!--Last transaction log backup:--></font></TD>
+    <td class="WhiteRow" WIDTH="50%"><font class="DataFont" id="dbLastLogBackup"></font></td>
+  </tr>
+</table>
+
+<span id="maintenanceList">  
+</span>
+
+<br>
+<br>
+<br>
+<!-- END MAINTENANCE INFO--------------------------------------------->
+
+
+<!-- BEGIN SPACE ALLOCATED INFO--------------------------------------------->
+
+<table class="titleTable" cellspacing="0" cellpadding="0" border="0" id="trSpaceAlloc">
+  <tr>
+   <td width="32"  valign="bottom"><img src="MenuTop.gif" border="0" ID="imgMenuTitle3" class="clsMenuTitle"></img></td>
+   <td width=1%></td>
+   <td width=99% align="left"><font class="TitleFont" id="szSpaceAllocated"></font></td>
+  </tr>
+  <tr>
+    <td width="32" height="1"><img src="MenuMiddle.gif" border="0" ID="imgMenuTitle3" class="clsMenuTitle"></img></td>
+    <td class="ColorRow1" colspan="2"></td>
+    <td width=1%></td>
+  </tr>
+  <tr>
+   <td width="32"><img src="MenuBottom.gif" border="0" ID="imgMenuTitle3" class="clsMenuTitle"></img></td>
+   <td width=1%></td>
+   <td width=100% align="left"></td>
+  </tr>
+</table>
+
+
+<table class="RowTbl" id="trData">
+  <tr>
+    <td class="WhiteRow" WIDTH="5%"></FONT></td>
+    <td class="WhiteRow" WIDTH="45%"><font class="LabelFont" id="szDBData"><!--Data:--></font></td>
+    <td class="WhiteRow" WIDTH="10%"><font class="DataFont" ></font></td>
+
+    <td class="WhiteRow" WIDTH="40%">
+  </tr>
+</table>      
+
+<span id="dtSpace">  
+</span>
+
+<table class="RowTbl" id="trLog">
+  <tr>
+    <td class="WhiteRow" WIDTH="5%"></td>
+    <td class="WhiteRow" WIDTH="45%" ><font class="LabelFont" id="szDBTransactionLog"><!--Transaction log:--></font></td>
+    <td class="WhiteRow" WIDTH="10%" ><font class="DataFont" id="totalLogSpace"></font></td>
+    <td class="WhiteRow" WIDTH="40%">
+     <table class="RowTbl" width="100%">
+        <tr>
+            <td class="FirstSpaceBar"  id="usedLog" style="background-color:gray;"><font class="DataFont"><center id="tdUsedLog" style="color:white;" ></center></font></td>
+            <td class="SecondSpaceBar" id="freeLog" style="background-color:333399;"><font class="DataFont"><center id="tdFreeLog" style="color:white;"></center></font></td>            
+        </tr>
+     </table></td>
+       
+  </tr>
+  
+  </table>
+  <table class="RowTbl" id="trTotal">
+  <tr>
+    <td class="ColorRow1" colspan="5"></td>
+  </tr>
+  <tr>
+    <td class="WhiteRow" WIDTH="5%"></td>
+    <td class="WhiteRow" WIDTH="45%"><font class="LabelFont"></font></td>
+    <td class="WhiteRow" WIDTH="10%" ><font class="LabelFont" id="szDBTotalSpace"><!--Total--></font></td>
+    <td class="WhiteRow" WIDTH="20%" ><IMG border=0 src="GraySpace.gif"><font class="LabelFont" id="szDBUsedSpace" >&nbsp;&nbsp;<!--Used--></font></td>
+    <td class="WhiteRow" WIDTH="20%" ><IMG border=0 src="RedSpace.gif"><font class="LabelFont" id="szDBFreeSpace">&nbsp;&nbsp;<!--Free--></font></td>
+    
+  </tr>
+</table>
+
+<!-- END SPACE ALLOCATED INFO--------------------------------------------->
+
+<table class="clsMenu" id="divMenu1"> 
+    <tr id="trDBProp">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_1" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Database Properties--></span></font></td>
+    </tr>
+    <tr id="trDBDiagram">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_2" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Create Database Diagram--></span></font></td>
+    </tr>
+    <tr id="trNewUser">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_3" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--New User--></span></font></td>
+    </tr>
+    <tr id="trNewTable">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_4" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--New Table--></span></font></td>
+    </tr>
+    <tr id="trNewView">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_5" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--New View--></span></font></td>
+    </tr>
+    <tr>
+    <td class="ColorRow1" colspan="1" id="trFirstSpan"></td>
+    </tr>
+    <tr id="trImport">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_6" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Import Data--></span></font></td>
+    </tr>
+    <tr id="trExport">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_7" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Export Data--></span></font></td>
+    </tr>
+    <tr>
+    <td class="ColorRow1" colspan="1" id="trSecondSpan"></td>
+    </tr>    
+    <tr>
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu1_8" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Generate SQL Script--></span></font></td>
+    </tr>        
+</table>
+
+
+<table class="clsMenu" id="divMenu2"> 
+    <tr id="trNewMaintPlan">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu2_1" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--New Maintenance Plan--></span></font></td>
+    </tr>
+    <tr id="trMaintenaceHistory">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu2_2" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Maintenance Plan History--></span></font></td>
+    </tr>
+    <tr id="trBackup">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu2_3" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Backup Database--></span></font></td>
+    </tr>
+    <tr id="trRestore">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu2_4" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Restore Database--></span></font></td>
+    </tr>
+</table>    
+
+
+<table class="clsMenu" id="divMenu3"> 
+    <tr id="trShirnkDB">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu3_1" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Shrink Database--></span></font></td>
+    </tr>
+    <tr id="trModifyDataFile">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu3_2" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Modify Data File Sizes--></span></font></td>
+    </tr>
+    <tr id="trModifyLogFile">
+        <td id="td_Menu"><font class="DataFont"><span id="divMenu3_3" class="clsMenuSpanNonSel" onmouseout="MouseOut()" onmouseover="MouseOver()"><!--Modify Log File Sizes--></span></font></td>
+    </tr>
+</table>    
+
+
+<script language="JScript">
+
+function OnDBMaintItem()
+{
+  var hItem;
+  var hItemTmp;
+
+  window.event.returnValue = false;
+  window.event.srcElement.blur();
+
+  hItemTmp = 0;
+  hItemTmp = parent.window.objSQLNSContext.GetContextItem( strContextCookie );
+  if (hItemTmp == 0)
+    return;
+
+  hItem = 0;
+  hItem = parent.window.objSQLNSContext.GetParentItem( hItemTmp ); // Databases
+  if (hItem == 0)
+    return;
+
+  hItemTmp = hItem;
+  hItem = 0;
+  hItem = parent.window.objSQLNSContext.GetParentItem( hItemTmp ); // Server
+  if (hItem == 0)
+    return;
+
+  hItemTmp = hItem;
+  hItem = 0;
+  hItem = parent.window.objSQLNSContext.GetChildItemByInternalName( hItemTmp, "Management" ); // Management level
+  if (hItem == 0)
+    return;
+
+  hItemTmp = hItem;
+  hItem = 0;
+  hItem = parent.window.objSQLNSContext.GetChildItemByInternalName( hItemTmp, "Database Maint Plans" ); // DB Maintenance
+  if (hItem == 0)
+    return;
+
+  hItemTmp = hItem;
+  hItem = 0;
+  hItem = parent.window.objSQLNSContext.GetChildItemByInternalName( hItemTmp, window.event.srcElement.id );
+  if (hItem == 0)
+    return;
+
+  parent.window.objSQLNSContext.InvokeCommandOnItem( strContextCookie, hItem, 1803 );
+  
+}  
+
+function MouseOverText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOver";
+}
+
+function MouseOutText()
+{
+    var el;
+    
+    el = window.event.srcElement;
+    
+    el.className="clsWizardTextOut";
+}
+
+function ClickOnFile()
+{
+
+    parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 1833);
+}
+
+
+</script>
+
+<script language="VBScript">
+
+Sub Initialize
+
+    Set objDatabase  = Nothing
+    Set objSQLServer = Nothing
+    Set objResultSet = Nothing
+    
+    errorFlag        = False
+End Sub
+
+
+Sub LoadStaticText
+
+    szDBName.innerText                 = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4054)
+    
+    L_Normal_Text                      = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4041)
+    L_DBOUseOnly_Text                  = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4042)
+    L_ReadOnly_Text                    = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4043)
+    L_SingleUser_Text                  = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4044)
+    L_Comma_Text                       = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4045)
+    L_None_Text                        = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4046)
+    L_MB_Text                          = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4035)
+    L_K_Text                           = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4036)
+        
+    szDBOwner.innerText                 = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4011)
+    szDBSize.innerText                  = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4013)
+    szDBCreationTime.innerText          = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4012)
+    szDBOptions.innerText               = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4015)
+    szDBUsersNumber.innerText           = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4016)
+    szDBSpaceAvailable.innerText        = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4014)
+    
+    szDBLastBackup.innerText            = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4017)
+    szDBLastDiffBackup.innerText        = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4018)
+    szDBLastLogBackup.innerText         = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4019)
+    szDBMaintenancePlans                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4020)
+    szMaintenance.innerText             = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4056)
+    
+    
+    szDBData.innerText                  = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4030)
+    szDBTransactionLog.innerText        = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4034)
+    szDBTotalSpace.innerText            = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4033)
+    
+    szDBUsedSpace.innerText             = "  " + parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4031)
+    szDBFreeSpace.innerText             = "  " + parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4032)
+    
+    szSpaceAllocated.innerText          = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4065)
+    
+    divMenu1_1.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4066)
+    divMenu1_2.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4067)
+    divMenu1_3.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4068)     
+    divMenu1_4.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4069)     
+    divMenu1_5.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4070)     
+    divMenu1_6.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4071)     
+    divMenu1_7.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4072)     
+    divMenu1_8.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4073)     
+    
+    divMenu2_1.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4074)     
+    divMenu2_2.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4075)     
+    divMenu2_3.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4076)     
+    divMenu2_4.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4077)     
+    'divMenu2_5.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4078)     
+    
+    divMenu3_1.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4079)     
+    divMenu3_2.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4080)     
+    divMenu3_3.innerText                = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 4081)     
+    
+
+End Sub
+
+Function VerifyDatabaseStatus()
+
+    VerifyDatabaseStatus = True
+
+    If  objDatabase.Status = 2      Or _
+        objDatabase.Status = 32     Or _
+        objDatabase.Status = 64     Or _
+        objDatabase.Status = 128    Or _
+        objDatabase.Status = 256    Or _
+        objDatabase.Status = 8192   Or _
+        objDatabase.Status = -32768 Then
+        
+            VerifyDatabaseStatus = False
+            
+        divMenu1.style.display   = "none"            
+        divMenu2.style.display   = "none"
+        divMenu3.style.display   = "none"
+        
+    End If         
+
+End Function
+
+Sub CreateDatabaseObjects
+
+    On Error Resume Next
+    
+    'Dim        strContextCookie
+    Dim        strDatabase
+    
+    
+    document.charset    = parent.window.objSQLNSContext.ProvideLocalizedString("sqlmmc.rll", 400)
+        
+    Set objDatabase     = parent.window.objSQLNSContext.GetDMOObject(strContextCookie)
+        
+    
+    
+    If objDatabase is Nothing Then
+        errorFlag = True
+        DoError()
+        Exit Sub
+    End If    
+    
+    If Not objDatabase.Parent.VerifyConnection(2) Then
+        errorFlag = True
+        Exit Sub
+    End If    
+
+    strDatabase         = parent.window.objSQLNSContext.GetDisplayName(strContextCookie)
+
+
+   If Not VerifyDatabaseStatus() Then
+       errorFlag = True
+       Exit Sub
+   End If
+   
+   ValidateMenus
+
+   Set objSQLServer    = objDatabase.Parent
+    
+
+    If objSQLServer is Nothing Then
+        errorFlag = True
+        DoError()
+        Exit Sub
+    End If        
+    
+        
+    
+    Set objMSDB = Nothing
+    Set objMSDB = objSQLServer.Databases.Item( "msdb" )
+    
+    
+	If objMSDB is Nothing Then
+      errorFlag = true
+	Else
+	    ' Is MSDB inaccessible?
+	    If objMSDB.UserProfile = -2147483648 or objMSDB.UserProfile = -1073741824Then
+          errorFlag = true
+        Else
+        
+          Set objResultSet = objMSDB.ExecuteWithResults( "select 1" )
+      	
+    	    If objResultSet.Rows = 0 then
+              errorFlag = true
+          End If
+          
+        End If
+        
+     End If
+     
+End Sub
+
+
+
+Sub LoadMaintenanceInf
+
+    Dim databaseName
+
+    'Get the last backup dates for database backup and log backup
+    objSQLServer.ExecuteImmediate( "set rowcount 1" )
+
+    databaseName = Replace( objDatabase.Name, "'", "''")
+    
+    Set objResultSet = Nothing
+    Set objResultSet = objMSDB.ExecuteWithResults( "select backup_finish_date from backupset where type = 'D' and database_name = N'" & databaseName & "' order by backup_finish_date desc" )
+    
+    If objResultSet.Rows = 0 Then
+      dbLastBackup.innerText    = L_None_Text
+    Else
+      dbLastBackup.innerText    = objResultSet.GetColumnString( 1, 1 )
+    End If
+
+    Set objResultSet = objMSDB.ExecuteWithResults( "select backup_finish_date from backupset where type = 'I' and database_name = N'" & databaseName & "' order by backup_finish_date desc" )
+    
+    If objResultSet.Rows = 0 Then
+      dbLastDiffBackup.innerText = L_None_Text
+    Else
+      dbLastDiffBackup.innerText = objResultSet.GetColumnString( 1, 1 ) 
+    End If
+
+    Set objResultSet = objMSDB.ExecuteWithResults( "select backup_finish_date from backupset where type = 'L' and database_name = N'" & databaseName & "' order by backup_finish_date desc" )
+    
+    If (objResultSet.Rows = 0) Then
+      dbLastLogBackup.innerText = L_None_Text
+    Else
+     dbLastLogBackup.innerText = objResultSet.GetColumnString( 1, 1 )  
+    End If
+
+    objSQLServer.ExecuteImmediate( "set rowcount 0" )
+
+   'List Maintenance Plans
+    If objSQLServer.issysadmin Then 
+    
+        Dim   strHTML
+        Dim   strHTMLBegin
+        Dim   strHTMLEnd
+        Dim   strHTMLMiddle
+        Dim   iCOunter
+        
+        If (objDatabase.SystemObject) Then
+            strDBType = "System"
+        Else
+            strDBType = "User"
+        End If 
+ 	  
+ 	    Set objResultSet = objMSDB.ExecuteWithResults( "select p.plan_id, p.plan_name from sysdbmaintplans p, sysdbmaintplan_databases d where (d.database_name = 'All Databases' or d.database_name = 'All " & strDBType & " Databases' or d.database_name = N'" & databaseName & "') and (p.plan_id = d.plan_id)" )
+
+        strHTMLBegin = "<table class='RowTbl'><TR>" & _
+ 	                  "<td class='WhiteRow' WIDTH='5%'><font class='LabelFont'></font></td>" & _
+ 	                  "<td class='WhiteRow' WIDTH='45%'><font class='LabelFont'>"
+ 	                  
+ 	    strHTMLMiddle   = "</font></td>" & _
+ 	                    "<td class='WhiteRow' WIDTH='50%'><font class='DataFont'>"
+ 	                    
+	    strHTMLEnd      = " </font></td></tr></table>"
+ 	    
+ 	    If objResultSet.Rows <> 0 Then
+ 	        strHTML = strHTMLBegin & szDBMaintenancePlans & strHTMLMiddle & "<span id=""" & objResultSet.GetColumnString( 1, 1 ) & """  language=""jscript"" onclick=""OnDBMaintItem()"" onmouseover='MouseOverText()' onmouseout='MouseOutText()'"">" & objResultSet.GetColumnString( 1, 2 ) &  "</span>" & strHTMLEnd 	    
+ 	    Else
+ 	        strHTML = strHTMLBegin & szDBMaintenancePlans & strHTMLMiddle & L_None_Text & strHTMLEnd 	     	    
+ 	    End If
+
+ 	        
+ 	    For iCounter = 2 To objResultSet.Rows
+ 	        strHTML = strHTML & strHTMLBegin & szMaintenancePlans & strHTMLMiddle & "<span id=""" & objResultSet.GetColumnString( iCounter, 1 ) & """  language=""jscript"" onclick=""OnDBMaintItem()"" onmouseover='MouseOverText()' onmouseout='MouseOutText()'"">" & objResultSet.GetColumnString( iCounter, 2 ) &  "</span>" & strHTMLEnd
+ 	    Next
+ 	    	  
+       maintenanceList.innerHTML = strHTML
+        
+    End If
+
+    
+    Set objResultSet = Nothing
+
+End Sub
+
+Sub LoadSpace
+
+    GenerateLogSpaceTable
+    GenerateDataSpaceTable
+
+End Sub
+
+Sub DoError
+
+
+
+End Sub
+
+Sub GenerateDataSpaceTable
+  Dim intTotalExtents    'Total number of extents in the file
+  Dim intUsedExtents     'Number of extents in the file that contain data
+  Dim strFilename        'Name of the file
+  Dim intFileCount       'Number of files in the database
+  Dim intLargestExtent   'The largest extent in the database
+  Dim intTotalPercent    'Percentage of the largest size extent
+  Dim intUsedPercent     'Percentage of the file that has data in it
+  Dim intCount           'Counter
+  Dim intUsedExtentsCol  'index of used extents column
+  Dim intTotalExtentsCol 'index of total extents column
+  Dim intFilenameCol     'index of file name column
+  Dim strHTML            'The HTML string that is the data table
+  Dim size2
+  Dim sizeUsed2
+
+  On Error Resume Next
+
+  Set objResultSet  = objDatabase.ExecuteWithResults( "DBCC showfilestats" )
+    
+  intFileCount      = objResultSet.Rows
+
+  'Get column indexes
+  For intCount = 1 To objResultSet.Columns
+    If objResultSet.ColumnName(intCount) = "TotalExtents" Then
+         intTotalExtentsCol = intCount
+    End If             
+    
+    If objResultSet.ColumnName(intCount) = "UsedExtents"  Then
+        intUsedExtentsCol  = intCount
+    End If        
+    
+    If objResultSet.ColumnName(intCount) = "FileName"     Then
+        intFilenameCol     = intCount
+    End If        
+  Next
+ 
+  'Find the largest extent
+  intLargestExtent = 0
+  For intCount = 1 To intFileCount
+    intTotalExtents = objResultSet.GetColumnLong( intCount, intTotalExtentsCol )
+    If (intTotalExtents > intLargestExtent ) Then
+        intLargestExtent = intTotalExtents
+    End If        
+  Next
+
+  strHTML = "<table class='RowTbl'>"
+
+  'Make the HTML table that is the chart
+  For intCount = 1 To intFileCount
+
+    'Get the file space information from the table
+    intTotalExtents = objResultSet.GetColumnLong( intCount, intTotalExtentsCol )
+    intUsedExtents  = objResultSet.GetColumnLong( intCount, intUsedExtentsCol )
+    strFilename     = GetFilename( objResultSet.GetColumnString( intCount, intFilenameCol ) )
+
+    intUsedPercent  = Int(((intUsedExtents/intTotalExtents) * 100))
+    intFreePercent  = 100 - intUsedPercent
+
+    size2           = Round(intTotalExtents/16, 2)
+    sizeUsed2       = Round(intUsedExtents/16, 2)
+
+    'Start the HTML table row
+    strHTML = strHTML & " <tr>"
+    strHTML = strHTML & " <td class='WhiteRow' width='10%'></td>"    
+    strHTML = strHTML & "  <td class='WhiteRow' width='40%'><font class='DataFont' ><span onmouseover='MouseOverText()' onmouseout='MouseOutText()' onclick='ClickOnFile()'>" & strFilename & "</span></font></td>"
+    strHTML = strHTML & "  <td width='10%'><font class='DataFont'>" & size2 & L_MB_Text & "</font></td>"
+    strHTML = strHTML & "  <td width='40%'>"
+    strHTML = strHTML & "  <table width='100%'><tr>"
+    strHTML = strHTML & "    <td class='FirstSpaceBar' WIDTH='" & intUsedPercent & "%' style='background-color:gray;'><font class='DataFont'><center style='color:white;'>" & sizeUsed2 & L_MB_Text & "</center></font></td>"
+    strHTML = strHTML & "    <td class='SecondSpaceBar' WIDTH='" & intFreePercent & "%' style='background-color:333399;'><font class='DataFont'><center style='color:white;'>" & Round(size2 - sizeUsed2, 2) & L_MB_Text & "</center></font></td>"
+    strHTML = strHTML & "</tr></table></td>"
+
+
+    'The sizes are stated in megabytes.  Extents/16 = MBs = (x * 64K)/1M = x/16
+    'An extent is 64K
+    strHTML = strHTML & "</tr>"
+  Next
+  
+  strHTML = strHTML & "</table>" 
+  document.all.dtSpace.innerHTML = strHTML
+End Sub
+
+
+
+
+
+Sub GenerateLogSpaceTable
+
+
+  Dim               objLogFile
+  Dim               fltLargestLogFile
+  Dim               intLogSpaceAvailableInMB
+  Dim               fltLogSpaceTotal          'Total size in MB
+  Dim               fltLogSpaceUsedPercent    'Used percentage
+  Dim               intDatabaseNameCol        'Column index of columns in DBCC command
+  Dim               intLogSpaceTotalCol
+  Dim               intLogSpaceUsedPercentCol
+  Dim               size
+  Dim               size2
+  Dim               sizeUsed
+  Dim               sizeFree2
+
+  On Error Resume Next
+
+  'Find the largest log file in order to scale chart properly
+  'intLargestLog = 0
+  For iCount = 1 To objDatabase.TransactionLog.LogFiles.Count
+  
+    Set objLogFile = objDatabase.TransactionLog.LogFiles.Item(iCount)
+    
+    If (objLogFile.Size > intLargestLog) Then
+        intLargestLog = objLogFile.Size
+    End If        
+  Next
+
+  'Get the log space available from DBCC SQLPERF
+  
+  Set objResultSet  = objDatabase.ExecuteWithResults( "DBCC sqlperf(logspace)" )
+  
+  intFileCount      = objResultSet.Rows
+
+  For intCount = 1 to objResultSet.Columns
+  
+    If objResultSet.ColumnName(intCount) = "Database Name" Then
+        intDatabaseNameCol = intCount
+    End If        
+    
+    If objResultSet.ColumnName(intCount) = "Log Size (MB)" Then
+        intLogSpaceTotalCol = intCount
+    End If        
+    
+    If objResultSet.ColumnName(intCount) = "Log Space Used (%)" Then
+        intLogSpaceUsedPercentCol = intCount
+    End If
+            
+  Next
+
+  For intCount = 1 to intFileCount
+    If objDatabase.Name = objResultSet.GetColumnString( intCount, intDatabaseNameCol ) Then
+      fltLogSpaceTotal         = objResultSet.GetColumnFloat( intCount, intLogSpaceTotalCol )
+      fltLogSpaceUsedPercent   = objResultSet.GetColumnFloat( intCount, intLogSpaceUsedPercentCol )
+      intLogSpaceAvailableInMB = Round(fltLogSpaceTotal - (fltLogSpaceTotal * (fltLogSpaceUsedPercent/100)),1)
+    End If
+  Next
+
+  size2                     = Round(fltLogSpaceTotal, 2)  
+  sizeFree2                 = Round(intLogSpaceAvailableInMB, 2)
+  sizeUsed                  = Round(size2 - sizeFree2, 2)
+
+  size = Int(((fltLogSpaceTotal-intLogSpaceAvailableInMB)/fltLogSpaceTotal)*100)  
+  tdFreeLog.innerHTML       =  sizeFree2 & L_MB_Text
+  tdUsedLog.innerHTML       =  sizeUsed & L_MB_Text
+  
+  usedLog.width             = Int(size) & "%"
+  freeLog.width             = 100 - size & "%"
+
+  totalLogSpace.innerText  =  size2 & L_MB_Text  
+
+
+  Set objResultSet  = nothing
+  Set objLogFile    = nothing
+    
+
+End Sub
+
+
+</script>
+
+<script language="VBScript">
+
+function GetFilename(ByVal strFile)
+  dim intStart
+  dim intLast
+
+  intStart = InStrRev( strFile, "\", -1, 0 )
+  intLast  = InStr( intStart+1, strFile, ".", 0 )
+  if (intLast = 0) then intLast = len(strFile) + 1
+  if (intStart+1 < intLast) then
+    GetFilename = mid( strFile, intStart+1, intLast-intStart-1)
+  else
+    GetFilename = strFile
+  end if
+end function
+</script>
+
+<script language="VBScript">
+
+    Dim         objDatabase
+    Dim         objSQLServer
+    Dim         objResultSet 
+    Dim         objMSDB
+    Dim         strContextCookie
+    
+    Dim         errorFlag
+
+    Dim         L_Normal_Text
+    Dim         L_DBOUseOnly_Text
+    Dim         L_ReadOnly_Text
+    Dim         L_SingleUser_Text
+    Dim         L_Comma_Text
+    Dim         L_None_Text
+    Dim         L_MB_Text
+    Dim         L_K_Text
+    Dim         objSQLNSContext
+    
+    Dim         szDBMaintenancePlans
+    Dim         timerID
+    
+    
+    timerID         = window.setInterval("LoadPageGen()", 50)    
+
+
+Sub LoadPageGen
+    '
+    ' wait fot the top page to be loaded
+    '
+            
+    If parent.window.frames(0).hdnIsLoaded.value = 0 Then
+        Exit Sub
+    Else
+        window.clearInterval(timerID)        
+    End If
+    
+    parent.window.frames(0).clickGeneralTab()
+    
+    errorFlag = False
+    
+    strContextCookie = parent.window.frames(0).GetParameterX("SQLNSCookie")
+    
+    If strContextCookie = "" Then
+        Exit Sub
+    End If
+     
+    Initialize
+    LoadStaticText
+
+    CreateDatabaseObjects
+    
+   If Not errorFlag Then        
+        LoadDB
+      LoadMaintenanceInf
+     LoadSpace
+   End If   
+
+   
+End Sub
+</script> 
+  
+  
+  
+
+<script language="JScript" for="document" event="onmouseover()">
+
+    DoMenu(3);
+
+</script>
+
+<script language="jscript" event="onmouseout()" for="document">
+
+var         ev;
+
+ev = window.event;
+
+try
+{
+    if(ev.toElement.tagName == "html")
+    {
+        divMenu1.style.visibility = "hidden"
+    }
+}
+catch(e)
+{
+    divMenu1.style.visibility = "hidden"
+    divMenu2.style.visibility = "hidden"
+    divMenu3.style.visibility = "hidden"
+}
+
+</script>
+
+
+<script language="JScript" for="document" event="onclick()">
+
+    var     el;
+
+    el = window.event.srcElement;
+
+
+  // 1803 db prop
+  // shink db 3140
+  // generate SQL 3106
+  // import 520
+  // export 525
+  // bakup db 3107
+  // maintenance 720
+  // truncate log 3112
+  // restore db  3108 + objSQLServer.Refresh()
+  // new user 2059
+  // new table 2006
+  // new table 2007
+                  
+    switch(el.id)
+    {
+        // first group
+        case 'divMenu1_1':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 1803)
+            break;
+        }
+        case 'divMenu1_2':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand( strContextCookie, 2016); 
+            break;
+        }
+        case 'divMenu1_3':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 2059)
+            break;
+        }
+        case 'divMenu1_4':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 2006)
+            break;
+        }
+        case 'divMenu1_5':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 2007)
+            break;
+        }        
+        case 'divMenu1_6':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 520)
+            break;        
+        }
+        case 'divMenu1_7':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 525)
+            break;        
+        }        
+        case 'divMenu1_8':
+        {
+            divMenu1.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 3106)
+            break;        
+        }
+        
+        // second group
+        case 'divMenu2_1':
+        {
+            divMenu2.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 720)
+            break;        
+        }
+        case 'divMenu2_2':
+        {
+            divMenu2.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 734)
+            break;        
+        }
+        case 'divMenu2_3':
+        {
+            divMenu2.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 3107)
+            break;        
+        }
+        case 'divMenu2_4':
+        {
+            divMenu2.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 3108);
+            //parent.window.objSQLNSContext.Refresh();
+            break;        
+        }
+/*
+        case 'divMenu2_5':
+        {
+            divMenu2.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 3112);
+            break;        
+        }
+*/      
+        // third group
+        case 'divMenu3_1':
+        {
+            divMenu3.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 3140)
+            break;        
+        }        
+        case 'divMenu3_2':
+        {
+            divMenu3.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 1833)
+            break;        
+        }        
+        case 'divMenu3_3':
+        {
+            divMenu3.style.visibility="hidden";
+            parent.window.objSQLNSContext.InvokeCommand(strContextCookie, 1834)
+            break;        
+        }        
+        
+    }
+
+</script>
+
+<script language="jscript" for="document" event="onselectstart()">
+
+    window.event.returnValue = false;
+
+</script>
+
+<script language="vbscript">
+
+Sub ValidateMenus
+
+Dim count1
+Dim oServer
+
+    count1 = 0
+
+    If Not objDatabase.isdb_owner Then
+      ' GENERAL MENUS
+        ' database properties
+        trDBProp.style.display        = "none"    
+        ' database diagram
+        trDBDiagram.style.display     = "none"
+        'new user
+        If Not objDatabase.isdb_accessadmin Then
+            trNewUser.style.display   = "none"
+            count1 = count1 + 1
+        End If   
+        'new table and new view
+        If Not objDatabase.isdb_ddladmin Then
+            trNewTable.style.display  = "none"  
+            trNewView.style.display   = "none"  
+            count1 = count1 + 2
+        End If
+        
+        'import and export
+        If Not objDatabase.isdb_accessadmin     And _
+           Not objDatabase.isdb_ddladmin        And _
+           Not objDatabase.isdb_datareader      And _
+           Not objDatabase.isdb_datawriter      And _
+           Not objDatabase.isdb_denydatawriter  And _
+           Not objDatabase.isdb_backupoperator  And _
+           Not objDatabase.isdb_securityAdmin   Then
+            
+            trExport.style.display = "none"
+            trImport.style.display = "none"
+            
+            trSecondSpan.style.display = "none"
+            
+        End If  
+
+        'MAINTENANCE MENUS
+        
+        trMaintenaceHistory.style.display = "none"
+        
+        If not objDatabase.isdb_backupoperator Then
+            trBackup.style.display = "none"
+        End If
+                         
+        trRestore.style.display           = "none"                         
+        trTruncateLog.style.display       = "none"
+        
+        'SPACE ALLOCATED
+        trShirnkDB.style.display          = "none"
+        trModifyDataFile.style.display    = "none"
+        trModifyLogFile.style.display     = "none"
+                 
+    End If
+    
+    'MsgBox "Called"
+    Set oServer	= objDatabase.Parent
+    
+    If Not oServer.Isserveradmin Then
+		
+		trMaintenaceHistory.style.display = "none"
+		trNewMaintPlan.style.display = "none"
+		
+		If Not objDatabase.isdb_owner And  Not objDatabase.isdb_backupoperator Then
+			divMenu2.style.visibility = "hidden"
+		End If
+		
+    End If 
+    
+    If count1 = 3 Then
+        trFirstSpan.style.display = "none"
+    End If
+
+End Sub
+
+</script>
+
+<script language="vbscript">
+
+Function FormatNum(ByVal num, ByVal l)
+    FormatNum   = FormatNumber(num, l)
+End Function
+
+</script>
+
+<script language="jscript">
+/*
+function FormatNbr(nbr)
+{
+    var                 s;
+    var                 index;
+    var                 l;
+    
+    s       = new String(nbr);
+    
+    index   = s.indexOf(".");
+    
+    if(index != -1)
+    {
+        l   = s.length;
+        
+        if(l > index + 2)
+        {        
+            s = s.substring(0, index + 3);
+        }
+    }
+    
+    return s;
+}
+*/
+function LoadDB()
+{
+    var     flag    
+    var     size
+
+    try
+    {    
+        dbSize.innerText          = FormatNum(objDatabase.SizeInKB / 1024,  2) + L_MB_Text 
+
+    }
+    catch(e)
+    {
+        trSize.style.display      = "none"     
+    }
+
+    try
+    {
+        dbOwner.innerText         = objDatabase.Owner
+    }
+    catch(e)
+    {
+        trDBOwner.style.display   = "none"
+    }
+
+    try
+    {
+        dbCreationTime.innerText            = objDatabase.CreateDate
+    }
+    catch(e)
+    {
+        trDBCreationTime          = "none"  
+    }
+
+    dbOptions.innerText           = ""
+    flag                          = false
+
+    try
+    {
+      if ((objDatabase.Name == "msdb") || (objDatabase.Name == "master") || (objDatabase.Name == "tempdb") || (objDatabase.Name == "model")) 
+      {
+         document.all.trDBDiagram.style.display = "none"
+      }
+      else       
+      {  
+         document.all.trDBDiagram.style.display = ""
+      }  
+    }
+    catch(e)
+    {
+        document.all.trDBDiagram.style.display = ""
+    }
+
+    try
+    {
+      if(objDatabase.DBOption.DBOUseOnly)
+      {
+        dbOptions.innerText = dbOptions.innerText +  L_DBOUseOnly_Text
+        flag    = true
+      }
+      
+      if(objDatabase.DBOption.ReadOnly)
+      {  
+        if(flag)
+        {
+            dbOptions.insertAdjacentText("BeforeEnd", L_Comma_Text + " ")
+        }        
+            
+        dbOptions.insertAdjacentText("BeforeEnd", L_ReadOnly_Text)
+        flag    = true    
+      }
+      
+      if(objDatabase.DBOption.SingleUser)
+      {  
+        if(flag)
+        {
+          dbOptions.insertAdjacentText("BeforeEnd", L_Comma_Text + " ")
+        }
+        
+        dbOptions.insertAdjacentText("BeforeEnd", L_SingleUser_Text)
+        
+        flag    = true 
+      }
+
+      if(!flag)
+      {
+        dbOptions.insertAdjacentText("BeforeEnd", L_Normal_Text)  
+      }    
+      
+        
+    }
+    catch(e)
+    {
+    }
+
+    try
+    {
+         dbUsersNumber.innerText               = objDatabase.Users.count
+         dbSpaceAvailable.innerText            = FormatNum(objDatabase.SpaceAvailableInMB, 2) + L_MB_Text      
+    }
+    catch(e)
+    {
+         trDBSpaceAvailable.innerText          = "none"
+         trDBUsersNumber.innerText             = "none"    
+    }
+}
+</script>
+
+</body>
+</html>
