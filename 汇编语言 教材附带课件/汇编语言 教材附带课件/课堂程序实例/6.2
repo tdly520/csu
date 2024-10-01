@@ -1,0 +1,36 @@
+DATAS SEGMENT
+    ;此处输入数据段代码  
+DATAS ENDS
+
+STACKS SEGMENT
+    ;此处输入堆栈段代码
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+    mov ax,0
+    mov cx,10
+next:
+     add ax,cx
+     loop next
+     mov cl,10
+     div cl;把ax里面的数除以10，商在al，余数在ah
+     mov cx,ax
+     mov dl,cl
+     add dl,30h
+     mov ah,2h
+     int 21h
+     mov dl,ch
+     add dl,30h
+     mov ah,2h
+     int 21h
+     
+       
+    ;此处输入代码段代码
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START

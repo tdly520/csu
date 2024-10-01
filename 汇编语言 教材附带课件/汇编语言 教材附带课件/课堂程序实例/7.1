@@ -1,0 +1,28 @@
+DATAS SEGMENT
+    array sword -3,-16,-1,-10,12,30,40,4,-6,-8;此处输入数据段代码  
+DATAS ENDS
+
+STACKS SEGMENT
+    ;此处输入堆栈段代码
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+    mov cx,lengthof array
+    mov si ,offset array
+    mov ax,0
+next:
+    test  word ptr [si],8000h
+    pushf
+    add ax,[si]
+    
+    ;此处输入代码段代码
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START
+
+

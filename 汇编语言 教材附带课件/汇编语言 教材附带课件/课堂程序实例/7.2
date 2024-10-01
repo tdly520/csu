@@ -1,0 +1,37 @@
+DATAS SEGMENT
+   string byte "hello,the world!",0dh,0ah,'$' ;此处输入数据段代码  
+DATAS ENDS
+
+STACKS SEGMENT
+    ;此处输入堆栈段代码
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+    mov si,offset string 
+    mov cx,lengthof string
+again:
+    mov al,[si]
+    cmp al,'a'
+    jb l1
+    cmp al,'z'
+    ja l1
+    ;add al ,20h
+    and al,0dfh
+    mov [si],al
+ l1:
+   inc si
+   loop again
+ mov dx,offset string 
+ mov ah,9h
+ int 21h
+ 
+    ;此处输入代码段代码
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START
+

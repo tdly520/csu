@@ -1,0 +1,24 @@
+﻿  client.cpp
+C:\Users\ckk\Desktop\client.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\ckk\Desktop\client.cpp(40,2): error C3646: “SOCKET”: 未知重写说明符
+C:\Users\ckk\Desktop\client.cpp(40,9): error C3646: “ClientSocket”: 未知重写说明符
+C:\Users\ckk\Desktop\client.cpp(40,24): error C2059: 语法错误:“(”
+C:\Users\ckk\Desktop\client.cpp(40,40): error C3646: “lparam”: 未知重写说明符
+C:\Users\ckk\Desktop\client.cpp(40,46): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+C:\Users\ckk\Desktop\client.cpp(40,25): error C2365: “SOCKET”: 重定义；以前的定义是“typedef”
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winsock.h(51): message : 参见“SOCKET”的声明
+C:\Users\ckk\Desktop\client.cpp(42,2): error C2059: 语法错误:“while”
+C:\Users\ckk\Desktop\client.cpp(43,2): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+C:\Users\ckk\Desktop\client.cpp(43,2): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+C:\Users\ckk\Desktop\client.cpp(58,11): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+C:\Users\ckk\Desktop\client.cpp(58,2): error C2371: “online”: 重定义；不同的基类型
+C:\Users\ckk\Desktop\client.cpp(13): message : 参见“online”的声明
+C:\Users\ckk\Desktop\client.cpp(59,2): error C2059: 语法错误:“return”
+C:\Users\ckk\Desktop\client.cpp(60,1): error C2059: 语法错误:“}”
+C:\Users\ckk\Desktop\client.cpp(60,1): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+C:\Users\ckk\Desktop\client.cpp(61,12): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+C:\Users\ckk\Desktop\client.cpp(61,12): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+C:\Users\ckk\Desktop\client.cpp(86,11): error C2001: 常量中有换行符
+C:\Users\ckk\Desktop\client.cpp(87,2): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+C:\Users\ckk\Desktop\client.cpp(89,11): error C2001: 常量中有换行符
+C:\Users\ckk\Desktop\client.cpp(90,2): error C2143: 语法错误: 缺少“;”(在“}”的前面)

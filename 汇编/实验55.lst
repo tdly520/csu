@@ -1,0 +1,302 @@
+Microsoft (R) Macro Assembler Version 6.11		    01/13/24 15:43:38
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				data segment
+ 0000 50 6C 65 61 73 65		    prompt db 'Please input number n: ', 13, 10 ,'$' ; 提示用户输入n
+       20 69 6E 70 75 74
+       20 6E 75 6D 62 65
+       72 20 6E 3A 20 0D
+       0A 24
+ 001A 66 69 62 6F 6E 61		    output db 'fibonacci(n): ', 13, 10, '$' ; 显示斐波那契数列的标签
+       63 63 69 28 6E 29
+       3A 20 0D 0A 24
+ 002B 0D 0A 24			    newline db 13, 10, '$' 
+ 002E 45 72 72 6F 72 20		    error_prompt db 'Error input out of 0-100','$'
+       69 6E 70 75 74 20
+       6F 75 74 20 6F 66
+       20 30 2D 31 30 30
+       24
+
+ 0047				    number label byte
+ 0047 03			        max db 3    
+ 0048 00			        act db ?    
+ 0049  0003 [			        num db 3 dup(?) 
+        00
+       ]
+
+				   
+ 004C  0016 [			    n1  dw 22 dup(0)
+        0000
+       ]
+ 0078  0016 [			    n2  dw 22 dup(0)
+        0000
+       ]
+ 00A4 0001			    len dw 1 
+ 00A6  0001 [			    add_time dw 1 dup(0) 
+        0000
+       ]
+ 00A8				data ends
+
+ 0000				code segment
+ 0000				main    proc    far    
+				    assume cs:code, ds:data
+ 0000				start::
+ 0000  1E			    push    ds          
+ 0001  33 C0			    xor     ax, ax     
+ 0003  50			    push    ax        
+ 0004  B8 ---- R		    mov     ax, data    
+ 0007  8E D8			    mov     ds, ax     
+				  
+ 0009  8D 16 0000 R		    lea     dx, prompt
+ 000D  B4 09			    mov     ah, 09
+ 000F  CD 21			    int     21h
+				  
+ 0011  8D 16 0047 R		    lea     dx, number
+
+ 0015  B4 0A			    mov     ah, 0ah
+ 0017  CD 21			    int     21h
+
+				   
+ 0019  B4 09			    mov ah, 9
+ 001B  8D 16 002B R		    lea dx, newline
+ 001F  CD 21			    int 21h
+				  
+ 0021  8D 36 0049 R		    lea     si, num
+				    
+ 0025  33 C9			    xor     cx, cx
+ 0027  33 C0			    xor     ax, ax
+ 0029  33 DB			    xor     bx, bx
+				  
+ 002B  80 3E 0048 R 02		    cmp     act, 2
+ 0030  74 0A			    je      two
+ 0032				one:
+
+ 0032  B4 00			    mov     ah, 0
+ 0034  8A 04			    mov     al, ds:[si]    
+ 0036  2C 30			    sub     al, 48          ; 将 ASCII 字符转换为数字
+ 0038  8B C8			    mov     cx, ax         
+ 003A  EB 12			    jmp     check           
+
+ 003C				two:
+				    
+ 003C  B0 0A			    mov     al, 10
+ 003E  8A 24			    mov     ah, ds:[si]     
+ 0040  80 EC 30			    sub     ah, 48          
+ 0043  F6 E4			    mul     ah              ; 将十位乘以 10(al)保存在al中
+ 0045  B4 00			    mov     ah, 0         
+ 0047  02 44 01			    add     al, ds:[si+1]   ; 将个位的数字（ASCII形式）加到十位数上(10*十位数+个位数+‘0’)
+ 004A  2C 30			    sub     al, 48          ; 将 ASCII 字符转换为数字
+ 004C  8B C8			    mov     cx, ax          ; 将数字保存在 CX 寄存器中
+
+ 004E				check:
+ 004E  83 F9 01			    cmp     cx, 1
+ 0051  72 05			    jb      error_exit
+ 0053  83 F9 63			    cmp     cx, 99
+ 0056  76 13			    jbe     compare
+
+ 0058				error_exit:
+ 0058  B4 09			    mov     ah, 9
+ 005A  8D 16 002B R		    lea     dx, newline
+ 005E  CD 21			    int     21H
+
+ 0060  B4 09			    mov     ah, 9
+ 0062  8D 16 002E R		    lea     dx, error_prompt
+ 0066  CD 21			    int     21H
+ 0068  E9 00C6			    jmp     exit
+
+
+ 006B				compare:
+ 006B  33 C0			    xor     ax, ax
+ 006D  33 DB			    xor     bx, bx
+ 006F  8D 06 004C R		    lea     ax, n1          
+ 0073  8D 1E 0078 R		    lea     bx, n2        
+ 0077  8B F0			    mov     si, ax         
+ 0079  8B FB			    mov     di, bx          
+ 007B  50			    push    ax            
+ 007C  33 C0			    xor     ax, ax
+ 007E  B8 0001			    mov     ax, 1          
+ 0081  89 04			    mov     ds:[si], ax     
+ 0083  89 05			    mov     ds:[di], ax     
+ 0085  58			    pop     ax              ; 将栈中的值弹出到 AX 寄存器(即此前保存的AX）
+				    ; 判断n>1&&n>2
+ 0086  83 F9 02			    cmp     cx, 2          
+ 0089  76 6F			    jbe     print           
+ 008B  83 E9 02			    sub     cx, 2           ; cx是进行斐波那契数列计算的次数
+
+
+ 008E				fibonacci:
+				    ; 已经确定n>2
+ 008E  51			    push    cx
+ 008F  8B F0			    mov     si, ax 
+ 0091  8B FB			    mov     di, bx 
+ 0093  50			    push    ax
+				    ; 计算下一项的斐波那契数列值
+ 0094  A1 00A4 R		    mov     ax, len      
+ 0097  D1 E8			    shr     ax, 1        ; 右移一位，相当于除以 2
+ 0099  8B C8			    mov     cx, ax       
+ 009B  03 0E 00A6 R		    add     cx, add_time ; 加上上次迭代时的进位值
+ 009F  33 C0			    xor     ax, ax       
+ 00A1  A3 00A6 R		    mov     add_time, ax ; 清零上次迭代的进位值
+ 00A4  58			    pop     ax           
+
+ 00A5				_add:
+				   
+ 00A5  50			    push    ax
+ 00A6  53			    push    bx
+ 00A7  8B 04			    mov     ax, ds:[si] ; 获取当前项的值
+ 00A9  8B 1D			    mov     bx, ds:[di] ; 获取前一项的值
+ 00AB  03 D8			    add     bx, ax      
+ 00AD  89 1C			    mov     ds:[si], bx 
+ 00AF  89 05			    mov     ds:[di], ax ; 将计算前的当前项保存到前一项
+				    
+ 00B1  BB 000A			    mov     bx, 10
+ 00B4  39 1C			    cmp     ds:[si], bx 
+ 00B6  5B			    pop     bx
+ 00B7  58			    pop     ax
+ 00B8  72 28			    jb      less_than_10 ; 如果小于 10，跳转到标签 less_than_10
+				    
+ 00BA				bigger_than_10:
+
+ 00BA  8B 14			    mov     dx, ds:[si] ; 获取当前项的值
+ 00BC  50			    push    ax
+ 00BD  B8 000A			    mov     ax, 10
+ 00C0  29 04			    sub     ds:[si], ax ; 当前项减去 10
+ 00C2  33 C0			    xor     ax, ax
+ 00C4  B8 0001			    mov     ax,1
+ 00C7  01 45 02			    add     ds:[di+2], ax ; 将进位加到下一位
+ 00CA  58			    pop     ax
+ 00CB  83 C6 02			    add     si, 2
+ 00CE  83 C7 02			    add     di, 2
+ 00D1  83 06 00A6 R 01		    add     add_time, 1   ; 递增进位计数
+ 00D6  89 36 00A4 R		    mov     len, si
+ 00DA  29 06 00A4 R		    sub     len, ax
+ 00DE  E2 C5			    loop    _add         ; 继续下一次迭代
+ 00E0  EB 15			    jmp     addr_change   ; 跳转到地址调整处
+
+ 00E2				less_than_10:
+				  
+ 00E2  83 C6 02			    add     si, 2
+ 00E5  83 C7 02			    add     di, 2
+ 00E8  89 36 00A4 R		    mov     len, si
+ 00EC  29 06 00A4 R		    sub     len, ax   
+ 00F0  83 3E 00A4 R 2C		    cmp     len,44
+ 00F5  75 AE			    jne     _add
+
+ 00F7				addr_change:
+				    ; 调整地址，准备下一次迭代
+ 00F7  59			    pop     cx
+ 00F8  E2 94			    loop    fibonacci   ; 继续下一次迭代
+
+ 00FA				print:
+				 
+ 00FA  33 D2			    xor     dx, dx
+ 00FC  8D 16 001A R		    lea     dx, output ; 将输出字符串的地址加载到 dx 寄存器
+ 0100  B4 09			    mov     ah, 09
+ 0102  CD 21			    int     21h
+				    
+				    ; 输出计算结果
+ 0104  33 D2			    xor     dx, dx
+ 0106  33 DB			    xor     bx, bx
+ 0108  B9 002C			    mov     cx, 44  
+ 010B  D1 E9			    shr     cx, 1    
+ 010D  83 EE 02			    sub     si, 2    ; 将 si 寄存器移动到最后一个有效数字
+
+ 0110				    print_num:
+				        ; 将数字转化为 ASCII 码，并显示
+ 0110  8B 14			        mov     dx, ds:[si] ; 获取当前项的值
+ 0112				        remove_head_zero:
+ 0112  83 FB 00			        cmp     bx, 0
+ 0115  75 05			        jne     convert_num
+ 0117  83 FA 00			        cmp     dx, 0
+ 011A  74 0A			        je      move_forward
+				        
+ 011C				        convert_num:
+ 011C  BB 0001			        mov     bx, 1  
+ 011F  83 C2 30			        add     dx, 48 ; 重新转化为ASCII十进制
+
+ 0122  B4 02			        mov     ah, 02
+ 0124  CD 21			        int     21h
+				        
+ 0126				        move_forward:
+ 0126  83 EE 02			        sub     si, 2        ; 移动到前一位
+ 0129  E2 E5			        loop    print_num   ; 继续下一次迭代
+
+ 012B  B2 0D			    mov     dl, 13 ; 回车
+ 012D  B4 02			    mov     ah, 02      
+ 012F  CD 21			    int     21h
+
+ 0131				exit:
+ 0131  B8 4C00			    mov     ax, 4c00h
+ 0134  CD 21			    int     21h
+
+ 0136				main endp
+
+ 0136				code ends
+
+				end start
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    01/13/24 15:43:38
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 0136	  Para	  Private 
+data . . . . . . . . . . . . . .	16 Bit	 00A8	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+main . . . . . . . . . . . . . .	P Far	 0000	  code	Length= 0136 Public
+  one  . . . . . . . . . . . . .	L Near	 0032	  code	
+  two  . . . . . . . . . . . . .	L Near	 003C	  code	
+  check  . . . . . . . . . . . .	L Near	 004E	  code	
+  error_exit . . . . . . . . . .	L Near	 0058	  code	
+  compare  . . . . . . . . . . .	L Near	 006B	  code	
+  fibonacci  . . . . . . . . . .	L Near	 008E	  code	
+  _add . . . . . . . . . . . . .	L Near	 00A5	  code	
+  bigger_than_10 . . . . . . . .	L Near	 00BA	  code	
+  less_than_10 . . . . . . . . .	L Near	 00E2	  code	
+  addr_change  . . . . . . . . .	L Near	 00F7	  code	
+  print  . . . . . . . . . . . .	L Near	 00FA	  code	
+  print_num  . . . . . . . . . .	L Near	 0110	  code	
+  remove_head_zero . . . . . . .	L Near	 0112	  code	
+  convert_num  . . . . . . . . .	L Near	 011C	  code	
+  move_forward . . . . . . . . .	L Near	 0126	  code	
+  exit . . . . . . . . . . . . .	L Near	 0131	  code	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+act  . . . . . . . . . . . . . .	Byte	 0048	  data	
+add_time . . . . . . . . . . . .	Word	 00A6	  data	
+error_prompt . . . . . . . . . .	Byte	 002E	  data	
+len  . . . . . . . . . . . . . .	Word	 00A4	  data	
+max  . . . . . . . . . . . . . .	Byte	 0047	  data	
+n1 . . . . . . . . . . . . . . .	Word	 004C	  data	
+n2 . . . . . . . . . . . . . . .	Word	 0078	  data	
+newline  . . . . . . . . . . . .	Byte	 002B	  data	
+number . . . . . . . . . . . . .	Byte	 0047	  data	
+num  . . . . . . . . . . . . . .	Byte	 0049	  data	
+output . . . . . . . . . . . . .	Byte	 001A	  data	
+prompt . . . . . . . . . . . . .	Byte	 0000	  data	
+start  . . . . . . . . . . . . .	L Near	 0000	  code	
+
+	   0 Warnings
+	   0 Errors

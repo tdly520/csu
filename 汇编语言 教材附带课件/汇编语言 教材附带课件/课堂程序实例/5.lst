@@ -1,0 +1,98 @@
+Microsoft (R) Macro Assembler Version 6.11		    12/20/23 16:32:59
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 0001 0001			  fiblist dw 1,1,98 dup(?)
+       0062 [
+        0000
+       ]
+ 00C8 00			  n db ?
+ 00C9 0000			  result dw ?
+				    ;此处输入数据段代码  
+ 00CB				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+ 0000  0064 [			    dw 100 dup(?);此处输入堆栈段代码
+        0000
+       ]
+ 00C8				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    
+ 0005  B4 01			    mov ah,01h
+ 0007  CD 21			    int 21h
+				  
+ 0009  2C 30			     sub al, 30h
+ 000B  A2 00C8 R		    mov n,al
+ 000E  8D 36 0000 R		    lea si,fiblist
+				   
+ 0012  8A 0E 00C8 R		    mov cl,n
+ 0016  32 ED			    xor ch,ch
+ 0018  80 E9 02			    sub cl,2
+				    
+ 001B				one:
+ 001B  8B 44 02			 mov ax,[si+2]
+ 001E  8B 1C			    mov bx,[si]
+ 0020  E8 0012			    call fib
+ 0023  89 44 04			    mov [si+4],ax
+ 0026  83 C6 02			    add si,2
+ 0029  E2 F0			    loop one
+				    
+ 002B  8B 54 FE			    mov dx,[si-2]
+ 002E  83 C2 30			    add dx,30h
+ 0031  B4 02			    mov ah,02h
+ 0033  CD 21			    int 21h
+				    
+ 0035				fib proc
+ 0035  03 C3			   add ax,bx
+ 0037  C3			   ret
+ 0038				 fib endp     
+				    ;此处输入代码段代码
+ 0038  B4 4C			    MOV AH,4CH
+ 003A  CD 21			    INT 21H
+ 003C				CODES ENDS
+				    END START
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    12/20/23 16:32:59
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 003C	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 00CB	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 00C8	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+fib  . . . . . . . . . . . . . .	P Near	 0035	  CODES	Length= 0003 Public
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+fiblist  . . . . . . . . . . . .	Word	 0000	  DATAS	
+n  . . . . . . . . . . . . . . .	Byte	 00C8	  DATAS	
+one  . . . . . . . . . . . . . .	L Near	 001B	  CODES	
+result . . . . . . . . . . . . .	Word	 00C9	  DATAS	
+
+	   0 Warnings
+	   0 Errors

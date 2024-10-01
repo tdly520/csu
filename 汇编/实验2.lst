@@ -1,0 +1,230 @@
+Microsoft (R) Macro Assembler Version 6.11		    12/22/23 20:10:11
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+				    ;此处输入数据段代码
+ 0000 45 6E 74 65 72 20		    mess1 DB 'Enter keyword:','$'
+       6B 65 79 77 6F 72
+       64 3A 24
+ 000F 45 6E 74 65 72 20		    mess2 DB 'Enter Sentence:','$'
+       53 65 6E 74 65 6E
+       63 65 3A 24
+ 001F 4D 61 74 63 68 20		    mess3 DB 'Match at location:','$'
+       61 74 20 6C 6F 63
+       61 74 69 6F 6E 3A
+       24
+ 0032 4E 4F 54 20 4D 41		    mess4 DB 'NOT MATCH.',13,10,'$'
+       54 43 48 2E 0D 0A
+       24
+ 003F 20 69 6E 20 74 68		    mess5 DB ' in the sentence',13,10,'$'
+       65 20 73 65 6E 74
+       65 6E 63 65 0D 0A
+       24
+ 0052 0D 0A 24			    change DB 13,10,'$'
+ 0055				    stoknin1 label byte
+ 0055 0A			    max1 db 10 	;关键字大小
+ 0056 00			    act1 db ?	
+ 0057  000A [			    stokn1 db 10 dup(?)
+        00
+       ]
+ 0061				    stoknin2 label byte
+ 0061 32			    max2 db 50  ;字符串大小
+ 0062 00			    act2 db ?	
+ 0063  0032 [			    stokn2 db 50 dup(?) 
+        00
+       ]
+				    
+ 0095				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+				    
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    
+ 0005  8D 16 0000 R		    LEA DX,mess1
+ 0009  B4 09			    MOV ah,09
+ 000B  CD 21			    INT 21h			
+ 000D  8D 16 0055 R		    LEA DX,stoknin1
+ 0011  B4 0A			    MOV ah,0ah		
+ 0013  CD 21			    INT 21h
+				    
+ 0015  80 3E 0056 R 00		    cmp act1,0
+ 001A  75 03 E9 00AE		    je exit			;如果为空直接退出程序
+ 001F				a10: 
+				    ;输入Sentence并判断
+ 001F  8D 16 0052 R		    LEA DX,change
+ 0023  B4 09			    MOV ah,09
+ 0025  CD 21			    INT 21h			
+ 0027  8D 16 000F R		    LEA DX,mess2 
+ 002B  B4 09			    MOV ah,09
+ 002D  CD 21			    INT 21h
+				    				;输出Enter Sentence:
+ 002F  8D 16 0061 R		    LEA DX,stoknin2
+ 0033  B4 0A			    MOV ah,0ah
+ 0035  CD 21			    INT 21h
+				   		 			
+ 0037  A0 0056 R		    MOV AL,act1
+ 003A  98			    CBW;拓展
+ 003B  8B C8			    MOV CX,AX
+				    				;保存关键字长度到cx
+ 003D  51			    PUSH CX
+				    				
+ 003E  A0 0062 R		    MOV AL,act2
+ 0041  3C 00			    cmp AL,0
+ 0043  74 75			    je a50
+				    				;保存句子长度到al，若句子为空则跳转显示not match
+ 0045  2A 06 0056 R		    SUB AL,act1
+ 0049  78 6F			    js a50
+				    				;若句子长度小于关键字长度，则跳转显示not match
+ 004B  FE C0			    INC AL
+ 004D  98			    CBW
+ 004E  8D 1E 0063 R		    LEA BX,stokn2
+				    				;将句子的首地址放进BX
+ 0052  BF 0000			    MOV DI,0
+ 0055  BE 0000			    MOV SI,0 
+ 0058				a20:
+				    				;比较，内循环 
+ 0058  8A 21			    MOV AH,[BX+DI]
+ 005A  3A A4 0057 R		    CMP AH,stokn1[SI]
+				    				;遇见字符不相等就跳转到a30
+ 005E  75 0A			    jne a30
+ 0060  47			    INC DI
+ 0061  46			    INC SI
+ 0062  49			    DEC CX
+				    				;每遇到一个相等的字符,cx-1,若cx不为0则比较下一个字符,当cx为0是说明关键字比较完
+ 0063  83 F9 00			    CMP CX,0
+ 0066  74 13			    je a40
+ 0068  EB EE			    jmp a20
+ 006A				a30:
+
+					;外循环，BX+1,清空si，di继续内循环比较
+ 006A  43				INC BX
+ 006B  FE C8				DEC AL
+ 006D  3C 00				cmp AL,0
+ 006F  74 49				je a50
+ 0071  BF 0000				MOV DI,0
+ 0074  BE 0000				MOV SI,0
+ 0077  59				POP CX
+ 0078  51				push CX
+ 0079  EB DD				jmp a20
+ 007B				a40:
+
+					;match,将bx减去句子的首地址加一得到关键字所在位置，调用二进制转十六进制子函数将位置输出
+ 007B  81 EB 0063 R			SUB BX,offset stokn2
+ 007F  43				INC BX
+ 0080  8D 16 0052 R			LEA DX,change
+ 0084  B4 09				MOV ah,09
+ 0086  CD 21				INT 21h
+ 0088  8D 16 001F R			LEA DX,mess3
+ 008C  B4 09				MOV ah,09
+ 008E  CD 21				INT 21h
+ 0090  E8 000A				CALL btoh
+ 0093  8D 16 003F R			LEA DX,mess5
+ 0097  B4 09				MOV ah,09
+ 0099  CD 21				INT 21h
+ 009B  EB 82				jmp a10
+					
+					;二进制转换十六进制
+ 009D					btoh PROC NEAR
+ 009D  B5 04				MOV CH,4
+ 009F  B1 04				rotate: MOV CL,4
+ 00A1  D3 C3				ROL BX,CL;左循环
+ 00A3  8A C3				MOV AL,BL
+ 00A5  24 0F				and AL,0fh
+ 00A7  04 30				add AL,30h
+ 00A9  3C 3A				cmp al,3ah
+ 00AB  7C 02				jl printit
+ 00AD  04 07				add al,7h
+ 00AF					printit:
+ 00AF  8A D0				MOV dl,al
+ 00B1  B4 02				MOV ah,2
+ 00B3  CD 21				int 21h
+ 00B5  FE CD				dec ch
+ 00B7  75 E6				jnz rotate
+ 00B9  C3				ret
+ 00BA				btoh endp
+ 00BA				a50: 
+
+					;显示not match
+ 00BA  8D 16 0052 R			LEA DX,change
+ 00BE  B4 09				MOV ah,09
+ 00C0  CD 21				INT 21h
+ 00C2  8D 16 0032 R			LEA DX,mess4
+					
+ 00C6  B4 09				MOV ah,09
+ 00C8  CD 21				INT 21h
+ 00CA  E9 FF52				jmp a10
+ 00CD				exit:
+ 00CD  C3				ret
+ 00CE				CODES ENDS
+				    END START
+
+
+
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    12/22/23 20:10:11
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 00CE	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0095	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+btoh . . . . . . . . . . . . . .	P Near	 009D	  CODES	Length= 001D Public
+  rotate . . . . . . . . . . . .	L Near	 009F	  CODES	
+  printit  . . . . . . . . . . .	L Near	 00AF	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+a10  . . . . . . . . . . . . . .	L Near	 001F	  CODES	
+a20  . . . . . . . . . . . . . .	L Near	 0058	  CODES	
+a30  . . . . . . . . . . . . . .	L Near	 006A	  CODES	
+a40  . . . . . . . . . . . . . .	L Near	 007B	  CODES	
+a50  . . . . . . . . . . . . . .	L Near	 00BA	  CODES	
+act1 . . . . . . . . . . . . . .	Byte	 0056	  DATAS	
+act2 . . . . . . . . . . . . . .	Byte	 0062	  DATAS	
+change . . . . . . . . . . . . .	Byte	 0052	  DATAS	
+exit . . . . . . . . . . . . . .	L Near	 00CD	  CODES	
+max1 . . . . . . . . . . . . . .	Byte	 0055	  DATAS	
+max2 . . . . . . . . . . . . . .	Byte	 0061	  DATAS	
+mess1  . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+mess2  . . . . . . . . . . . . .	Byte	 000F	  DATAS	
+mess3  . . . . . . . . . . . . .	Byte	 001F	  DATAS	
+mess4  . . . . . . . . . . . . .	Byte	 0032	  DATAS	
+mess5  . . . . . . . . . . . . .	Byte	 003F	  DATAS	
+stokn1 . . . . . . . . . . . . .	Byte	 0057	  DATAS	
+stokn2 . . . . . . . . . . . . .	Byte	 0063	  DATAS	
+stoknin1 . . . . . . . . . . . .	Byte	 0055	  DATAS	
+stoknin2 . . . . . . . . . . . .	Byte	 0061	  DATAS	
+
+	   0 Warnings
+	   0 Errors

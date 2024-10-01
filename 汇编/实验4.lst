@@ -1,0 +1,446 @@
+Microsoft (R) Macro Assembler Version 6.11		    12/26/23 12:46:17
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 49 6E 70 75 74 20		  mess1 db 'Input name:',13,10,'$'
+       6E 61 6D 65 3A 0D
+       0A 24
+ 000E 49 6E 70 75 74 20		  mess2 db 'Input a telephone number:',13,10,'$'
+       61 20 74 65 6C 65
+       70 68 6F 6E 65 20
+       6E 75 6D 62 65 72
+       3A 0D 0A 24
+ 002A 44 6F 20 79 6F 75		  mess3 db 'Do you want a telephone number?(Y/N)',13,10,'$'
+       20 77 61 6E 74 20
+       61 20 74 65 6C 65
+       70 68 6F 6E 65 20
+       6E 75 6D 62 65 72
+       3F 28 59 2F 4E 29
+       0D 0A 24
+ 0051 6E 61 6D 65 3F 0D		  mess4 db 'name?',13,10,'$'
+       0A 24
+ 0059 6E 61 6D 65		 mess5 	db 		'name',19 dup(0),'tel.',13,10,'$'
+       0013 [
+        00
+       ] 74 65 6C 2E 0D
+       0A 24
+ 0077 4E 6F 74 20 66 69			mess6 	db 		'Not find!',13,10,'$'
+       6E 64 21 0D 0A 24
+ 0083 77 72 6F 6E 67 0D			mess7 db 'wrong',13,10,'$'
+       0A 24
+ 008B 0000			  num dw 0;
+ 008D				  phonein label 	byte
+ 008D 09				  pmax 	db 		9
+ 008E 00				  pact 	db 		?
+ 008F  0009 [				  phone db 		9 dup(?)
+        00
+       ]
+ 0098					namin 	label 	byte
+ 0098 14				  nmax 	db 		20
+ 0099 00				  nact 	db 		?
+ 009A  0014 [				  nam   db      20 dup(?)
+        00
+       ]
+ 00AE  0014 [			temp_nam db 20 dup(?)
+        00
+       ]
+ 00C2  0014 [			temp_tab db 20 dup(?),4 dup(?),9 dup(?),13,10,'$'
+        00
+       ]
+       0004 [
+        00
+       ]
+       0009 [
+        00
+       ] 0D 0A 24
+ 00E6  0032 [			tel_tab db 50 dup(20 dup (?),4 dup(?),9 dup(?),13,10,'$')
+        0014 [
+	 00
+	]
+        0004 [
+	 00
+	]
+        0009 [
+	 00
+	] 0D 0A 24
+       ]
+
+
+
+
+				    ;此处输入数据段代码  
+ 07EE				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+				    ;此处输入堆栈段代码
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+ 0000				  main proc far
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START::
+ 0000  1E			    push ds
+ 0001  2B C0			    sub ax,ax
+ 0003  50			    push ax
+				    
+ 0004  B8 ---- R		    MOV AX,DATAS
+ 0007  8E D8			    MOV DS,AX
+ 0009  8E C0			    mov es,ax
+ 000B				begin:
+ 000B  B4 09			     mov ah,09h
+ 000D  8D 16 0000 R		     lea dx,mess1
+ 0011  CD 21			     int 21h
+ 0013  E8 0192			     call clear
+ 0016  E8 0048			     call input_name;输入名字
+ 0019  80 3E 0099 R 00		     cmp nact,0
+ 001E  74 13			     je search;未输入
+ 0020  E8 004A			     call stor_name
+				     
+ 0023  B4 09			     mov ah,09h
+ 0025  8D 16 000E R		     lea dx,mess2
+ 0029  CD 21			     int 21h
+ 002B  E8 0058			     call inphone 
+ 002E  E8 0086			     call name_sort
+ 0031  EB D8			     jmp begin
+				 
+ 0033				search:
+ 0033  B4 09			      mov ah,09h  
+ 0035  8D 16 002A R		      lea dx,mess3
+ 0039  CD 21			      int 21h
+				       
+ 003B  B4 01			      mov ah,01h
+ 003D  CD 21			      int 21h
+ 003F  3C 4E			      cmp al,'N'
+ 0041  74 1D			      je exit
+ 0043  E8 0155			      call crlf
+ 0046  B4 09			      mov ah ,09h
+ 0048  8D 16 0051 R		      lea dx, mess4
+ 004C  CD 21			      int 21h
+				       
+ 004E  E8 0010			      call  input_name
+ 0051  80 3E 0099 R 00		      cmp nact,0
+ 0056  74 08			      je exit
+ 0058  E8 00D8			      call name_search
+ 005B  E8 0111			      call printline
+ 005E  EB D3			      jmp search
+				     
+				     
+ 0060				exit:
+ 0060  CB			     ret
+ 0061				main endp 
+
+ 0061				input_name proc  near
+				 
+				     
+ 0061  B4 0A			    mov 	ah,0ah
+ 0063  8D 16 0098 R			lea 	dx,namin
+ 0067  CD 21				int 	21h
+ 0069  E8 012F				call 	crlf
+ 006C  C3				ret
+ 006D				input_name    endp
+
+ 006D				stor_name    proc    near
+ 006D  80 3E 0099 R 00		    cmp 	nact,0
+ 0072  74 11			    je 		exit1
+ 0074  8D 36 009A R		    lea 	si,nam
+ 0078  8D 3E 00C2 R		    lea 	di,temp_tab
+ 007C  2A ED			    sub 	ch,ch
+ 007E  8A 0E 0099 R		    mov 	cl,nact
+ 0082  FC			    cld
+ 0083  F3/ A4			    rep 	movsb
+ 0085				exit1:
+ 0085  C3			    ret
+ 0086				stor_name    endp
+				 
+
+ 0086				inphone    proc    near
+ 0086  B4 0A			    mov 	ah,0ah
+ 0088  8D 16 008D R		    lea 	dx,phonein
+ 008C  CD 21			    int 	21h
+
+ 008E  80 3E 008E R 08		    cmp 	pact, 8       ; 检查电话号码是否为8位
+ 0093  74 0A			    je      valid_phone  ; 如果是8位，跳转到 valid_phone 标签
+
+				    ; 如果不是8位，显示错误消息并跳转到 exit2
+ 0095  B4 09			    mov ah, 09h
+ 0097  8D 16 0083 R		    lea dx, mess7  ; 显示错误消息
+ 009B  CD 21			    int 21h
+ 009D  EB 17			    jmp exit2      ; 跳转到退出
+
+ 009F				valid_phone:
+ 009F  E8 00F9			    call 	crlf
+
+ 00A2  8D 36 008F R		    lea 	si,phone
+ 00A6  8D 3E 00C2 R		    lea 	di,temp_tab
+ 00AA  83 C7 17			    add     di,23
+ 00AD  2A ED			    sub 	ch,ch
+ 00AF  8A 0E 008E R		    mov 	cl,pact
+ 00B3  FC			    cld
+ 00B4  F3/ A4			    rep 	movsb
+ 00B6				 exit2:
+ 00B6  C3				ret   
+
+
+
+
+ 00B7				inphone    endp
+				 
+
+ 00B7				name_sort    proc    near
+ 00B7  83 3E 008B R 00			cmp 	num,0
+ 00BC  75 10				jnz 	sort
+ 00BE  8D 36 00C2 R			lea 	si,temp_tab 	;如果表项中没有内容，直接插入
+ 00C2  8D 3E 00E6 R			lea 	di,tel_tab
+ 00C6  B9 0023				mov 	cx,35
+ 00C9  FC				cld
+ 00CA  F3/ A4				rep 	movsb
+ 00CC  EB 2C				jmp 	exit3
+ 00CE				sort: 						;否则，进行排序
+ 00CE  8B 0E 008B R			mov 	cx,num
+ 00D2  8D 3E 00E6 R			lea 	di,tel_tab	
+ 00D6  8D 36 00C2 R			lea 	si,temp_tab
+					
+ 00DA				loopsort:
+ 00DA  57				push 	di
+ 00DB  51				push 	cx
+ 00DC  B9 0014				mov 	cx,20
+ 00DF  F3/ A6				repz 	cmpsb
+ 00E1  77 07				ja 		move		
+ 00E3  59				pop 	cx
+ 00E4  5F				pop 	di
+ 00E5  E8 0017			 	call 	insert  	
+				 
+ 00E8  EB 10			 	jmp 	exit3		;插入结束，退出
+ 00EA				move:
+ 00EA  59				pop 	cx
+ 00EB  5F				pop 	di
+ 00EC  83 C7 23				add 	di,35  
+ 00EF  8D 36 00C2 R			lea 	si,temp_tab
+ 00F3  E2 E5			 	loop	loopsort
+ 00F5  B9 0023			 	mov 	cx,35		;正常退出循环，说明需要插入在最后
+ 00F8  F3/ A4			 	rep 	movsb
+				 
+ 00FA				exit3:
+ 00FA  FF 06 008B R		 	inc 	num  		;表项个数加1
+ 00FE  C3				ret 	
+ 00FF				name_sort endp
+				 
+ 00FF				insert proc near
+ 00FF  A1 008B R		 mov ax,num
+				 
+ 0102				loopinsert:
+ 0102  50			    push ax
+ 0103  BB 0023			    mov bx,35
+ 0106  F7 E3			    mul bx
+ 0108  8D 3E 00E6 R		    lea di,tel_tab
+ 010C  03 F8			    add di,ax
+ 010E  8B F7			    mov si,di
+ 0110  83 EE 23			    sub si,35
+				    
+ 0113  51			    push cx
+ 0114  B9 0023			    mov cx,35
+ 0117  F3/ A4			    rep movsb
+ 0119  59			    pop cx
+ 011A  58			    pop ax
+ 011B  48			    dec ax
+ 011C  E2 E4			    loop loopinsert
+ 011E  8D 36 00C2 R		    lea si,temp_tab
+ 0122  8D 3E 00E6 R		    lea di,tel_tab
+ 0126  BB 0023			    mov bx,35
+ 0129  F7 E3			    mul bx
+ 012B  03 F8			    add di,ax
+ 012D  B9 0023			    mov cx,35
+ 0130  F3/ A4			    rep movsb
+ 0132  C3			    ret
+				    
+ 0133				insert endp
+
+ 0133				name_search proc near
+ 0133  E8 0072			    call clear
+ 0136  B5 00			    mov ch,0
+ 0138  8A 0E 0099 R		    mov cl,nact
+ 013C  8D 36 009A R		    lea si,nam
+ 0140  8D 3E 00AE R		    lea di,temp_nam
+ 0144  F3/ A4			    rep movsb
+ 0146  8B 0E 008B R		    mov cx,num
+ 014A  8D 3E 00E6 R		    lea di,tel_tab
+ 014E  8D 36 00AE R		    lea si,temp_nam
+ 0152				loopfind:
+ 0152  57			    push di
+ 0153  51			    push cx
+ 0154  B5 00			    mov ch,0
+ 0156  B1 14			    mov cl,20
+ 0158  F3/ A6			    repz cmpsb
+ 015A  74 10			    je find
+ 015C  59			    pop cx
+ 015D  5F			    pop di
+ 015E  83 C7 23			    add di,35
+ 0161  8D 36 00AE R		    lea si,temp_nam
+ 0165  E2 EB			    loop loopfind
+ 0167  B9 0000			    mov cx,0
+ 016A  EB 02			    jmp exit4
+				    
+ 016C				find:
+ 016C  59			   pop cx
+ 016D  5F			   pop di
+ 016E				exit4: 
+ 016E  C3			  ret
+ 016F				name_search endp
+
+ 016F				printline proc near
+ 016F  83 F9 00			    cmp cx,0
+ 0172  75 0A			    jnz next
+ 0174  B4 09			    mov ah,09h
+ 0176  8D 16 0077 R		    lea dx,mess6;not find
+ 017A  CD 21			    int 21h
+ 017C  EB 1C			    jmp exit5
+ 017E				next:
+ 017E  8D 16 0059 R		    lea dx,mess5
+ 0182  B4 09			    mov ah,09h
+ 0184  CD 21			    int 21h
+ 0186  A1 008B R		    mov ax,num
+ 0189  2B C1			    sub ax,cx
+ 018B  BB 0023			    mov bx,35
+ 018E  F7 E3			    mul  bx
+ 0190  8D 16 00E6 R		    lea dx,tel_tab
+ 0194  03 D0			    add dx,ax
+ 0196  B4 09			    mov ah,09h
+ 0198  CD 21			    int 21h
+				    
+ 019A				exit5:
+ 019A  C3			  ret
+				  
+ 019B				printline endp    
+				  
+				  
+
+ 019B				crlf 	proc 	near
+ 019B  B2 0A				mov 	dl,0ah
+ 019D  B4 02				mov 	ah,02h;换行
+ 019F  CD 21				int 	21h
+ 01A1  B2 0A				mov 	dl,0ah
+ 01A3  B4 02				mov 	ah,02h
+ 01A5  CD 21				int 	21h
+ 01A7  C3				ret
+ 01A8				crlf endp	
+					
+					
+ 01A8				clear 	proc 	near
+ 01A8  8D 3E 00C2 R			lea 	di,temp_tab
+ 01AC  32 C0				xor 	al,al;设为0
+ 01AE  B9 0020			    mov 	cx,32
+ 01B1  F3/ AA				rep 	stosb;清空
+ 01B3  8D 3E 00AE R			lea 	di,temp_nam
+ 01B7  32 C0				xor 	al,al
+ 01B9  B9 0014			    mov 	cx,20
+ 01BC  F3/ AA				rep 	stosb
+ 01BE  C3				ret
+ 01BF				clear 	endp
+
+				   
+				    
+
+				    
+				    
+				    
+				            
+				     
+				 
+				     
+				     
+				     
+				    ;此处输入代码段代码
+				    
+ 01BF  CD 21			    INT 21H
+ 01C1				CODES ENDS
+				    END START
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    12/26/23 12:46:17
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 01C1	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 07EE	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+clear  . . . . . . . . . . . . .	P Near	 01A8	  CODES	Length= 0017 Public
+crlf . . . . . . . . . . . . . .	P Near	 019B	  CODES	Length= 000D Public
+inphone  . . . . . . . . . . . .	P Near	 0086	  CODES	Length= 0031 Public
+  valid_phone  . . . . . . . . .	L Near	 009F	  CODES	
+  exit2  . . . . . . . . . . . .	L Near	 00B6	  CODES	
+input_name . . . . . . . . . . .	P Near	 0061	  CODES	Length= 000C Public
+insert . . . . . . . . . . . . .	P Near	 00FF	  CODES	Length= 0034 Public
+  loopinsert . . . . . . . . . .	L Near	 0102	  CODES	
+main . . . . . . . . . . . . . .	P Far	 0000	  CODES	Length= 0061 Public
+  begin  . . . . . . . . . . . .	L Near	 000B	  CODES	
+  search . . . . . . . . . . . .	L Near	 0033	  CODES	
+  exit . . . . . . . . . . . . .	L Near	 0060	  CODES	
+name_search  . . . . . . . . . .	P Near	 0133	  CODES	Length= 003C Public
+  loopfind . . . . . . . . . . .	L Near	 0152	  CODES	
+  find . . . . . . . . . . . . .	L Near	 016C	  CODES	
+  exit4  . . . . . . . . . . . .	L Near	 016E	  CODES	
+name_sort  . . . . . . . . . . .	P Near	 00B7	  CODES	Length= 0048 Public
+  sort . . . . . . . . . . . . .	L Near	 00CE	  CODES	
+  loopsort . . . . . . . . . . .	L Near	 00DA	  CODES	
+  move . . . . . . . . . . . . .	L Near	 00EA	  CODES	
+  exit3  . . . . . . . . . . . .	L Near	 00FA	  CODES	
+printline  . . . . . . . . . . .	P Near	 016F	  CODES	Length= 002C Public
+  next . . . . . . . . . . . . .	L Near	 017E	  CODES	
+  exit5  . . . . . . . . . . . .	L Near	 019A	  CODES	
+stor_name  . . . . . . . . . . .	P Near	 006D	  CODES	Length= 0019 Public
+  exit1  . . . . . . . . . . . .	L Near	 0085	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+mess1  . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+mess2  . . . . . . . . . . . . .	Byte	 000E	  DATAS	
+mess3  . . . . . . . . . . . . .	Byte	 002A	  DATAS	
+mess4  . . . . . . . . . . . . .	Byte	 0051	  DATAS	
+mess5  . . . . . . . . . . . . .	Byte	 0059	  DATAS	
+mess6  . . . . . . . . . . . . .	Byte	 0077	  DATAS	
+mess7  . . . . . . . . . . . . .	Byte	 0083	  DATAS	
+nact . . . . . . . . . . . . . .	Byte	 0099	  DATAS	
+namin  . . . . . . . . . . . . .	Byte	 0098	  DATAS	
+nam  . . . . . . . . . . . . . .	Byte	 009A	  DATAS	
+nmax . . . . . . . . . . . . . .	Byte	 0098	  DATAS	
+num  . . . . . . . . . . . . . .	Word	 008B	  DATAS	
+pact . . . . . . . . . . . . . .	Byte	 008E	  DATAS	
+phonein  . . . . . . . . . . . .	Byte	 008D	  DATAS	
+phone  . . . . . . . . . . . . .	Byte	 008F	  DATAS	
+pmax . . . . . . . . . . . . . .	Byte	 008D	  DATAS	
+tel_tab  . . . . . . . . . . . .	Byte	 00E6	  DATAS	
+temp_nam . . . . . . . . . . . .	Byte	 00AE	  DATAS	
+temp_tab . . . . . . . . . . . .	Byte	 00C2	  DATAS	
+
+	   0 Warnings
+	   0 Errors
