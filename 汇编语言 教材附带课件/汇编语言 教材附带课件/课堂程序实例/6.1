@@ -1,0 +1,51 @@
+DATAS SEGMENT
+   source byte "This is the source string "
+   target byte sizeof source dup(?) ;此处输入数据段代码  
+DATAS ENDS
+
+STACKS SEGMENT
+    ;此处输入堆栈段代码
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+    mov cx,sizeof source
+    lea si,source
+    add si,cx
+    dec si
+    lea di,target
+    
+l1:
+     mov al,[si]
+     mov [di],al
+     dec si
+     inc di
+     loop l1
+  mov cx,sizeof source
+  lea di,target
+l2:
+     mov ah,2h
+     mov dl,[di]
+     int 21h
+     inc di
+     loop l2
+     mov ah,2
+     mov dl,0dh
+     int 21h
+     mov ah,2h
+     mov dl,0ah
+     int 21h
+    
+     
+    
+    
+    
+    
+    ;此处输入代码段代码
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START

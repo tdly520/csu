@@ -1,0 +1,331 @@
+Microsoft (R) Macro Assembler Version 6.11		    04/22/24 14:46:17
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+				    ; 输入buf1的数据
+ 0000  0002 [			    buf1 DW 2 DUP(?)  ; 2个元素初始化为零
+        0000
+       ]
+
+				    ; 输入buf2的数据
+ 0004  0004 [			    buf2 DW 4 DUP(?)  ; 4个元素初始化为零
+        0000
+       ]
+
+				    ; 用4个零初始化buf3
+ 000C  0004 [			    buf3 DW 4 DUP(0)
+        0000
+       ]
+
+				    ; 用于提示和消息的字符串
+ 0014 45 6E 74 65 72 20		    string_input_buf1 DB 'Enter 2 numbers for buf1 (0-65535): $'
+       32 20 6E 75 6D 62
+       65 72 73 20 66 6F
+       72 20 62 75 66 31
+       20 28 30 2D 36 35
+       35 33 35 29 3A 20
+       24
+ 0039 45 6E 74 65 72 20		    string_input_buf2 DB 'Enter 4 numbers for buf2 (0-65535): $'
+       34 20 6E 75 6D 62
+       65 72 73 20 66 6F
+       72 20 62 75 66 32
+       20 28 30 2D 36 35
+       35 33 35 29 3A 20
+       24
+ 005E 0A 0D 24			    string_prompt_end DB 0ah, 0dh, '$'
+ 0061  000A [			    DATA  DW 10 DUP(?) 
+        0000
+       ]
+				    ; 错误提示消息
+ 0075 45 52 52 4F 52 3A		    string_error DB 'ERROR: INPUT OUT OF RANGE! Please input again: $'
+       20 49 4E 50 55 54
+       20 4F 55 54 20 4F
+       46 20 52 41 4E 47
+       45 21 20 50 6C 65
+       61 73 65 20 69 6E
+       70 75 74 20 61 67
+       61 69 6E 3A 20 24
+
+ 00A5				DATAS ENDS
+
+
+ 0000				STACKS SEGMENT
+ 0000  0100 [			   DW 256 dup(?) ; 根据需要定义堆栈段
+        0000
+       ]
+ 0200				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES, DS:DATAS, SS:STACKS
+
+ 0000				main PROC FAR
+ 0000  B8 ---- R		    mov ax, DATAS
+ 0003  8E D8			    mov ds, ax
+ 0005  8E C0			    mov es, ax
+
+				    ; 手动输入buf1的数据
+ 0007  BE 0000			    mov si, 0
+ 000A  B9 0002			    mov cx, 2  ; 修改为2个数字
+ 000D				input_buf1:
+ 000D  BA 0014 R		    mov dx, OFFSET string_input_buf1
+ 0010  B4 09			    mov ah, 9
+ 0012  CD 21			    int 21h
+ 0014				lp1:
+ 0014  E8 006C			    call Input   ; 需要实现Input过程来处理单个数字的输入和验证
+
+ 0017  89 84 0000 R		    mov [buf1 + si], ax  ; 将输入值存入buf1
+ 001B  83 C6 02			    add si, 2
+ 001E  E2 F4			    loop lp1
+
+				    ; 手动输入buf2的数据
+ 0020  BE 0000			    mov si, 0
+ 0023  B9 0004			    mov cx, 4  ; 修改为4个数字
+ 0026				input_buf2:
+ 0026  BA 0039 R		    mov dx, OFFSET string_input_buf2
+ 0029  B4 09			    mov ah, 9
+ 002B  CD 21			    int 21h
+ 002D				lp2:
+ 002D  E8 0053			    call Input   ; 需要实现Input过程来处理单个数字的输入和验证
+
+ 0030  89 84 0004 R		    mov [buf2 + si], ax  ; 将输入值存入buf2
+ 0034  83 C6 02			    add si, 2
+ 0037  E2 F4			    loop lp2
+
+				    ; 处理buf1和buf2的代码
+ 0039  BE 0000			    mov si, 0
+ 003C  BF 0000			    mov di, 0
+ 003F				loop_begin:
+ 003F  FC			    cld                 ; 清零循环方向
+ 0040  8B 84 0000 R		    mov ax, [buf1 + si]
+ 0044  83 FE 04			    cmp si, 4  ; 修改为4
+ 0047  74 19			    je print0
+
+ 0049  83 C6 02			    add si, 2
+ 004C  57			    push di
+ 004D  B9 0008			    mov cx, 8  ; 修改为8
+ 0050  8D 3E 0004 R		    lea di, buf2
+ 0054  F2/ AF			    repnz scasw
+ 0056  5F			    pop di
+ 0057  75 E6			    jne loop_begin
+ 0059  89 85 000C R		    mov [buf3 + di], ax
+ 005D  83 C7 02			    add di, 2
+ 0060  EB DD			    jmp loop_begin
+
+ 0062				print0:
+ 0062  BE 0000			    mov si, 0
+ 0065  BF 0000			    mov di, 0
+ 0068  B9 0004			    mov cx, 4  ; 修改为4
+ 006B				print:
+ 006B  8B 9C 000C R		    mov bx, [buf3 + si]
+ 006F  51			    push cx
+ 0070  E8 0077			    call print_proc
+ 0073  59			    pop cx
+ 0074  B2 0A			    mov dl, 0ah
+ 0076  B4 02			    mov ah, 02h
+ 0078  CD 21			    int 21h
+ 007A  83 C6 02			    add si, 2
+ 007D  E2 EC			    loop print
+
+ 007F  B4 4C			    mov ah, 4ch
+ 0081  CD 21			    int 21h
+
+ 0083				main endp
+
+				; 输入子程序，处理单个数字的输入和验证
+ 0083				Input PROC NEAR
+ 0083  50			    push AX
+ 0084  53			    push BX
+ 0085  51			    push CX
+ 0086  52			    push DX
+
+ 0087  BB 0000			    mov BX, 0    ; BX用于存储当前输入的数字
+ 008A  F8			    CLC
+ 008B  BA 0000			    MOV DX, 0
+
+ 008E				Lp_0:
+ 008E  B4 01			    MOV AH, 1
+ 0090  CD 21			    INT 21H
+
+ 0092  3C 20			    CMP AL, 20H  ; 检查是否是空格
+ 0094  74 1B			    JE L_SPACE   ; 如果是空格，跳转到处理空格的标签
+
+ 0096  3C 0D			    CMP AL, 0DH  ; 检查是否是回车键
+ 0098  74 21			    JE L_END     ; 如果是回车键，跳转到结束输入的标签
+
+				    ; x 属于 [0, 9]
+ 009A  2C 30			    SUB AL, 30H  ; ASCII -> int
+ 009C  7C 27			    JL L_ERROR  
+ 009E  3C 09			    CMP AL, 9
+ 00A0  7F 23			    JG L_ERROR
+
+				    ; string -> int
+ 00A2  B4 00			    MOV AH, 0   ; 扩展 AL 到 AX
+ 00A4  93			    XCHG AX, BX ; 保护 AX 值
+ 00A5  B9 000A			    MOV CX, 10
+ 00A8  F7 E1			    MUL CX      ; BX *= 10
+ 00AA  03 C3			    ADD AX, BX
+ 00AC  72 17			    JC L_ERROR  ; 处理溢出
+ 00AE  93			    XCHG AX, BX 
+ 00AF  EB DD			    JMP Lp_0
+
+ 00B1				L_SPACE:
+ 00B1  BA 0000			    MOV DX, 0
+ 00B4  89 1D			    MOV [DI], BX ; 将输入的数字存入目标地址
+ 00B6  5A			    POP DX
+ 00B7  59			    POP CX
+ 00B8  5B			    POP BX
+ 00B9  58			    POP AX
+ 00BA  C3			    RET
+
+ 00BB				L_END:
+ 00BB  BA 0000			    MOV DX, 0
+ 00BE  89 1D			    MOV [DI], BX ; 将输入的数字存入目标地址
+ 00C0  5A			    POP DX
+ 00C1  59			    POP CX
+ 00C2  5B			    POP BX
+ 00C3  58			    POP AX
+ 00C4  C3			    RET
+
+ 00C5				L_ERROR:
+ 00C5  BA 0000			    MOV DX, 0
+ 00C8  BB 0000			    MOV BX, 0
+ 00CB  E8 0005			    CALL CRLF   ; 换行        
+ 00CE  E8 000D			    CALL ERROR  ; 输出错误提示
+ 00D1  EB BB			    JMP Lp_0
+
+ 00D3				Input ENDP
+
+
+				; 换行子程序
+ 00D3				CRLF PROC NEAR
+ 00D3  50			    push AX
+ 00D4  52			    push DX
+ 00D5  B2 0A			    MOV DL, 0ah
+ 00D7  B4 02			    MOV AH, 02h
+ 00D9  CD 21			    INT 21h
+ 00DB  5A			    pop DX
+ 00DC  58			    pop AX
+ 00DD  C3			    RET
+ 00DE				CRLF ENDP
+
+				; 错误提示子程序
+ 00DE				ERROR PROC NEAR
+ 00DE  53			    push BX
+ 00DF  52			    push DX
+ 00E0  BA 0075 R		    MOV DX, OFFSET string_error ; 错误提示消息
+ 00E3  B4 09			    MOV AH, 09h
+ 00E5  CD 21			    INT 21H
+ 00E7  5A			    pop DX
+ 00E8  5B			    pop BX
+ 00E9  C3			    RET
+ 00EA				ERROR ENDP
+
+
+				; 输出单个数字的子程序
+ 00EA				print_proc PROC NEAR
+ 00EA  8B D3			    mov DX, BX
+ 00EC  B1 04			    mov CL, 4
+ 00EE  D2 EE			    SHR DH, CL
+ 00F0  80 C6 30			    ADD DH, 30h
+ 00F3  80 FE 39			    CMP DH, 39h
+ 00F6  7E 03			    JLE first
+ 00F8  80 C6 07			    ADD DH, 07h
+ 00FB				first:
+ 00FB  8A D6			    MOV DL, DH
+ 00FD  B4 02			    MOV AH, 02h
+ 00FF  CD 21			    INT 21h
+
+ 0101  8A F7			    MOV DH, BH
+ 0103  80 E6 0F			    AND DH, 0Fh
+ 0106  80 C6 30			    ADD DH, 30h
+ 0109  80 FE 39			    CMP DH, 39h
+ 010C  7E 03			    JLE second
+ 010E  80 C6 07			    ADD DH, 07h
+ 0111				second:
+ 0111  8A D6			    MOV DL, DH
+ 0113  B4 02			    MOV AH, 02h
+ 0115  CD 21			    INT 21h
+
+ 0117  8A D3			    MOV DL, BL
+ 0119  D2 EA			    SHR DL, CL
+ 011B  80 C2 30			    ADD DL, 30h
+ 011E  80 FA 39			    CMP DL, 39h
+ 0121  7E 03			    JLE third
+ 0123  80 C2 07			    ADD DL, 07h
+ 0126				third:
+ 0126  B4 02			    MOV AH, 02h
+ 0128  CD 21			    INT 21h
+
+ 012A  8A D3			    MOV DL, BL
+ 012C  80 E2 0F			    AND DL, 0Fh
+ 012F  80 C2 30			    ADD DL, 30h
+ 0132  80 FA 39			    CMP DL, 39h
+ 0135  7E 03			    JLE forth
+ 0137  80 C2 07			    ADD DL, 07h
+ 013A				forth:
+ 013A  B4 02			    MOV AH, 02h
+ 013C  CD 21			    INT 21h
+
+ 013E  C3			    RET
+ 013F				print_proc ENDP
+
+ 013F				CODES ENDS
+END main
+
+Microsoft (R) Macro Assembler Version 6.11		    04/22/24 14:46:17
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 013F	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 00A5	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0200	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+CRLF . . . . . . . . . . . . . .	P Near	 00D3	  CODES	Length= 000B Public
+ERROR  . . . . . . . . . . . . .	P Near	 00DE	  CODES	Length= 000C Public
+Input  . . . . . . . . . . . . .	P Near	 0083	  CODES	Length= 0050 Public
+  Lp_0 . . . . . . . . . . . . .	L Near	 008E	  CODES	
+  L_SPACE  . . . . . . . . . . .	L Near	 00B1	  CODES	
+  L_END  . . . . . . . . . . . .	L Near	 00BB	  CODES	
+  L_ERROR  . . . . . . . . . . .	L Near	 00C5	  CODES	
+main . . . . . . . . . . . . . .	P Far	 0000	  CODES	Length= 0083 Public
+  input_buf1 . . . . . . . . . .	L Near	 000D	  CODES	
+  lp1  . . . . . . . . . . . . .	L Near	 0014	  CODES	
+  input_buf2 . . . . . . . . . .	L Near	 0026	  CODES	
+  lp2  . . . . . . . . . . . . .	L Near	 002D	  CODES	
+  loop_begin . . . . . . . . . .	L Near	 003F	  CODES	
+  print0 . . . . . . . . . . . .	L Near	 0062	  CODES	
+  print  . . . . . . . . . . . .	L Near	 006B	  CODES	
+print_proc . . . . . . . . . . .	P Near	 00EA	  CODES	Length= 0055 Public
+  first  . . . . . . . . . . . .	L Near	 00FB	  CODES	
+  second . . . . . . . . . . . .	L Near	 0111	  CODES	
+  third  . . . . . . . . . . . .	L Near	 0126	  CODES	
+  forth  . . . . . . . . . . . .	L Near	 013A	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+DATA . . . . . . . . . . . . . .	Word	 0061	  DATAS	
+buf1 . . . . . . . . . . . . . .	Word	 0000	  DATAS	
+buf2 . . . . . . . . . . . . . .	Word	 0004	  DATAS	
+buf3 . . . . . . . . . . . . . .	Word	 000C	  DATAS	
+string_error . . . . . . . . . .	Byte	 0075	  DATAS	
+string_input_buf1  . . . . . . .	Byte	 0014	  DATAS	
+string_input_buf2  . . . . . . .	Byte	 0039	  DATAS	
+string_prompt_end  . . . . . . .	Byte	 005E	  DATAS	
+
+	   0 Warnings
+	   0 Errors

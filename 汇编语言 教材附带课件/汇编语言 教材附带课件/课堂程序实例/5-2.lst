@@ -1,0 +1,66 @@
+Microsoft (R) Macro Assembler Version 6.11		    12/04/23 23:05:19
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+				    ;此处输入数据段代码  
+ 0000				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+				    ;此处输入堆栈段代码
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    ;此处输入代码段代码
+ 0005  BB 0000			             mov   bx, 0
+ 0008				newchar:
+ 0008  B4 01				  mov   ah, 1 
+ 000A  B0 03				  mov al,3
+				      ;int   21h
+ 000C  2C 30			      sub   al, 30h         
+ 000E  7C 10			      jl    exit       ; <0 exit
+ 0010  3C 09			      cmp   al, 9
+ 0012  7F 0C			      jg    exit       ; >9 exit
+ 0014  98			      cbw   ;它将 AL 寄存器中的有符号字节扩展为 AX 寄存器中的有符号字
+ 0015  93			      xchg  ax, bx
+ 0016  B9 000A			      mov   cx, 10
+ 0019  F7 E1			      mul   cx;寄存器 AX 中的值与 CX 寄存器中的值相乘。这条指令会将乘积的结果存储在 AX 寄存器中
+ 001B  93			      xchg  ax, bx
+ 001C  03 D8			      add   bx, ax
+
+ 001E  EB E8			      jmp   newchar
+ 0020				exit:   
+ 0020  B4 4C			    MOV AH,4CH
+ 0022  CD 21			    INT 21H
+ 0024				CODES ENDS
+				    END START
+
+Microsoft (R) Macro Assembler Version 6.11		    12/04/23 23:05:19
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0024	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+exit . . . . . . . . . . . . . .	L Near	 0020	  CODES	
+newchar  . . . . . . . . . . . .	L Near	 0008	  CODES	
+
+	   0 Warnings
+	   0 Errors

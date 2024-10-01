@@ -1,0 +1,153 @@
+Microsoft (R) Macro Assembler Version 6.11		    04/21/24 20:17:52
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 0001 000C 000D 000E	    buf1 DW 1,12,13,14,15
+       000F
+ 000A 0001 000C 000D 000E	    buf2 DW 1,12,13,14,15,16,17,18,19,20
+       000F 0010 0011
+       0012 0013 0014
+ 001E  0014 [			    buf3 DW 20 DUP(?)
+        0000
+       ]
+ 0046				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES, DS:DATAS, SS:STACKS
+ 0000				main proc far
+ 0000  B8 ---- R		    mov ax,DATAS
+ 0003  8E D8			    mov ds,ax
+ 0005  8E C0			    mov es,ax
+
+ 0007  BE 0000			    mov si,0
+ 000A  BF 0000			    mov di,0
+ 000D				loop_begin:
+ 000D  FC			    cld
+ 000E  8B 84 0000 R		    mov ax, buf1[si]
+ 0012  83 FE 0A			    cmp si,10
+ 0015  74 19			    je print0
+
+ 0017  83 C6 02			    add si,2
+ 001A  57			    push di
+ 001B  B9 000A			    mov cx,10
+ 001E  8D 3E 000A R		    lea di,buf2
+ 0022  F2/ AF			    repnz scasw
+ 0024  5F			    pop di
+ 0025  75 E6			    jne loop_begin
+ 0027  89 85 001E R		    mov buf3[di],ax
+ 002B  83 C7 02			    add di,2
+ 002E  EB DD			    jmp loop_begin
+
+ 0030				print0:
+ 0030  BE 0000			    mov si,0
+ 0033  BF 0000			    mov di,0
+ 0036  B9 0005			    mov cx,5
+ 0039				print:
+ 0039  8B 9C 001E R		    mov bx,buf3[si]
+ 003D  51			    push cx
+ 003E  E8 0010			    call print_proc
+ 0041  59			    pop cx
+ 0042  B2 0A			    mov dl,0ah
+ 0044  B4 02			    mov ah,02h
+ 0046  CD 21			    int 21h
+ 0048  83 C6 02			    add si,2
+ 004B  E2 EC			    loop print 
+
+ 004D  B4 4C			    mov ah,4ch
+ 004F  CD 21			    int 21h
+
+ 0051				main endp
+
+ 0051				print_proc proc near
+ 0051  8B D3			    mov dx,bx
+ 0053  B1 04			    mov cl,4
+ 0055  D2 EE			    shr dh,cl
+ 0057  80 C6 30			    add dh,30h
+ 005A  80 FE 39			    cmp dh,39h
+ 005D  7E 03			    jle first
+ 005F  80 C6 07			    add dh,07h
+ 0062				first:
+ 0062  8A D6			    mov dl,dh
+ 0064  B4 02			    mov ah,02h
+ 0066  CD 21			    int 21h
+
+ 0068  8A F7			    mov dh,bh
+ 006A  80 E6 0F			    and dh,0fh
+ 006D  80 C6 30			    add dh,30h
+ 0070  80 FE 39			    cmp dh,39h
+ 0073  7E 03			    jle second
+ 0075  80 C6 07			    add dh,07h
+ 0078				second:
+ 0078  8A D6			    mov dl,dh
+ 007A  B4 02			    mov ah,02h
+ 007C  CD 21			    int 21h
+
+ 007E  8A D3			    mov dl,bl
+ 0080  D2 EA			    shr dl,cl
+ 0082  80 C2 30			    add dl,30h
+ 0085  80 FA 39			    cmp dl,39h
+ 0088  7E 03			    jle third
+ 008A  80 C2 07			    add dl,07h
+ 008D				third:
+ 008D  B4 02			    mov ah,02h
+ 008F  CD 21			    int 21h
+
+ 0091  8A D3			    mov dl,bl
+ 0093  80 E2 0F			    and dl,0fh
+ 0096  80 C2 30			    add dl,30h
+ 0099  80 FA 39			    cmp dl,39h
+ 009C  7E 03			    jle forth
+ 009E  80 C2 07			    add dl,07h
+ 00A1				forth:
+ 00A1  B4 02			    mov ah,02h
+ 00A3  CD 21			    int 21h
+
+ 00A5  C3			    ret
+ 00A6				print_proc endp
+ 00A6				CODES ENDS
+				    END main
+
+Microsoft (R) Macro Assembler Version 6.11		    04/21/24 20:17:52
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 00A6	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0046	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+main . . . . . . . . . . . . . .	P Far	 0000	  CODES	Length= 0051 Public
+  loop_begin . . . . . . . . . .	L Near	 000D	  CODES	
+  print0 . . . . . . . . . . . .	L Near	 0030	  CODES	
+  print  . . . . . . . . . . . .	L Near	 0039	  CODES	
+print_proc . . . . . . . . . . .	P Near	 0051	  CODES	Length= 0055 Public
+  first  . . . . . . . . . . . .	L Near	 0062	  CODES	
+  second . . . . . . . . . . . .	L Near	 0078	  CODES	
+  third  . . . . . . . . . . . .	L Near	 008D	  CODES	
+  forth  . . . . . . . . . . . .	L Near	 00A1	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+buf1 . . . . . . . . . . . . . .	Word	 0000	  DATAS	
+buf2 . . . . . . . . . . . . . .	Word	 000A	  DATAS	
+buf3 . . . . . . . . . . . . . .	Word	 001E	  DATAS	
+
+	   0 Warnings
+	   0 Errors

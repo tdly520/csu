@@ -1,0 +1,108 @@
+Microsoft (R) Macro Assembler Version 6.11		    12/26/23 12:42:34
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 50			    INPUT_SIZE DB 80
+ 0001  0050 [			    BUFFER DB 80 DUP('$')
+        24
+       ]
+ 0051 00			    LETTER DB 0
+ 0052 00			    DIGIT DB 0
+ 0053 00			    OTHER DB 0
+ 0054				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+ 0000  0050 [			    INPUT_STACK DB 80 DUP('$')
+        24
+       ]
+ 0050				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+
+				    ; 读取输入至缓冲区
+ 0005  B4 0A			    MOV AH, 0AH
+ 0007  8D 16 0001 R		    LEA DX, BUFFER
+ 000B  CD 21			    INT 21H
+
+				    ; 统计字符个数
+ 000D  BE 0001			    MOV SI, 1  
+ 0010				COUNT_LOOP:   
+ 0010  8A 84 0001 R		    MOV AL, BUFFER[SI] 
+ 0014  3C 0D			    CMP AL, 0DH ; 判断是否为回车符
+ 0016  74 2B			    JE END_COUNT 
+ 0018  3C 41			    CMP AL, 'A' ; 判断是否为字母
+ 001A  72 0C			    JB CHECK_DIGIT 
+ 001C  3C 5A			    CMP AL, 'Z' ; 判断是否为大写字母
+ 001E  76 1C			    JBE INCREMENT_LETTER 
+ 0020  3C 61			    CMP AL, 'a' ; 判断是否为小写字母
+ 0022  72 04			    JB CHECK_DIGIT 
+ 0024  3C 7A			    CMP AL, 'z' ; 判断是否为小写字母
+ 0026  76 14			    JBE INCREMENT_LETTER
+ 0028				CHECK_DIGIT:
+ 0028  3C 30			    CMP AL, '0' ; 判断是否为数字
+ 002A  72 04			    JB INCREMENT_OTHER ; 若字符小于 '0'，则不是数字
+ 002C  3C 39			    CMP AL, '9' ; 判断是否为数字
+ 002E  76 06			    JBE INCREMENT_DIGIT ; 若小于等于 '9'，则是数字
+ 0030				INCREMENT_OTHER:
+ 0030  FE 06 0053 R		    INC OTHER ; 增加其他字符计数
+ 0034  EB 0A			    JMP CONTINUE_COUNT
+ 0036				INCREMENT_DIGIT:
+ 0036  FE 06 0052 R		    INC DIGIT ; 增加数字计数
+ 003A  EB 04			    JMP CONTINUE_COUNT
+ 003C				INCREMENT_LETTER:
+ 003C  FE 06 0051 R		    INC LETTER ; 增加字母计数
+ 0040				CONTINUE_COUNT:
+ 0040  46			    INC SI ; 移至下一个字符
+ 0041  EB CD			    JMP COUNT_LOOP
+ 0043				END_COUNT:
+				    ; 输出统计结果
+				    ; 在此处输出统计结果的代码
+
+ 0043  B4 4C			    MOV AH, 4CH
+ 0045  CD 21			    INT 21H
+ 0047				CODES ENDS
+				    END START
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    12/26/23 12:42:34
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0047	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0054	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0050	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUFFER . . . . . . . . . . . . .	Byte	 0001	  DATAS	
+CHECK_DIGIT  . . . . . . . . . .	L Near	 0028	  CODES	
+CONTINUE_COUNT . . . . . . . . .	L Near	 0040	  CODES	
+COUNT_LOOP . . . . . . . . . . .	L Near	 0010	  CODES	
+DIGIT  . . . . . . . . . . . . .	Byte	 0052	  DATAS	
+END_COUNT  . . . . . . . . . . .	L Near	 0043	  CODES	
+INCREMENT_DIGIT  . . . . . . . .	L Near	 0036	  CODES	
+INCREMENT_LETTER . . . . . . . .	L Near	 003C	  CODES	
+INCREMENT_OTHER  . . . . . . . .	L Near	 0030	  CODES	
+INPUT_SIZE . . . . . . . . . . .	Byte	 0000	  DATAS	
+INPUT_STACK  . . . . . . . . . .	Byte	 0000	  STACKS	
+LETTER . . . . . . . . . . . . .	Byte	 0051	  DATAS	
+OTHER  . . . . . . . . . . . . .	Byte	 0053	  DATAS	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+
+	   0 Warnings
+	   0 Errors

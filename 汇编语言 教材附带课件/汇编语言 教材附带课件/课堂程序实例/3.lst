@@ -1,0 +1,281 @@
+Microsoft (R) Macro Assembler Version 6.11		    04/22/24 16:01:52
+tempfile.asm						     Page 1 - 1
+
+
+				;-----数据段------------
+ 0000				DATAS SEGMENT
+ 0000 50 6C 65 61 73 65		    string_1 DB 'Please input 10 numbers(0-65536):','$'
+       20 69 6E 70 75 74
+       20 31 30 20 6E 75
+       6D 62 65 72 73 28
+       30 2D 36 35 35 33
+       36 29 3A 24
+ 0022 45 52 52 4F 52 3A		    string_2 DB 'ERROR: OVERFLOW! Please input again:','$'
+       20 4F 56 45 52 46
+       4C 4F 57 21 20 50
+       6C 65 61 73 65 20
+       69 6E 70 75 74 20
+       61 67 61 69 6E 3A
+       24
+ 0047 54 68 65 20 61 72		    string_3 DB 'The array you have input is:',0ah,0dh,'$'
+       72 61 79 20 79 6F
+       75 20 68 61 76 65
+       20 69 6E 70 75 74
+       20 69 73 3A 0A 0D
+       24
+ 0066 41 66 74 65 72 20		    string_4 DB 'After Sort the num is:',0ah,0dh,'$'
+       53 6F 72 74 20 74
+       68 65 20 6E 75 6D
+       20 69 73 3A 0A 0D
+       24
+ 007F 20 24			    string_5 DB ' ','$'
+ 0081  000A [			    DATA  DW 10 DUP(?)  
+        0000
+       ]
+ 0095 54 68 65 20 73 75		    massege  DB 'The sum of the array is: ',0ah,0DH,'$'   
+       6D 20 6F 66 20 74
+       68 65 20 61 72 72
+       61 79 20 69 73 3A
+       20 0A 0D 24
+ 00B1				DATAS ENDS
+
+				;-----堆栈段------------
+ 0000				STACKS SEGMENT
+ 0000  0100 [			    DW 256 dup(?)
+        0000
+       ]
+ 0200				STACKS ENDS
+
+				;-----代码段------------
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+
+
+				;-----------程序开始------------
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+ 0005  BE 0000			    MOV SI, 0  ;指针初始化
+ 0008  B9 000A			    MOV CX, 10 ;循环次数
+				;---------Input----------
+ 000B  BA 0000 R		    MOV DX, OFFSET string_1 ;Please input 10 numbers(0-65536)
+ 000E  B4 09			    MOV AH, 9
+ 0010  CD 21			    INT 21H
+ 0012				Lp:
+ 0012  E8 0020			    CALL Input
+ 0015  83 C6 02			    ADD SI, 2
+ 0018  E2 F8			    Loop Lp
+				;--------结束输入，换行---------------
+ 001A  E8 007C			    CALL CRLF
+ 001D  BA 0047 R		    MOV DX, OFFSET string_3 ;'The array you have input is:'
+ 0020  B4 09			    MOV AH, 9               ;首地址 DS:DX 
+ 0022  CD 21			    INT 21H
+				 ;-------输出 ----------------   
+ 0024  B9 000A			    MOV CX, 10
+ 0027  BF 0000			    MOV DI, 0
+ 002A				Again:
+ 002A  E8 008F			    CALL Print
+ 002D  E8 0074			    CALL Space
+ 0030  83 C7 02			    ADD DI , 2
+ 0033  E2 F5			    Loop Again
+				;/******************************/
+
+
+
+
+
+				;/************子程序调用****************/
+
+
+				;---------输入函数（单数字输入）------------
+ 0035				Input PROC Near
+ 0035  50			    push AX
+ 0036  53			    push BX
+ 0037  51			    push CX
+ 0038  52			    push DX
+
+
+ 0039  BB 0000			    MOV BX, 0
+ 003C  F8			    CLC
+ 003D  BA 0000			    MOV DX, 0
+				;----------输入数字--------------
+ 0040				    Lp_0:
+ 0040  B4 01			        MOV AH, 1
+ 0042  CD 21			        INT 21H
+ 0044  3C 20			        CMP AL, 20H ;空格
+ 0046  74 34			        JE L_CRLF
+
+				;-----   x belong to [0,9]   ----------        
+ 0048  2C 30			        SUB AL, 30H ; ASCII -> int
+ 004A  7C 13			        JL L_ERROR  
+ 004C  3C 09			        CMP AL, 9
+ 004E  7F 0F			        JG L_ERROR
+				;-------  string -> int   -----------
+ 0050  B4 00			        MOV AH, 0   ;将 AL扩展成 AX
+ 0052  93			        XCHG AX, BX ;保护 AX值
+ 0053  B9 000A			        MOV CX, 10
+ 0056  F7 E1			        MUL CX      ; bx *= 10
+ 0058  03 C3			        ADD AX , BX
+ 005A  72 03			        JC L_ERROR  ; OVERFLOW处理
+ 005C  93			        XCHG AX, BX 
+ 005D  EB E1			        JMP Lp_0
+ 005F				    L_ERROR:
+ 005F  BA 0000			        MOV DX, 0
+ 0062  BB 0000			        MOV BX, 0
+ 0065  E8 0031			        CALL CRLF   ; 换行        
+ 0068  E8 0045			        CALL ERROR  ; 输出错误提示
+ 006B  EB D3			        JMP Lp_0
+ 006D				    L_again:
+ 006D  BA 0000			        MOV DX, 0
+ 0070  BB 0000			        MOV BX, 0
+ 0073  5E			        pop si
+ 0074  E8 0022			        CALL CRLF   ; 换行        
+ 0077  E8 0036			        CALL ERROR  ; 输出错误提示
+ 007A  EB C4			        JMP Lp_0
+				        
+ 007C				    L_CRLF:         ; 以换行作为一个数的结束标志
+				        
+				        
+ 007C  BF 0000			      mov di, 0
+ 007F  B9 000A			       mov cx,10
+				       
+				      
+ 0082				check:  
+				        
+ 0082  3B 9D 0081 R		        cmp bx,data[di]
+ 0086  74 D7			        je l_error
+ 0088  83 C7 02			        add di,2
+ 008B  E2 F5			        loop check
+				      
+				        
+ 008D  BA 0000			        MOV DX, 0
+ 0090  89 9C 0081 R		        MOV DATA[SI], BX ;
+ 0094  5A			        POP DX
+ 0095  59			        POP CX
+ 0096  5B			        POP BX
+ 0097  58			        POP AX
+ 0098  C3			        RET
+ 0099				        Input ENDP
+
+
+				;----换行子函数（一个数输入完毕）-------
+ 0099				CRLF PROC Near
+ 0099  50			    push AX
+ 009A  52			    push DX
+ 009B  B2 0A			    MOV DL, 0ah
+ 009D  B4 02			    MOV AH, 2
+ 009F  CD 21			    INT 21H
+ 00A1  5A			    pop DX
+ 00A2  58			    pop AX
+ 00A3  C3			    RET
+ 00A4				    CRLF ENDP
+				;---------空格-----------
+ 00A4				Space PROC Near
+ 00A4  50			    push AX
+ 00A5  52			    push DX
+ 00A6  BA 007F R		    MOV DX, OFFSET string_5 ;' '
+ 00A9  B4 09			    MOV AH, 9
+ 00AB  CD 21			    INT 21H
+ 00AD  5A			    pop DX
+ 00AE  58			    pop AX
+ 00AF  C3			    RET 
+ 00B0				    Space ENDP
+				;----------错误提示-------------
+ 00B0				ERROR PROC Near
+ 00B0  53			    push BX
+ 00B1  52			    push DX
+ 00B2  BA 0022 R		    MOV DX, OFFSET string_2 ; ERROR: OVERFLOW! Please input again:
+ 00B5  B4 09			    MOV AH, 9
+ 00B7  CD 21			    INT 21H
+ 00B9  5A			    pop DX
+ 00BA  5B			    pop BX
+ 00BB  C3			    RET
+ 00BC				    ERROR ENDP
+
+				;---------输出函数（单数字输出）-------------
+ 00BC				Print PROC Near
+ 00BC  50			    PUSH AX
+ 00BD  53			    PUSH BX
+ 00BE  51				PUSH CX
+ 00BF  52				PUSH DX 
+
+ 00C0  B9 0000			    MOV CX, 0
+ 00C3  BB 000A			    MOV BX, 10
+ 00C6  8B 85 0081 R		    MOV AX, DATA[DI]
+ 00CA				    LAST:
+ 00CA  BA 0000			        MOV DX, 0
+ 00CD  F7 F3			        DIV BX ; DIV商放AX，余数放入DX
+ 00CF  52			        PUSH DX
+ 00D0  41			        INC CX
+ 00D1  83 F8 00			        CMP AX, 0
+ 00D4  75 F4			        JNZ LAST
+ 00D6				    AGE:
+ 00D6  5A			        POP DX
+ 00D7  83 CA 30			        OR DX, 30H
+ 00DA  B4 02			        MOV AH, 2
+ 00DC  CD 21			        INT 21H
+ 00DE  E2 F6			        LOOP AGE
+ 00E0  5A			        POP  DX
+ 00E1  59			        POP  CX
+ 00E2  5B				    POP  BX
+ 00E3  58				    POP  AX
+ 00E4  C3				    RET
+ 00E5				        Print ENDP
+
+
+
+ 00E5				CODES ENDS
+				    END START
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    04/22/24 16:01:52
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 00E5	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 00B1	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0200	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+CRLF . . . . . . . . . . . . . .	P Near	 0099	  CODES	Length= 000B Public
+ERROR  . . . . . . . . . . . . .	P Near	 00B0	  CODES	Length= 000C Public
+Input  . . . . . . . . . . . . .	P Near	 0035	  CODES	Length= 0064 Public
+  Lp_0 . . . . . . . . . . . . .	L Near	 0040	  CODES	
+  L_ERROR  . . . . . . . . . . .	L Near	 005F	  CODES	
+  L_again  . . . . . . . . . . .	L Near	 006D	  CODES	
+  L_CRLF . . . . . . . . . . . .	L Near	 007C	  CODES	
+  check  . . . . . . . . . . . .	L Near	 0082	  CODES	
+Print  . . . . . . . . . . . . .	P Near	 00BC	  CODES	Length= 0029 Public
+  LAST . . . . . . . . . . . . .	L Near	 00CA	  CODES	
+  AGE  . . . . . . . . . . . . .	L Near	 00D6	  CODES	
+Space  . . . . . . . . . . . . .	P Near	 00A4	  CODES	Length= 000C Public
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+Again  . . . . . . . . . . . . .	L Near	 002A	  CODES	
+DATA . . . . . . . . . . . . . .	Word	 0081	  DATAS	
+Lp . . . . . . . . . . . . . . .	L Near	 0012	  CODES	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+massege  . . . . . . . . . . . .	Byte	 0095	  DATAS	
+string_1 . . . . . . . . . . . .	Byte	 0000	  DATAS	
+string_2 . . . . . . . . . . . .	Byte	 0022	  DATAS	
+string_3 . . . . . . . . . . . .	Byte	 0047	  DATAS	
+string_4 . . . . . . . . . . . .	Byte	 0066	  DATAS	
+string_5 . . . . . . . . . . . .	Byte	 007F	  DATAS	
+
+	   0 Warnings
+	   0 Errors
