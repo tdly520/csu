@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#include<string>
+using namespace std;
+void reduce(int numerator,int denominator,
+            int *reduced_numerator,
+			int *reduced_denominator);
+{  int yue=1,min;
+    if(numerator<denominator)  min=numerator;
+    else min=denominator;
+	for(int i=2;i<=min;i++)
+	{
+		if(denominator%i==0&&numerator%i==0)  yue=i;
+	}
+	*reduced_numerator=numerator/i;
+	*reduced_denominator=denominator/i;
+}
+int main()
+{
+  int a,b;
+  printf("Enter a fraction:");
+  scanf("%d/%d",&a,&b);
+  int *c,*d;
+  
+     reduce(a,b,*c,*d);
+	printf("In lowest terms: %d/%d",*c,*d);
+
+	return 0;
+}

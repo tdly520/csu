@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#include<string>
+using namespace std;
+void RecurseSort(int* a,int left,int right)
+{
+	//分解到最后的结束条件是left >= right
+	if (left >= right)
+	{
+		return;
+	}
+ 
+	//单趟排序，选定key值，比key小的放左边，比key大的放右边，返回分界点下标keyi
+	int keyi = SingleSort(a, left, right);
+	//单趟排完以后，开始向左递归分解，区间范围是 [left , keyi-1]
+	RecurseSort(a, left, keyi - 1);
+	RecurseSort(a, keyi + 1, right);
+}
+int main() {
+	int arr[] = { 6,1,2,7,9,3,4,5,10,8 };
+	//SingleSort(arr, 0, sizeof(arr) / sizeof(arr[0]) - 1);
+	RecurseSort(arr, 0, sizeof(arr) / sizeof(arr[0]) - 1);
+ 
+	for (size_t i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	return 0;
+}
